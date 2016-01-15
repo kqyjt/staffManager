@@ -578,28 +578,7 @@
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>jaxb2-maven-plugin</artifactId>
 				<version>1.6</version>
-				<executions>
-					<execution>
-						<id>xjc-OrderService</id>
-						<goals>
-							<goal>xjc</goal>
-						</goals>
-						<configuration>
-							<schemaFiles>org/leafframework/jws/express/sf/OrderService.xsd</schemaFiles>
-							<packageName>org.leafframework.jws.express.sf</packageName>
-						</configuration>
-					</execution>
-					<execution>
-						<id>xjc-OrderServiceBody</id>
-						<goals>
-							<goal>xjc</goal>
-						</goals>
-						<configuration>
-							<schemaFiles>org/leafframework/jws/express/sf/orderservice/OrderServiceBody.xsd</schemaFiles>
-							<packageName>org.leafframework.jws.express.sf.orderservice</packageName>
-						</configuration>
-					</execution>
-				</executions>
+				
 				<configuration>
 					<schemaDirectory>${project.basedir}/src/main/resources/</schemaDirectory>
 					<outputDirectory>${project.basedir}/src/main/java/</outputDirectory>
