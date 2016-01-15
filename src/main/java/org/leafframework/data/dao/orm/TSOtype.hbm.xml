@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-11-8 21:08:48 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="org.leafframework.data.dao.orm.TSOtype" table="t_s_otype" catalog="leafdb" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="orderType" type="string">
+            <column name="order_type" length="4" not-null="true">
+                <comment>&#182;&#169;&#181;&#165;&#192;&#224;&#208;&#205;</comment>
+            </column>
+        </property>
+        <property name="orderTypeName" type="string">
+            <column name="order_type_name" length="120" not-null="true">
+                <comment>&#192;&#224;&#208;&#205;&#195;&#251;&#179;&#198;</comment>
+            </column>
+        </property>
+        <property name="orderFlag" type="string">
+            <column name="order_flag" length="2" not-null="true">
+                <comment>00:&#185;&#204;&#182;&#168;&#193;&#247;&#179;&#204;&#182;&#169;&#181;&#165;
+                01:&#182;&#175;&#204;&#172;&#193;&#247;&#179;&#204;&#182;&#169;&#181;&#165;</comment>
+            </column>
+        </property>
+        <property name="updateStaffId" type="int">
+            <column name="update_staff_id" not-null="true">
+                <comment>&#184;&#252;&#208;&#194;&#212;&#177;&#185;&#164;</comment>
+            </column>
+        </property>
+        <property name="updateTime" type="timestamp">
+            <column name="update_time" length="19" not-null="true">
+                <comment>&#184;&#252;&#208;&#194;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

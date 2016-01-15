@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-12-21 11:08:54 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="org.leafframework.data.dao.orm.TOAssignRule" table="t_o_assign_rule" catalog="wlyx_db">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="custType" type="string">
+            <column name="cust_type" length="4" not-null="true">
+                <comment>&#229;&#174;&#162;&#230;&#136;&#183;&#231;&#177;&#187;&#229;&#158;&#139; CT00:&#232;&#135;&#170;&#231;&#132;&#182;&#228;&#186;&#186;
+                CT01:&#232;&#131;&#189;&#228;&#186;&#186;</comment>
+            </column>
+        </property>
+        <property name="custGroupId" type="int">
+            <column name="cust_group_id" not-null="true" />
+        </property>
+        <property name="goodsType" type="string">
+            <column name="goods_type" length="4" not-null="true" />
+        </property>
+        <property name="areaType" type="string">
+            <column name="area_type" length="4">
+                <comment>&#228;&#184;&#154;&#229;&#138;&#161;&#229;&#140;&#186;&#231;&#177;&#187;&#229;&#158;&#139;&#239;&#188;&#154;
+                0&#239;&#188;&#154;&#229;&#149;&#134;&#229;&#147;&#129;&#229;&#189;&#146;&#229;&#177;&#158;&#229;&#156;&#176;
+                1&#239;&#188;&#154;&#229;&#143;&#183;&#229;&#141;&#161;&#229;&#189;&#146;&#229;&#177;&#158;&#229;&#156;&#176;</comment>
+            </column>
+        </property>
+        <property name="areaId" type="string">
+            <column name="area_id" length="4" not-null="true" />
+        </property>
+        <property name="priority" type="java.lang.Integer">
+            <column name="priority">
+                <comment>
+                &#228;&#188;&#152;&#229;&#133;&#136;&#231;&#186;&#167;&#239;&#188;&#140;&#229;&#164;&#167;&#228;&#186;&#142;0&#231;&#154;&#132;&#230;&#173;&#163;&#230;&#149;&#180;&#230;&#149;&#176;&#239;&#188;&#140;&#230;&#149;&#176;&#229;&#128;&#188;&#232;&#182;&#138;&#229;&#164;&#167;&#239;&#188;&#140;&#228;&#188;&#152;&#229;&#133;&#136;&#231;&#186;&#167;&#232;&#182;&#138;&#233;&#171;&#152;</comment>
+            </column>
+        </property>
+        <property name="sendType" type="string">
+            <column name="send_type" length="4" not-null="true">
+                <comment>&#233;&#133;&#141;&#233;&#128;&#129;&#230;&#150;&#185;&#229;&#188;&#143;&#239;&#188;&#154; DT00&#239;&#188;&#154;&#233;&#161;&#186;&#228;&#184;&#176;
+                DT02&#239;&#188;&#154;&#232;&#135;&#170;&#230;&#143;&#144;</comment>
+            </column>
+        </property>
+        <property name="selfGetArea" type="string">
+            <column name="self_get_area" length="4" />
+        </property>
+        <property name="payType" type="string">
+            <column name="pay_type" length="4" not-null="true" />
+        </property>
+        <property name="recvType" type="string">
+            <column name="recv_type" length="4" not-null="true">
+                <comment>
+                RT00&#239;&#188;&#154;&#230;&#140;&#137;&#231;&#133;&#167;&#228;&#184;&#154;&#229;&#138;&#161;&#229;&#189;&#146;&#229;&#177;&#158;&#229;&#156;&#176;&#229;&#184;&#130;+&#231;&#187;&#132;&#231;&#177;&#187;&#229;&#136;&#171;&#229;&#136;&#134;&#229;&#141;&#149;
+                RT01&#239;&#188;&#154;&#230;&#140;&#135;&#229;&#174;&#154;&#230;&#142;&#165;&#230;&#148;&#182;&#228;&#184;&#154;&#229;&#138;&#161;&#229;&#140;&#186;+&#231;&#187;&#132;&#231;&#177;&#187;&#229;&#136;&#171;&#229;&#136;&#134;&#229;&#141;&#149;
+                RT02&#239;&#188;&#154;&#230;&#140;&#137;&#230;&#142;&#165;&#230;&#148;&#182;&#231;&#187;&#132;&#229;&#136;&#134;&#229;&#141;&#149;</comment>
+            </column>
+        </property>
+        <property name="recvAreaId" type="string">
+            <column name="recv_area_id" length="4" not-null="true" />
+        </property>
+        <property name="recvGroupId" type="int">
+            <column name="recv_group_id" not-null="true" />
+        </property>
+        <property name="remark" type="string">
+            <column name="remark" length="65535" />
+        </property>
+        <property name="createTime" type="timestamp">
+            <column name="create_time" length="19" not-null="true" />
+        </property>
+        <property name="updateTime" type="timestamp">
+            <column name="update_time" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

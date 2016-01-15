@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-8-5 20:24:47 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="org.leafframework.data.dao.orm.TSTempIdCard" table="t_s_temp_id_card" catalog="wlyx_db">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="photoUpUrl" type="string">
+            <column name="photo_up_url" length="300">
+                <comment>00&#239;&#188;&#154;&#229;&#143;&#145;&#229;&#135;&#186;&#232;&#175;&#183;&#230;&#177;&#130;
+                01&#239;&#188;&#154;&#232;&#175;&#183;&#230;&#177;&#130;&#232;&#191;&#148;&#229;&#155;&#158;</comment>
+            </column>
+        </property>
+        <property name="photoDownUrl" type="string">
+            <column name="photo_down_url" length="300" />
+        </property>
+        <property name="photoInHandUrl" type="string">
+            <column name="photo_in_hand_url" length="300" />
+        </property>
+        <property name="uuid" type="string">
+            <column name="uuid" length="100" />
+        </property>
+        <property name="createTime" type="timestamp">
+            <column name="create_time" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

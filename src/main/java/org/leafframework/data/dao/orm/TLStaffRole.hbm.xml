@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-7-8 20:06:58 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="org.leafframework.data.dao.orm.TLStaffRole" table="t_l_staff_role" catalog="wlyx_db">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="logId" type="int">
+            <column name="log_id" not-null="true" />
+        </property>
+        <property name="relId" type="int">
+            <column name="rel_id" not-null="true">
+                <comment>&#229;&#133;&#179;&#231;&#179;&#187;&#230;&#160;&#135;&#232;&#175;&#134;</comment>
+            </column>
+        </property>
+        <property name="roleId" type="java.lang.Integer">
+            <column name="role_id" />
+        </property>
+        <property name="modifyTag" type="string">
+            <column name="modify_tag" length="1" not-null="true" />
+        </property>
+        <property name="remark" type="string">
+            <column name="remark" length="512">
+                <comment>&#229;&#164;&#135;&#230;&#179;&#168;</comment>
+            </column>
+        </property>
+        <property name="updateStaffId" type="string">
+            <column name="update_staff_id" length="8" not-null="true">
+                <comment>&#230;&#155;&#180;&#230;&#150;&#176;&#229;&#145;&#152;&#229;&#183;&#165;</comment>
+            </column>
+        </property>
+        <property name="updateTime" type="timestamp">
+            <column name="update_time" length="19" not-null="true">
+                <comment>&#230;&#155;&#180;&#230;&#150;&#176;&#230;&#151;&#182;&#233;&#151;&#180;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

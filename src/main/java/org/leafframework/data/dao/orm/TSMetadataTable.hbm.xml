@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-11-8 21:08:48 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="org.leafframework.data.dao.orm.TSMetadataTable" table="t_s_metadata_table" catalog="leafdb" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="owner" type="string">
+            <column name="owner" length="16" not-null="true">
+                <comment>&#211;&#195;&#187;&#167;</comment>
+            </column>
+        </property>
+        <property name="tableName" type="string">
+            <column name="table_name" length="64" not-null="true">
+                <comment>&#177;&#237;&#195;&#251;</comment>
+            </column>
+        </property>
+        <property name="label" type="string">
+            <column name="label" length="128" not-null="true">
+                <comment>&#195;&#251;&#179;&#198;</comment>
+            </column>
+        </property>
+        <property name="remark" type="string">
+            <column name="remark" length="512" not-null="true">
+                <comment>&#177;&#184;&#215;&#162;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

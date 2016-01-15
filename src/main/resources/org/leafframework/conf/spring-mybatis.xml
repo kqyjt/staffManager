@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-4.1.xsd">
+    
+	<!-- leaf.properties 文件加载请查看“spring-beans.xml”文件 -->
+	
+	<!-- BoneCP configuration -->
+	<!-- <bean id="dataSource" class="com.jolbox.bonecp.BoneCPDataSource"
+		destroy-method="close">
+		数据库驱动
+		<property name="driverClass" value="${leaf.db.driverClass}" />
+		相应驱动的jdbcUrl,你懂的
+		<property name="jdbcUrl" value="${leaf.db.jdbcUrl}" />
+		数据库的用户名
+		<property name="username" value="${leaf.db.username}" />
+		数据库的密码
+		<property name="password" value="${leaf.db.password}" />
+		检查数据库连接池中空闲连接的间隔时间，单位是分，默认值：240，如果要取消则设置为0
+		<property name="idleConnectionTestPeriodInMinutes" value="${leaf.db.idleConnectionTestPeriod}" />
+		连接池中未使用的链接最大存活时间，单位是分，默认值：60，如果要永远存活设置为0
+		<property name="idleMaxAgeInMinutes" value="${leaf.db.idleMaxAge}" />
+		每个分区最大的连接数
+		<property name="maxConnectionsPerPartition" value="${leaf.db.maxConnectionsPerPartition}" />
+		每个分区最小的连接数
+		<property name="minConnectionsPerPartition" value="${leaf.db.minConnectionsPerPartition}" />
+		分区数 ，默认值2，最小1，推荐3-4，视应用而定
+		<property name="partitionCount" value="${leaf.db.partitionCount}" />
+		每次去拿数据库连接的时候一次性要拿几个,默认值：2
+		<property name="acquireIncrement" value="${leaf.db.acquireIncrement}" />
+		连接超时时间阀值，获取连接时，超出阀值时间，则获取失败，毫秒为单位
+		<property name="connectionTimeoutInMs" value="${leaf.db.connectionTimeoutInMs}" />
+		缓存prepared statements的大小，默认值：0
+		<property name="statementsCacheSize" value="${leaf.db.statementsCacheSize}" />
+		每个分区释放链接助理进程的数量，默认值：3，除非你的一个数据库连接的时间内做了很多工作，不然过多的助理进程会影响你的性能
+		<property name="releaseHelperThreads" value="${leaf.db.releaseHelperThreads}" />
+	</bean> -->
+	<bean id="dataSource" class = "com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+	        <property name="driverClass" value="${leaf.db.driverClass}" />
+	        <property name="jdbcUrl" value="${leaf.db.jdbcUrl}" />
+	        <property name="user" value="${leaf.db.username}" />
+	        <property name="password" value="${leaf.db.password}" /> 
+	
+	        <!-- these are C3P0 properties -->
+	        <property name="acquireIncrement" value="${leaf.db.c3p0.acquireIncrement}" />
+	        <property name="minPoolSize" value="${leaf.db.c3p0.minPoolSize}" />
+	        <property name="maxPoolSize" value="${leaf.db.c3p0.maxPoolSize}" />
+	        <property name="maxIdleTime" value="${leaf.db.c3p0.maxIdleTime}" />
+	        
+	        <property name="maxStatements" value="${leaf.db.c3p0.maxStatements}" />
+	        <property name="loginTimeout" value="${leaf.db.c3p0.loginTimeout}" />
+	        <property name="initialPoolSize" value="${leaf.db.c3p0.initialPoolSize}" />
+	        <property name="checkoutTimeout" value="${leaf.db.c3p0.checkoutTimeout}" />
+	        <property name="testConnectionOnCheckin" value="${leaf.db.c3p0.testConnectionOnCheckin}" />
+	        <property name="idleConnectionTestPeriod" value="${leaf.db.c3p0.idleConnectionTestPeriod}" />
+	        <property name="debugUnreturnedConnectionStackTraces" value="${leaf.db.c3p0.debugUnreturnedConnectionStackTraces}" />
+	        <property name="unreturnedConnectionTimeout" value="${leaf.db.c3p0.unreturnedConnectionTimeout}" />
+	        <property name="preferredTestQuery"><value>SELECT 1</value></property>
+	        
+	 </bean>
+	<!-- mybatis文件配置，扫描所有mapper文件 -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean"
+		p:dataSource-ref="dataSource" p:configLocation="classpath:org/leafframework/conf/mybatis-config.xml"
+		p:mapperLocations="classpath:org/leafframework/data/dao/mapper/*.xml" />
+	<!-- configLocation为mybatis属性 mapperLocations为所有mapper -->
+
+	<!-- spring与mybatis整合配置，扫描所有dao -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"
+		p:basePackage="org.leafframework.data.dao.mapper"
+		p:sqlSessionFactoryBeanName="sqlSessionFactory" />
+
+	<!-- 对数据源进行事务管理 -->
+	<!-- <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager" 
+		p:dataSource-ref="dataSource" /> -->
+</beans>

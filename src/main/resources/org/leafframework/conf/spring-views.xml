@@ -1,0 +1,918 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+      http://www.springframework.org/schema/context
+      http://www.springframework.org/schema/context/spring-context-4.1.xsd">
+
+	<!-- leaf.properties 文件加载请查看“spring-beans.xml”文件 -->
+
+	<bean id="managerLoginPage"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/sysman/login.jsp" />
+	</bean>
+	
+	<bean id="managerMain"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/common/index.jsp" />
+	</bean>			
+
+	<!--商城登录页面 added by wanghao -->
+	<bean id="LeafLoginPage"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/portal/login/index_login.jsp" />
+	</bean>
+	
+	<!--能人注册成功跳转页面 added by wanghao -->
+	<bean id="/portal/register/index_zccg"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/portal/login/index_zccg.jsp" />
+	</bean>
+	
+	<!--自然人注册页面 added by wanghao -->
+	<bean id="UserRegisterPage"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/portal/login/index_login_ptzc.jsp" />
+	</bean>
+	
+	<!--自然人注册页面 added by wanghao -->
+	<bean id="AblePersonRegisterPage"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/portal/login/index_login_zc.jsp" />
+	</bean>
+	
+	<!--自然人微信注册页面 added by zhanggs -->
+	<bean id="AblePersonRegisterInWeChat"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/wechat/wechat_register.jsp" />
+	</bean>
+	
+	<!--购物车首页 added by wanghao -->
+	<bean id="cartlistpage"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/cart/index_gwc.jsp" />
+	</bean>
+
+	<!--商城成功 added by wanghao -->
+	<bean id="center"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<!-- <property name="url" value="/WEB-INF/cart/index-grzx-gwc.jsp" /> -->
+		<property name="url" value="/WEB-INF/cart/tempredirectcart.jsp" />
+	</bean>
+	<!--购物车首页 added by wanghao -->
+	<bean id="cartPage"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/cart/index-grzx-gwc.jsp" />
+	</bean>
+	<!--商城注册失败，验证码不匹配 added by wanghao -->
+	<bean id="registerFailed"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/center/register/index-logn_zc.jsp" />
+	</bean>
+	
+	<bean id="forHomePagee"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/portal/index_sy.jsp" />
+	</bean>
+
+	<!--转向支付页面 added by wuyj -->
+	<bean id="PayPage"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/payment/payPage.jsp" />
+	</bean>
+	
+	<!--转向下单页面  -->
+	<bean id="gotoCreateOrder"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/order/index_xiadan.jsp" />
+	</bean>
+	<bean id="createOrderSuccess"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/order/index_zfpc.jsp" />
+	</bean>
+	<!-- 订单列表 -->
+	<bean id="getOrderList"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/center/grzx_2_dd.jsp" />
+	</bean>
+	<bean id="getCanRefundOrders"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/center/grzx_4_thsq.jsp" />
+	</bean>
+	<bean id="gotoOrderRefundApply"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/center/grzx_4_thsq_faqi.jsp" />
+	</bean>
+	<bean id="getRefundOrders"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/center/grzx_4_thmx.jsp" />
+	</bean>
+	<bean id="getRefundOrderById"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/center/grzx_4_thmx_jr.jsp" />
+	</bean>
+	<bean id="getOrderById"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/center/grzx_2_dd_xq.jsp" />
+	</bean>
+	<bean id="gotoUpdateOrder"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/center/grzx_2_dd_xq_yb.jsp" />
+	</bean>
+	<!-- 订单支付 -->
+	<bean id="pay"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/payment/payPage.jsp" />
+	</bean>
+	<bean id="gotoPay"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/order/index_zfpc.jsp" />
+	</bean>
+	<bean id="paySuccess"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/payment/index_zfpc_fkcg.jsp" />
+	</bean>
+	<bean id="payFail"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/payment/index_zfpc_fksb.jsp" />
+	</bean>
+	<bean id="AliPayNotifyMgrSuccessPage"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/payment/alipay/AliPaySuccess.jsp" />
+	</bean>
+	<bean id="AliPayNotifyMgrFailPage"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/payment/alipay/AliPayFail.jsp" />
+	</bean>
+	<bean id="unionPaySuccess"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/payment/unionpay/unionPaySuccess.jsp" />
+	</bean>
+	<bean id="unionPayFail"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/payment/unionpay/unionPayFail.jsp" />
+	</bean>
+	<!-- 联行支付成功 -->
+	<bean id="ecNotifySuccess"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/payment/ecpay/EcPaySuccess.jsp" />
+	</bean>
+	<!-- 联行支付失败 -->
+	<bean id="ecNotifyFail"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/payment/ecpay/EcPayFail.jsp" />
+	</bean>
+	<!-- 后台订单管理 -->
+	<bean id="manager/getOrderList"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/order/getOrderList.jsp" />
+	</bean>
+	<bean id="manager/getOrderById"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/order/getOrderDetail.jsp" />
+	</bean>
+	<bean id="manager/getPushOrderDetail"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/order/getPushOrderDetail.jsp" />
+	</bean>
+	<bean id="manager/getApproveOrderDetail"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/order/getApproveOrderDetail.jsp" />
+	</bean>
+	<bean id="manager/getDispenseOrderDetail"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/order/getDispenseOrderDetail.jsp" />
+	</bean>
+	<bean id="manager/getOpenAccountOrderDetail"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/order/getOpenAccountOrderDetail.jsp" />
+	</bean>
+	<bean id="manager/getDivideOrderDetail"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/order/getDivideOrderDetail.jsp" />
+	</bean>
+	<bean id="/manager/gotoUpdateOrder"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/order/updateOrderDetail.jsp" />
+	</bean>
+	<bean id="manager/getWaitApproveOrders"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/order/getWaitApproveOrders.jsp" />
+	</bean>
+	<bean id="manager/getCanReassignOrders"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/order/getCanReassignOrders.jsp" />
+	</bean>
+	<bean id="manager/getWaitDispenseOrders"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/order/getWaitDispenseOrders.jsp" />
+	</bean>
+	<bean id="manager/getSelfDispenseOrders"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/order/getSelfDispenseOrders.jsp" />
+	</bean>
+	<bean id="manager/getWaitOpenAccountOrders"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/order/getWaitOpenAccountOrders.jsp" />
+	</bean>
+	<bean id="manager/getWaitDivideOrders"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/order/getWaitDivideOrders.jsp" />
+	</bean>
+	<bean id="manager/getWaitArchiveOrders"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/order/getWaitArchiveOrders.jsp" />
+	</bean>
+	<bean id="manager/getArchiveFailOrders"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/order/getArchiveFailOrders.jsp" />
+	</bean>
+	<bean id="manager/getAllOrders"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/order/getAllOrders.jsp" />
+	</bean>
+	<bean id="manager/getWXOrders"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/order/getWXOrders.jsp" />
+	</bean>
+	<bean id="manager/getKFOrders"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/order/getKFOrders.jsp" />
+	</bean>
+	<bean id="manager/getCanRefundOrders"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/order/getCanRefundOrders.jsp" />
+	</bean>
+	<bean id="manager/getRefundOrders"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/order/getRefundOrders.jsp" />
+	</bean>
+	<bean id="manager/getRefundOrderById"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/order/getRefundOrderById.jsp" />
+	</bean>
+	<bean id="manager/getArchiveFailOrderDetail"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/order/getArchiveFailOrderDetail.jsp" />
+	</bean>
+	<bean id="manager/getWaitApproveReturnOrders"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/order/getWaitApproveReturnOrders.jsp" />
+	</bean>
+	<bean id="manager/getCanModifyFeeOrders"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/order/getCanModifyFeeOrders.jsp" />
+	</bean>
+	<bean id="manager/getModifyFeeOrderDetail"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/order/getModifyFeeOrderDetail.jsp" />
+	</bean>
+	<!-- 预装申请 -->
+	<bean id="manager/getDemands"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/order/getDemands.jsp" />
+	</bean>
+	<bean id="manager/getAllDemands"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/order/getAllDemands.jsp" />
+	</bean>
+	<bean id="manager/getDemandById"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/order/getDemandById.jsp" />
+	</bean>
+	
+	<!-- 订单金额报表 -->
+	<bean id="manager/orderAccountDayReport"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/report/orderAccountDayReport.jsp" />
+	</bean>
+	<bean id="manager/strideMonthRefund"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/report/strideMonthRefund.jsp" />
+	</bean>
+	<bean id="manager/cityOrderAccount"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/report/cityOrderAccount.jsp" />
+	</bean>
+	<bean id="manager/getPayOnDevOrderAccount"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/report/getPayOnDevOrderAccount.jsp" />
+	</bean>
+	
+	<bean id="payChoosePage"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/order/index-grzx-xiadan-zf.jsp" />
+	</bean>
+	
+	<!-- 后台管理登录后展现页面 add by wuyj -->
+	<bean id="headPage"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/common/head.jsp" />
+	</bean>
+	<bean id="welcomePage"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/common/welcome.jsp" />
+	</bean>
+	<bean id="leftMenuPage"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/common/leftmenu.jsp" />
+	</bean>
+	
+	<!-- 个人中心 -->
+	<bean id="/center/centersy/grzx_1_sy"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/center/grzx_1_sy.jsp" />
+	</bean>
+	<bean id="/center/centerorder/grzx_2_dd"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/center/grzx_2_dd.jsp" />
+	</bean>
+	<bean id="/center/centerapply/grzx_2_sq"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/center/grzx_2_sq.jsp" />
+	</bean>
+	<bean id="/center/spaceorder/grzx_2_dd"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/center/grzx_2_dd.jsp" />
+	</bean>
+	<bean id="/center/combinepay/grzx_2_dd_hbzf"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/center/grzx_2_dd_hbzf.jsp" />
+	</bean>
+	
+	<bean id="/center/deposit/grzx_3_zc_bzj"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/center/grzx_3_zc_bzj.jsp" />
+	</bean>
+	<bean id="/center/address/grzx_8_dzgl"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/center/grzx_8_dzgl.jsp" />
+	</bean>
+	<bean id="/center/space/grzx_9_nrkj"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/center/grzx_9_nrkj.jsp" />
+	</bean>
+	<bean id="/center/centercomm/grzx_3_zc_yjzh"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/center/grzx_3_zc_yjzh.jsp" />
+	</bean>
+	<bean id="/center/centercomm/grzx_3_zc_yjzh3"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/center/grzx_3_zc_yjzh3.jsp" />
+	</bean>
+	<bean id="/center/centercomm/grzx_3_zc_yj"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/center/grzx_3_zc_yj.jsp" />
+	</bean>
+	<bean id="/center/centercomm/grzx_3_zc_yj2"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/center/grzx_3_zc_yj2.jsp" />
+	</bean>
+	<bean id="/center/centerscore/grzx_3_zc_jf"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/center/grzx_3_zc_jf.jsp" />
+	</bean>
+	<bean id="/center/centerscore/grzx_3_zc_jf2"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/center/grzx_3_zc_jf2.jsp" />
+	</bean>
+	<bean id="/center/centerpersoninfo/grzx_6_grxx"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/center/grzx_6_grxx.jsp" />
+	</bean>
+	<bean id="/center/centerpassword/grzx_7_mimaxiugai"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/center/grzx_7_mimaxiugai.jsp" />
+	</bean>
+	
+	<bean id="getGoodsList"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/portal/index_liebiao_4G.jsp" />
+	</bean>
+	<bean id="getKuanDaiList"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/portal/index_liebiao_kd.jsp" />
+	</bean>
+	<bean id="getSmartHomeList"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/portal/index_liebiao_zfwj.jsp" />
+	</bean>
+	<bean id="getContractMachineList"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/portal/getContractMachineList.jsp" />
+	</bean>
+	<bean id="getCustomerSpace"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/portal/index_liebiao_nr.jsp" />
+	</bean>
+	<!-- 产品模板管理 add by zhaidw -->
+	<bean id="goodsClassAddPage"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/sysman/goods/goodsClassAddPage.jsp" />
+	</bean>
+	<!-- 商品类别模板管理 add by zhaidw -->
+	<bean id="templetConfigPage"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/sysman/product/templetConfigList.jsp" />
+	</bean>
+	<!-- 产品属性管理 add by zhaidw -->
+	<bean id="templetAttrPage"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/sysman/product/templetAttrList.jsp" />
+	</bean>
+	<!-- 产品管理 add by zhaidw -->
+	<bean id="productManage"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/sysman/product/productList.jsp" />
+	</bean>
+	<!-- 产品属性管理 add by zhaidw -->
+	<bean id="productAttrList"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/sysman/product/productAttrList.jsp" />
+	</bean>
+	<bean id="categoryGoodsList"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/sysman/goods/categoryGoodsList.jsp" />
+	</bean>
+	<!-- 商品管理 add by zhaidw-->
+	<bean id="goodsList"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/sysman/goods/goodsList.jsp" />
+	</bean>
+	<!-- 商品发布 add by zhaidw-->
+	<bean id="goodsAdd"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/sysman/goods/goodsAdd.jsp" />
+	</bean>
+	
+	<!-- 商品编辑及保存 add by zhaidw-->
+	<bean id="addGoodsByProduct"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/sysman/goods/addGoodsByProduct.jsp" />
+	</bean>
+	
+	<!-- 商品编辑 add by zhaidw-->
+	<bean id="goodsEdit"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/sysman/goods/goodsEdit.jsp" />
+	</bean>
+	<!-- 靓号规则管理 add by zhaidw-->
+	<bean id="numberRuleList"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/sysman/number/numberRuleList.jsp" />
+	</bean>
+	<!-- 号码类型管理 add by zhaidw-->
+	<bean id="numberTypeList"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/sysman/number/numberTypeList.jsp" />
+	</bean>
+	<!-- 号码组管理 add by zhaidw-->
+	<bean id="groupSerialList"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/sysman/number/groupSerialList.jsp" />
+	</bean>
+	<!-- 号码管理 add by zhaidw-->
+	<bean id="serialInfoList"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/sysman/number/serialInfoList.jsp" />
+	</bean>
+	<!-- 号码组管理 add by zhaidw-->
+	<bean id="serialGroupList"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/sysman/number/serialGroupList.jsp" />
+	</bean>
+	<!-- 批次查询 add by zhaidw-->
+	<bean id="serialBatchList"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/sysman/number/serialBatchList.jsp" />
+	</bean>
+	<!-- 批次号下的号码列表 -->
+	<bean id="serialBatchSerial"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/sysman/number/serialBatchSerial.jsp" />
+	</bean>
+	<!-- 套餐组管理 add by zhaidw-->
+	<bean id="packageGroupList"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/sysman/number/packageGroupList.jsp" />
+	</bean>
+	<!-- 套餐组下的号码组 add by zhaidw-->
+	<bean id="packageSerialGroup"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/sysman/number/packageSerialGroup.jsp" />
+	</bean>
+	<!--公共通知 added by zhanggs -->
+	<bean id="announcement"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/configuration/announcement.jsp" />
+	</bean>
+	<!--区域配置 added by zhanggs -->
+	<bean id="area"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/configuration/area.jsp" />
+	</bean>
+	<!--黑名单配置 added by zhanggs -->
+	<bean id="blackList"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/configuration/blacklist.jsp" />
+	</bean>
+	<!--到付规则配置 added by zhanggs -->
+	<bean id="codRule"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/configuration/codrule.jsp" />
+	</bean>
+	<!--入网协议管理 added by zhanggs -->
+	<bean id="pactInfo"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/configuration/pactinfo.jsp" />
+	</bean>
+	
+	<!--省级管理员自提地址 added by zhanggs -->
+	<bean id="selfpkaddress"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/configuration/selfpkaddress.jsp" />
+	</bean>
+	<!--地市管理员自提地址 added by rc -->
+	<bean id="selfpkCityAddress"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/configuration/selfpkCityAddress.jsp" />
+	</bean>
+	
+	<!--Ess 工号信息 added by zhanggs -->
+	<bean id="essempno"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/configuration/essempno.jsp" />
+	</bean>
+	<!--能人信息审核 added by zhanggs -->
+	<bean id="customer"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/customer/customer.jsp" />
+	</bean>
+	<!--能人信息审核详情 added by zhanggs -->
+	<bean id="appr_customer"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/customer/customerDetail.jsp" />
+	</bean>
+	<!--能人信息 added by zhanggs -->
+	<bean id="query_cust"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/customer/queryCustomer.jsp" />
+	</bean>
+	<!--能人信息详情 added by zhanggs -->
+	<bean id="show_cust_detail"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/customer/showCustomerDetail.jsp" />
+	</bean>
+	<!--能人 修改配送方式 added by zhanggs -->
+	<bean id="change_express"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/customer/changeExpress.jsp" />
+	</bean>
+	<!--手机端上传身份证件 added by zhanggs -->
+	<bean id="upload_idcard_by_phone"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/portal/index_sfz_wap.jsp" />
+	</bean>
+	
+	<!-- 佣金导入 -->
+	<bean id="/manager/bill/query"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/sysman/bill/bill.jsp" />
+	</bean>
+	
+	<!-- 佣金导入 -->
+	<bean id="/manager/bill/billQuery"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/sysman/bill/billQuery.jsp" />
+	</bean>
+	
+	<!-- 佣金账期 -->
+	<bean id="/manager/bill/account/query"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/sysman/bill/account.jsp" />
+	</bean>
+	
+	<!-- 佣金发放 -->
+	<bean id="/manager/bill/billGrant"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/sysman/bill/billGrant.jsp" />
+	</bean>
+	
+	<!-- 佣金再次发放 -->
+	<bean id="/manager/bill/billTwoGrant"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/sysman/bill/billTwoGrant.jsp" />
+	</bean>
+	
+	<!-- 积分管理 -->
+	<bean id="/manager/score/query"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/sysman/score/score.jsp" />
+	</bean>
+	
+	<!-- 积分兑换规则管理 -->
+	<bean id="/manager/scoreRule/query"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/sysman/score/scoreRule.jsp" />
+	</bean>
+	
+	<!-- 角色管理 -->
+	<bean id="/manage/system/roleQuery"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/system/TMRolesMgr.jsp" />
+	</bean>
+	
+	<!-- 权限管理 -->
+	<bean id="/manage/system/roleRightQuery"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/system/TMRoleRightMgr.jsp" />
+	</bean>
+	
+	<!-- 角色Tree -->
+	<bean id="/manage/system/roleTreeQuery"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/system/Roles.jsp" />
+	</bean>
+	
+	<!-- 权限list -->
+	<bean id="/manage/system/rightListQuery"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/system/RoleRight.jsp" />
+	</bean>
+	
+	<!-- 待处理订单 查询 -->
+	<bean id="/manage/controller/cityQuery"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/controller/CityOrder.jsp" />
+	</bean>
+	
+	
+	<!-- 待审核退款 查询 -->
+	<bean id="/manage/controller/returnsQuery"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/controller/ReturnsOrder.jsp" />
+	</bean>
+	
+	<!-- 待审核退款 详情 查询 -->
+	<bean id="manager/getReturnsOrderDetail"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/controller/getReturnsOrder.jsp" />
+	</bean>
+	
+	<!--前台密码重置页面 -->
+	<bean id="forgetPasswordPage"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/portal/login/index_use_mmzh.jsp" />
+	</bean>
+	
+	<!--后台密码重置页面 -->
+	<bean id="resetPasswordPage"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/sysman/resetpassword/resetpassword.jsp" />
+	</bean>
+	
+	<!-- 重选号码 -->
+	<bean id="reelectNumber"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/portal/product/choosenumber.jsp" />
+	</bean>
+	<bean id="grzx_3_zc_bzjzf"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/center/grzx_3_zc_bzjzf.jsp" />
+	</bean>
+	<!-- 身份证重传  added  by shh -->
+	<bean id="index_sfzbc"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/portal/login/index_sfzbc.jsp" />
+	</bean>
+	<!-- 推送支付电脑展示页面 -->
+	<bean id="computerpage"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/order/pushpaycomputer.jsp" />
+	</bean>
+	<!-- 推送支付手机端展示页面 -->
+	<bean id="phonepage"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/order/pushpayphone.jsp" />
+	</bean>
+	<!-- 推送支付订单 -->
+	<bean id="getPushOrderList"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/order/orderPushPayList.jsp" />
+	</bean>
+	<!-- 跳转至校园本地套餐推广页面 -->
+	<bean id="packageOther"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/portal/singlePromote_4G_other.jsp" />
+	</bean>
+	<!-- 跳转至全国套餐推广页面 -->
+	<bean id="package4G"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/portal/singlePromote_4G.jsp" />
+	</bean>
+	<!-- 跳转至单宽带推广页面 -->
+	<bean id="promoteKd"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/portal/singlePromote_kd.jsp" />
+	</bean>
+	<!-- 跳转至智慧沃家推广页面 -->
+	<bean id="promoteZhwj"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/portal/singlePromote_zhwj.jsp" />
+	</bean>
+	<!-- 跳转至存费送费推广页面 -->
+	<bean id="promoteCharge"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/portal/singlePromote_charge.jsp" />
+	</bean>
+	<!-- 跳转至4G主副卡推广页面 -->
+	<bean id="packageOtherZfk"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/portal/singlePromote_zfk.jsp" />
+	</bean>
+	<!-- 跳转至宽带私人定制推广页面 -->
+	<bean id="promoteKdSrdzComputer"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/portal/singlePromote_kd_srdz.jsp" />
+	</bean>
+	<bean id="promoteKdSrdzPhone"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/portal/kd_srdz_phone.jsp" />
+	</bean>
+	<!-- 免登录订单列表 -->
+	<bean id="getUnLogOrderList"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/portal/searchorder/searchorderlist.jsp" />
+	</bean>
+	<!-- 3g存费送费商品列表 -->
+	<bean id="get3gChargeFee"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/portal/chargeFee/index_cf_3G.jsp" />
+	</bean>
+	<bean id="get3gFee"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/portal/chargeFee/index_liebiao_3G.jsp" />
+	</bean>
+	<bean id="get4gChargeList"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/portal/index_liebiao_4GCharge.jsp" />
+	</bean>
+	<!-- 标准地址库查询 -->
+	<bean id="displayAddressList"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/center/searchaddress/getstandaddr.jsp" />
+	</bean>
+	<bean id="getSearchStandAddress"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/order/standaddress.jsp" />
+	</bean>
+	<bean id="/center/centercomm/grzx_3_zc_yj_Detail"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/center/grzx_3_zc_yj_Detail.jsp" />
+	</bean>
+	
+	<!--我的合伙人页面 added by xbd -->
+	<bean id="myPartnerPage" class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/center/grzx_grzx_nrmz.jsp" />
+	</bean>
+	<bean id="partnerOrderInfo" class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/center/grzx_grzx_nrmz2.jsp" />
+	</bean>
+	<!--后台管理密码修改  added by shh -->
+	<bean id="modPassword"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/sysman/modPassword.jsp" />
+	</bean>
+	
+	<!-- 角色更新 -->
+	<bean id="roleUpdate"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/role/roleUpdate.jsp" />
+	</bean>
+	
+	<!-- 维系中心能人信息查询 -->
+	<bean id="customerHold"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/customer/customerHold.jsp" />
+	</bean>
+
+	<!--  货到付款商品类型配置  added by shh -->
+	<bean id="codGoodsrule"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/system/codGoodsrule.jsp" />
+	</bean>
+	<!-- 货到付款自提规则 added by shh  -->
+	<bean id="codSelfpikrule"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/system/codSelfpikrule.jsp" />
+	</bean>
+	
+	<!-- 公告更新 added by rc-->
+	<bean id="updateAnn"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/configuration/updateAnn.jsp" />
+	</bean>
+	
+	<!-- 员工信息查询 -->
+	<bean id="staffMgr"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/role/staffMgr.jsp" />
+	</bean>
+	
+	<!-- 公告通知 added by gelei  -->
+    <bean id="portal/getAnnouncementInfo"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/portal/login/index_message.jsp" />
+	</bean>
+	
+	<!-- 客服呼叫中心能人信息查询 -->
+	<bean id="customerService"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/customer/customerService.jsp" />
+	</bean>
+	
+	<!-- 能人组管理 -->
+	<bean id="custGroup"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/customer/custGroup.jsp" />
+	</bean>
+	<!-- 查看能人列表 -->
+	<bean id="custGroupList"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/customer/custGroupList.jsp" />
+	</bean>
+	
+	<!-- 管理员组管理 -->
+	<bean id="staffGroup"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/role/staffGroup.jsp" />
+	</bean>
+	<!-- 查看管理员列表 -->
+	<bean id="staffGroupList"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/role/staffGroupList.jsp" />
+	</bean>
+	
+	<!-- 订单分派规则管理 -->
+	<bean id="assignRuleMgr"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/manager/orderassign/assignRuleMgr.jsp" />
+	</bean>
+	
+		<!-- 实名补登  begin -->
+	<!-- 实名补登1 -->
+	<bean id="verifySMBD1"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/portal/verify/qita_one.jsp" />
+	</bean>
+	<!-- wap版实名补登1 -->
+	<bean id="verifySMBD11"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/portal/verify/wap_qita_one.jsp" />
+	</bean>
+	
+	<!-- 实名补登2 -->
+	<bean id="verifySMBD2"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/portal/verify/qita_tow_2.jsp" />
+	</bean>
+	
+	<!-- wap版实名补登2 -->
+	<bean id="verifySMBD22"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/portal/verify/wap_qita_tow_2.jsp" />
+	</bean>
+	
+	<!-- 实名补登3 -->
+	<bean id="verifySMBD3"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/WEB-INF/portal/verify/qita_toz.jsp" />
+	</bean>
+	
+	<!-- 实名补登订单领用 -->
+ 	<bean id="manager/getWaitVerifyOrders"
+ 		class="org.springframework.web.servlet.view.InternalResourceView"> 
+ 		<property name="url" value="/WEB-INF/manager/verify/getWaitVerifyOrders.jsp" /> 
+ 	</bean> 
+ 	
+ 	<!-- 实名补登订单审核 -->
+ 	<bean id="manager/getMyAuditOrders"
+ 		class="org.springframework.web.servlet.view.InternalResourceView"> 
+ 		<property name="url" value="/WEB-INF/manager/verify/getMyAuditOrders.jsp" /> 
+ 	</bean> 
+ 	
+ 	<!-- 实名补登订单详情 -->
+ 	<bean id="manager/verifyDetail"
+ 		class="org.springframework.web.servlet.view.InternalResourceView"> 
+ 		<property name="url" value="/WEB-INF/manager/verify/verifyDetail.jsp" /> 
+ 	</bean> 
+ 	
+ 	<!-- 实名补登资料查询\统计 -->
+ 	<bean id="manager/getVerifyOrderList"
+ 		class="org.springframework.web.servlet.view.InternalResourceView"> 
+ 		<property name="url" value="/WEB-INF/manager/verify/verifyOrderList.jsp" /> 
+ 	</bean> 
+ 	<!-- 实名补登 end -->
+	
+</beans>

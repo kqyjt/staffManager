@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-11-8 21:08:48 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="org.leafframework.data.dao.orm.TSOaction" table="t_s_oaction" catalog="leafdb" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="name" type="string">
+            <column name="name" length="20" not-null="true">
+                <comment>&#215;&#180;&#204;&#172;&#195;&#251;&#179;&#198;</comment>
+            </column>
+        </property>
+        <property name="orderType" type="string">
+            <column name="order_type" length="4" not-null="true">
+                <comment>&#182;&#169;&#181;&#165;&#192;&#224;&#208;&#205;</comment>
+            </column>
+        </property>
+        <property name="oldState" type="string">
+            <column name="old_state" length="2" not-null="true">
+                <comment>&#199;&#176;&#215;&#180;&#204;&#172;</comment>
+            </column>
+        </property>
+        <property name="newState" type="string">
+            <column name="new_state" length="2" not-null="true">
+                <comment>&#186;&#243;&#215;&#180;&#204;&#172;</comment>
+            </column>
+        </property>
+        <property name="remark" type="string">
+            <column name="remark" length="512" not-null="true">
+                <comment>&#177;&#184;&#215;&#162;</comment>
+            </column>
+        </property>
+        <property name="updateStaffId" type="int">
+            <column name="update_staff_id" not-null="true">
+                <comment>&#184;&#252;&#208;&#194;&#212;&#177;&#185;&#164;</comment>
+            </column>
+        </property>
+        <property name="updateTime" type="timestamp">
+            <column name="update_time" length="19" not-null="true">
+                <comment>&#184;&#252;&#208;&#194;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

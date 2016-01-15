@@ -1,0 +1,65 @@
+@charset "utf-8";
+.nrkj_banner{ background:#dc635d; height:110px; width:100%; overflow:hidden;}
+.nrkj_tx{ width:90px; height:90px; overflow:hidden; border:2px solid #ff7972; margin:8px 6px 0 0;}
+.nrkj_suming{ float:left; width:850px; font-family:"微软雅黑";}
+.nrkj_suming_name{ font-size:24px;  color:#fff; font-weight:bolder;letter-spacing:2px; height:24px; line-height:24px; margin:10px 0 5px 5px; }
+.nrkj_suming_name span{ font-size:14px; margin-left:16px; font-weight:300;}
+.nrkj_suming_jb{ font-size:14px; color:#ffd800; height:14px; padding-left:4px;}
+.nrkj_suming_jb i{ margin:0 3px;}
+.nrkj_suming_sm{ font-size:14px; color:#ffe8e7; line-height:18px; height:36px; overflow:hidden; padding:9px 0 0 6px;}
+.nrkj_sc{ float:right; padding:18px 10px 0 0;}
+.nrkj_sckongjian{ display:block; width:200px; height:62px; background:#b0514d; box-shadow:inset 1px 1px 1px #a94d48; color:#fff; font-size:18px;font-family:"微软雅黑"; text-align:center; line-height:62px; border-radius:4px; overflow:hidden; margin-bottom:6px;}
+.nrkj_sckongjian i{ line-height:65px; margin:0 10px 0 40px;}
+.nrkj_sckongjian:hover{filter: progid: DXImageTransform.Microsoft.gradient(startColorstr = '#ff4a5b', endColorstr = '#b51f17');
+-ms-filter: "progid: DXImageTransform.Microsoft.gradient(startColorstr = '#ff4a5b', endColorstr = '#b51f17')";
+background-image: -moz-linear-gradient(top, #ff4a5b, #b51f17);
+background-image: -ms-linear-gradient(top, #ff4a5b, #b51f17);
+background-image: -o-linear-gradient(top, #ff4a5b, #b51f17);
+background-image: -webkit-gradient(linear, center top, center bottom, from(#ff4a5b), to(#b51f17));
+background-image: -webkit-linear-gradient(top, #ff4a5b, #b51f17);
+background-image: linear-gradient(top, #ff4a5b, #b51f17);
+text-shadow:1px 1px 1px #333; }
+.nrkj_sckongjian:active{ background:#b54c47}
+.nrkj_button{ display:block;width:80px; height:28px; text-align:center; line-height:28px; font-size:12px;font-family:"微软雅黑"; margin:0 10px; float:left}
+.bg_bule{ background:#0085d0; color:#fff;}
+.bg_bule:hover{ background:#0096ea}
+.bg_huise{ background:#dbdbdb; color:#666}
+.bg_huise:hover{ background:#c7c7c7}
+.nrkj_mener{ height:32px; line-height:32px; background:#4a1e1e;}
+.nrkj_mener a{ margin:20px; color:#eae3e3;font-family:"微软雅黑"; font-size:14px;}
+#nrkj_dhxz{ color:#fed92c}
+.nrkj_all_body{ background:#f7f7f7; width:100%; padding:10px 0;}
+.nrkg_public_box{ background:#fff; width:100%; padding:15px; border:1px solid #dbdbdb; box-sizing:border-box;font-family:"微软雅黑";}
+.nrkg_public_box_fdh{ color:#fa5916; font-size:14px; padding-bottom:10px; border-bottom:1px dashed #dbdbdb}
+.nrkg_public_box_sc{ border-bottom:1px solid #dbdbdb; padding:20px 0; font-size:14px; color:#999;}
+.nrkj_input{ line-height:28px; line-height:28px; width:180px; padding:0 5px; border:1px solid #dbdbdb; color:#666;margin:0 10px;}
+
+.nrkj_button{ display:block;width:80px; height:28px; text-align:center; line-height:28px; font-size:14px;font-family:"微软雅黑"; margin:0 10px;}
+.bg_bule{ background:#0085d0; color:#fff;}
+.bg_bule:hover{ background:#0096ea}
+.bg_huise{ background:#dbdbdb; color:#666}
+.bg_huise:hover{ background:#c7c7c7}
+.grzx_check{ display:block; width:100px; height:28px; line-height:28px; text-align:center; border:1px solid #dbdbdb; margin:0 10px; cursor:pointer;}
+.grzx_check_xz{ border:1px solid #f65e35; color:#f65e35}
+.nrkj_hmbox{ background:url(../images/nrkj/nrkj_14.png) 0 0 no-repeat; width:213px; height:90px; overflow:hidden; float:left; margin:10px;}
+.nrkj_hmbox:hover{background:url(../images/nrkj/nrkj_14.png) 0 -90px no-repeat; }
+.nrkj_haoma{ text-align:center; font-size:24px; color:#494949; text-align:center; line-height:40px; height:40px; text-shadow:1px 1px 1px #000; font-family:"黑体"}
+.nrkj_lebie{ font-size:14px; color:#2b2b2b; padding-left:20px; font-weight:500;font-family:"黑体"}
+.nrkj_lebie span{ padding:5px 10px;}
+.nrkj_jiage{ padding-left:30px; color:#ff5400;}
+.nrkj_public_jtsp{ padding:10px 0; width:100%;}
+.nrkj_fanye{ text-align:right; margin-top:10px;}
+.nrkj_fanye_na{ display:inline-block; width:24px; height:24px; text-align:center; line-height:24px; font-size:14px; color:#999; border:1px solid #dbdbdb; margin:0 5px; font-size:12px;}
+.nrkj_fanye_xz{ border:1px solid #f65e35; color:#f65e35}
+.kjsp_box{padding-bottom:5px; width:580px; float:left;}
+.kj_img_a{ display:block; width:220px; height:220px; float:left;}
+.nrkj_jpsp{ background:#FFF; padding:0 5px; float:left; width:348px; height:218px; border:1px solid #ededed;}
+.nrkj_jpsp:hover{ background:#f8f8f8;}
+.nrkj_jpsp1{ height:40px; line-height:40px;}
+.nrkj_jpsp2{ line-height:16px; height:48px; padding-bottom:5px;border-bottom:1px dashed #dbdbdb;}
+.nrkj_jpsp3{font-size:14px; line-height:20px; height:80px; color:#f95118; padding:5px 0; overflow:hidden;}
+.nrkj_jpsp4{ line-height:20px; height:28px; line-height:28px; background:#ce3f75; color:#fff;}
+.marg_ri8{ margin-right:8px;}
+
+/--验证码--/
+.yz-cont span{display:block; float:left;}

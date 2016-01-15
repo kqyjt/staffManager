@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.leafframework.data.dao.mapper.MyBatisDAO">
+
+	<select id="getSysdate" resultType="String">
+		select
+		DATE_FORMAT(SYSDATE(),
+		'%Y-%m-%d %H:%i:%S')
+	</select>
+	
+	<select id="getSysdateAddMinute" parameterType="Integer" resultType="String">
+		SELECT
+				DATE_FORMAT(
+					DATE_ADD(SYSDATE(), INTERVAL #{minute} MINUTE),
+					'%Y-%m-%d %H:%i:%S'
+				)
+	</select>
+
+	<select id="getSequence" parameterType="String" resultType="String">
+		SELECT nextval(#{seqName});
+	</select>
+
+	<insert id="insertTlmain" parameterType="TLMain" keyProperty="id">
+		INSERT t_l_main(log_type,
+		                optr_type,
+		                optr_name,
+		                optr_staff_id,
+		                optr_time,
+		                remark)
+		VALUES (#{logType},
+		        #{optrType},
+		        #{optrName},
+		        #{optrStaffId},
+		        #{optrTime},
+		        #{remark})
+	</insert>
+	
+	<insert id="insertTmmenus" parameterType="TMMenus" keyProperty="id">
+		INSERT t_m_menus(name,
+	                 lvl_id,
+	                 icon,
+	                 parent_id,
+	                 update_staff_id,
+	                 update_time)
+		VALUES ( #{name},
+		        #{lvlId},
+		        #{icon},
+		        #{parentId},
+		        #{updateStaffId},
+		        #{updateTime})
+	</insert>
+	
+	<!-- select CONCAT("<if test=""",column_name," != null""> AND ",column_name," 
+		= #{",column_name,"} </if>") from information_schema.columns where table_name='t_m_menus'; -->
+
+	<select id="getMenus" parameterType="TMMenus" resultType="TMMenus">
+		SELECT * FROM t_m_menus
+		WHERE 1 = 1
+
+		<if test="lvlId != null"> AND lvl_id = #{lvlId} 		</if>
+		<if test="name != null"> AND name = #{name} 		</if>
+		<if test="parentId != null"> AND parent_id = #{parentId} 		</if>
+		<if test="updateStaffId != null"> AND update_staff_id = #{updateStaffId} 		</if>
+		<if test="updateTime != null"> AND update_time = #{updateTime} 		</if>
+	</select>
+	
+	<!-- 
+	SELECT CONCAT(
+	          "t.",
+	          t.column_name,
+	          " as """,
+	          concat(
+	             lower(left(initcap(t.column_name), 1)),
+	             substring(initcap(t.column_name),
+	                       2,
+	                       (length(initcap(t.column_name)) - 1))),
+	          """,")
+	  FROM information_schema.columns t
+	 WHERE t.table_name = 't_m_menus';
+	 -->
+	 
+	<!-- 获取员工权限菜单 -->
+	<select id="getModules" parameterType="HashMap" resultType="TMModules">
+		SELECT 
+			t.id as "id",
+			t.name as "name",
+			t.subsystem as "subsystem",
+			t.module as "module",
+			t.type as "type",
+			t.remark as "remark",
+			t.url as "url",
+			t.icon as "icon",
+			t.is_use as "isUse",
+			t.menu_id as "menuId",
+			t.update_staff_id as "updateStaffId",
+			t.update_time as "updateTime"
+		  FROM t_m_modules t,
+		       t_m_staff t1,
+		       t_m_staff_role t2,
+		       t_m_role_module t3
+		 WHERE t.is_use='1' and t.id = t3.module_id
+		       AND t1.staff_id = t2.staff_id
+		       AND t2.role_id = t3.role_id
+		       AND t1.staff_id = #{staffId}
+		       AND t.menu_id = #{menuId}
+		 ORDER BY t.pos;
+	</select>
+	
+	<!-- 获取员工菜单目录 -->
+	<select id="getStaffMenus" parameterType="String" resultType="TMMenus">
+		SELECT 
+			t.id as "id",
+			t.name as "name",
+			t.lvl_id as "lvlId",
+			t.icon as "icon",
+			t.parent_id as "parentId",
+			t.update_staff_id as "updateStaffId",
+			t.update_time as "updateTime"
+		  FROM t_m_menus t
+		 WHERE id IN (SELECT t.menu_id
+		                FROM t_m_modules t,
+		                     t_m_staff t1,
+		                     t_m_staff_role t2,
+		                     t_m_role_module t3
+		               WHERE     t.id = t3.module_id
+		                     AND t1.staff_id = t2.staff_id
+		                     AND t2.role_id = t3.role_id
+		                     AND t1.staff_id = #{staffId})
+		 ORDER BY t.pos;
+	</select>
+	
+	<select id="getTables" parameterType="String" resultType="HashMap">
+		SELECT initcap(t.table_name) AS initcap_table_name,
+		       t.table_name AS table_name
+		  FROM information_schema.TABLES t
+		 WHERE t.TABLE_SCHEMA = #{leafdb};
+	</select>
+	
+	<select id="getColumns" parameterType="String" resultType="HashMap">
+		SELECT t.COLUMN_NAME AS column_name,
+		       t.COLUMN_COMMENT AS column_comment
+		  FROM information_schema.COLUMNS t
+		 WHERE t.TABLE_NAME = #{tableName} 
+		 	AND TABLE_SCHEMA = #{schema}
+		ORDER BY ORDINAL_POSITION;
+	</select>
+	
+	<select id="getEmailAddr" parameterType="int" resultType="HashMap">
+		SELECT id,
+		       type,
+		       name,
+		       is_use,
+		       sn,
+		       depart_name,
+		       office,
+		       short_num,
+		       mobile_phone,
+		       nt_account,
+		       email,
+		       up_sn
+		  FROM t_m_email_addr t
+		 WHERE t.is_use = 1 AND MOD(id, #{chl_cnt}) = #{chl_id}
+	</select>
+	
+	<select id="getEmailHis" parameterType="String" resultType="HashMap">
+		SELECT id,
+		       mail_from,
+		       type,
+		       name,
+		       mail_to,
+		       send_time,
+		       title
+		  FROM t_l_email t
+		 WHERE t.mail_to = #{mail_to}
+		 and send_time>curdate();
+	</select>
+	
+	<insert id="insertEmailLog" parameterType="HashMap" keyProperty="id">
+	INSERT t_l_email(mail_from,
+	        type,
+	        name,
+	        mail_to,
+	        send_time,
+	        title)
+	VALUES(#{mail_from},
+			#{type},
+			#{name},
+			#{mail_to},
+			#{send_time},
+			#{title})
+	</insert>
+	
+	<!-- 一分钟内手机收到的所有验证码 added by wanghao -->
+	<select id="getSmsCodeWithInOneMinute" parameterType="java.util.HashMap" resultType="TCRegisterSmscode">
+		SELECT
+			id as "id",
+			phone as "phone",
+			regicode as "regicode",
+			sendtime as "sendtime"
+		FROM t_c_register_smscode
+		WHERE 1=1
+		<if test="phone != null"> AND phone = #{phone} AND TIMESTAMPDIFF(MINUTE,sendtime,SYSDATE())&lt;=1</if>
+		<if test="phone == null"> AND 1&lt;0</if>
+		order by sendtime DESC
+	</select>
+	
+	
+	<!-- 用户查询 added by liuxm -->
+	<select id="staffQuery" parameterType="HashMap" resultType="java.util.HashMap">
+	    SELECT
+			t.id as "id",
+			t.staff_id as "staffId",
+			t.name as "name",
+			t.password as "password",
+			t.gender as "gender",
+			t.type as "type",
+			t.area_code as "areaCode",
+			t.address as "address",
+			t.zip_code as "zipCode",
+			t.phone_number as "phoneNumber",
+			t.email as "email",
+			(select staff_id from t_m_staff WHERE id= t.update_staff_id)  as "updateStaffId",
+			t.update_time as "updateTime"
+		FROM
+			t_m_staff t
+		where 1=1
+			<if test="staffId != null and staffId != ''"> AND t.staff_id = #{staffId} </if>
+			<if test="name != null and name != ''"> AND t.name = #{name} </if>
+			<if test="areaCode != null and areaCode != ''"> AND t.area_code = #{areaCode} </if>
+		order by update_time desc
+	</select>
+	
+	<!-- 用户个数查询 by liuxm -->
+	<select id="staffCountQuery" parameterType="HashMap" resultType="java.lang.Integer">
+		SELECT count(1) totalCount
+		FROM t_m_staff a
+		WHERE 1=1
+			<if test="staffId != null and staffId != ''"> AND a.staff_id = #{staffId} </if>
+			<if test="name != null and name != ''"> AND a.name = #{name} </if>
+			<if test="areaCode != null and areaCode != ''"> AND a.area_code = #{areaCode} </if>
+	</select>
+	
+	
+	<!-- 查询身份证信息临时表 added by zhanggs -->
+	<select id="queryIDCardByUUID" parameterType="String" resultType="TSTempIdCard">
+	    SELECT
+			t.id as "id",
+			t.photo_up_url as "photoUpUrl",
+			t.photo_down_url as "photoDownUrl",
+			t.photo_in_hand_url as "photoInHandUrl",
+			t.create_time as "createTime"
+		FROM
+			t_s_temp_id_card t
+		WHERE t.uuid = #{uuid}
+	</select>
+	
+	
+	<!-- 角色查询 added by liuxm -->
+	<select id="roleQuery" parameterType="HashMap" resultType="java.util.HashMap">
+	    SELECT
+			t.id as "id",
+			t.name as "name",
+			t.lvl_id as "lvlId",
+			t.parent_id as "parentId",
+			t.remark as "remark",
+			t.update_staff_id as "updateStaffId",
+			t.update_time as "updateTime"
+		FROM
+			t_m_roles t
+			where 1=1
+			<if test="name != null and name != ''"> AND t.name = #{name} </if>
+			<if test="lvlId != null and lvlId != ''"> AND t.lvl_id = #{lvlId} </if>
+			<if test="parentId != null and parentId != ''"> AND t.parent_id = #{parentId} </if>
+			order by update_time desc limit #{page},#{size} 
+	</select>
+	
+	<!-- 角色个数查询 by liuxm -->
+	<select id="roleCountQuery" parameterType="HashMap" resultType="java.lang.Integer">
+		SELECT count(1) totalCount
+		FROM t_m_roles a
+		WHERE 1=1
+			<if test="name != null and name != ''"> AND a.name = #{name} </if>
+			<if test="lvlId != null and lvlId != ''"> AND a.lvl_id = #{lvlId} </if>
+			<if test="parentId != null and parentId != ''"> AND a.parent_id = #{parentId} </if>
+	</select>
+	
+	
+	<!-- roleTree查询 added by liuxm -->
+	<select id="roleTreeQuery" parameterType="HashMap" resultType="java.util.HashMap">
+	    SELECT
+			t.id as "id",
+			t.name as "name",
+			t.lvl_id as "lvlId",
+			t.parent_id as "parentId",
+			t.remark as "remark",
+			t.update_staff_id as "updateStaffId",
+			t.update_time as "updateTime"
+		FROM
+			t_m_roles t
+			where 1=1
+			<if test="name != null and name != ''"> AND t.name = #{name} </if>
+			<if test="lvlId != null and lvlId != ''"> AND t.lvl_id = #{lvlId} </if>
+			<if test="parentId != null and parentId != ''"> AND t.parent_id = #{parentId} </if>
+	</select>
+	
+	
+	<!-- 权限查询 added by liuxm -->
+	<select id="roleRightQuery" parameterType="HashMap" resultType="java.util.HashMap">
+	    SELECT
+			t.id as "id",
+			t.role_id as "roleId",
+			t.res_type as "resType",
+			t.res_id as "resId",
+			t.update_staff_id as "updateStaffId",
+			t.update_time as "updateTime"
+		FROM
+			t_m_role_right t
+			where 1=1
+			<if test="roleId != null and roleId != ''"> AND t.role_id = #{roleId} </if>
+			<if test="resType != null and resType != ''"> AND t.res_type = #{resType} </if>
+			<if test="resId != null and resId != ''"> AND t.res_id = #{resId} </if>
+			<if test="updateStaffId != null and updateStaffId != ''"> AND t.update_staff_id = #{updateStaffId} </if>
+			order by update_time desc limit #{page},#{size}
+	</select>
+	
+	<!-- 权限个数查询 by liuxm -->
+	<select id="roleRightCountQuery" parameterType="HashMap" resultType="java.lang.Integer">
+		SELECT count(1) totalCount
+		FROM t_m_role_right a
+		WHERE 1=1
+			<if test="roleId != null and roleId != ''"> AND a.role_id = #{roleId} </if>
+			<if test="resType != null and resType != ''"> AND a.res_type = #{resType} </if>
+			<if test="resId != null and resId != ''"> AND a.res_id = #{resId} </if>
+			<if test="updateStaffId != null and updateStaffId != ''"> AND a.update_staff_id = #{updateStaffId} </if>
+	</select>
+	
+	<!-- 获取操作员所管理的区域  added by zhangyy -->
+	<select id="getAreasOfStaff" parameterType="HashMap" resultType="TMArea">
+		select
+			distinct are.code as code,are.name as name
+		from 
+			t_m_area are 
+		where
+			1 = 1
+			<choose>
+				<when test="staffCode == '000'">and are.code != #{staffCode}</when>
+				<otherwise>and are.code = #{staffCode}</otherwise>
+			</choose>
+	</select>
+</mapper>

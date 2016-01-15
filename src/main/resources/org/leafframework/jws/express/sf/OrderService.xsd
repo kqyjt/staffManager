@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema elementFormDefault="unqualified" targetNamespace="http://service.expressservice.integration.sf.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:sf="http://service.expressservice.integration.sf.com/">
+
+    <xsd:element name="sfexpressService">
+    	<xsd:complexType>
+    		<xsd:sequence>
+    			<xsd:element name="arg0" type="xsd:string"></xsd:element>
+    		</xsd:sequence>
+    	</xsd:complexType>
+    </xsd:element>
+    
+    <xsd:element name="sfexpressServiceResponse">
+    	<xsd:complexType>
+    		<xsd:sequence>
+    			<xsd:element name="return" type="xsd:string"></xsd:element>
+    		</xsd:sequence>
+    	</xsd:complexType>
+    </xsd:element>
+    
+</xsd:schema>

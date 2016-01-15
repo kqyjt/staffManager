@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-7-8 20:06:58 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="org.leafframework.data.dao.orm.TCRegisterSmscode" table="t_c_register_smscode" catalog="wlyx_db">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="phone" type="string">
+            <column name="phone" length="11" not-null="true">
+                <comment>&#230;&#142;&#165;&#230;&#148;&#182;&#230;&#137;&#139;&#230;&#156;&#186;&#229;&#143;&#183;</comment>
+            </column>
+        </property>
+        <property name="regicode" type="string">
+            <column name="regicode" length="4" not-null="true">
+                <comment>&#233;&#170;&#140;&#232;&#175;&#129;&#231;&#160;&#129;</comment>
+            </column>
+        </property>
+        <property name="sendtime" type="timestamp">
+            <column name="sendtime" length="19" not-null="true">
+                <comment>&#229;&#143;&#145;&#233;&#128;&#129;&#230;&#151;&#182;&#233;&#151;&#180;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-7-13 14:44:52 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="org.leafframework.data.dao.orm.TCCustomer" table="t_c_customer" catalog="wlyx_db">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="regName" type="string">
+            <column name="reg_name" length="30" not-null="true" />
+        </property>
+        <property name="custName" type="string">
+            <column name="cust_name" length="200" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="128" not-null="true" />
+        </property>
+        <property name="isChangePass" type="string">
+            <column name="is_change_pass" length="1" not-null="true" />
+        </property>
+        <property name="mobilePhone" type="string">
+            <column name="mobile_phone" length="20" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="50" />
+        </property>
+        <property name="telephone" type="string">
+            <column name="telephone" length="20" />
+        </property>
+        <property name="qqNo" type="string">
+            <column name="qq_no" length="20" />
+        </property>
+        <property name="state" type="string">
+            <column name="state" length="4" not-null="true" />
+        </property>
+        <property name="custType" type="string">
+            <column name="cust_type" length="4" not-null="true" />
+        </property>
+        <property name="custLvl" type="string">
+            <column name="cust_lvl" length="4" not-null="true" />
+        </property>
+        <property name="sex" type="string">
+            <column name="sex" length="1" />
+        </property>
+        <property name="idCard" type="string">
+            <column name="id_card" length="50" />
+        </property>
+        <property name="homeprovinceid" type="string">
+            <column name="homeprovinceid" length="32" />
+        </property>
+        <property name="homeCityid" type="string">
+            <column name="home_cityid" length="10" />
+        </property>
+        <property name="homeAreaid" type="string">
+            <column name="home_areaid" length="10" />
+        </property>
+        <property name="receiveAddr" type="string">
+            <column name="receive_addr" length="65535" />
+        </property>
+        <property name="provinceid" type="string">
+            <column name="provinceid" length="32" />
+        </property>
+        <property name="cityid" type="string">
+            <column name="cityid" length="10" />
+        </property>
+        <property name="userSource" type="string">
+            <column name="user_source" length="4" not-null="true">
+                <comment>CO00&#239;&#188;&#154;&#231;&#189;&#145;&#231;&#171;&#153;&#231;&#148;&#179;&#232;&#175;&#183;
+                CO01&#239;&#188;&#154;&#230;&#137;&#139;&#230;&#156;&#186;&#229;&#174;&#162;&#230;&#136;&#183;&#231;&#171;&#175;&#231;&#148;&#179;&#232;&#175;&#183;
+                CO02&#239;&#188;&#154;&#229;&#190;&#174;&#228;&#191;&#161;&#231;&#148;&#179;&#232;&#175;&#183;
+                CO03&#239;&#188;&#154;&#231;&#174;&#161;&#231;&#144;&#134;&#229;&#145;&#152;&#229;&#136;&#155;&#229;&#187;&#186;</comment>
+            </column>
+        </property>
+        <property name="staffId" type="string">
+            <column name="staff_id" length="30" />
+        </property>
+        <property name="managerId" type="string">
+            <column name="manager_id" length="40">
+                <comment>&#231;&#189;&#145;&#231;&#187;&#156;&#232;&#144;&#165;&#233;&#148;&#128;&#229;&#155;&#162;&#233;&#152;&#159;</comment>
+            </column>
+        </property>
+        <property name="managerName" type="string">
+            <column name="manager_name" length="64">
+                <comment>&#232;&#131;&#189;&#228;&#186;&#186;&#230;&#142;&#168;&#232;&#141;&#144;&#228;&#186;&#186;&#228;&#191;&#161;&#230;&#129;&#175;</comment>
+            </column>
+        </property>
+        <property name="devCustId" type="java.lang.Integer">
+            <column name="dev_cust_id" />
+        </property>
+        <property name="expressFlag" type="string">
+            <column name="express_flag" length="1" not-null="true" />
+        </property>
+        <property name="faceUrl" type="string">
+            <column name="face_url" length="200" />
+        </property>
+        <property name="teamName" type="string">
+            <column name="team_name" length="200" />
+        </property>
+        <property name="remark" type="string">
+            <column name="remark" length="65535" />
+        </property>
+        <property name="createTime" type="timestamp">
+            <column name="create_time" length="19" not-null="true" />
+        </property>
+        <property name="updateTime" type="timestamp">
+            <column name="update_time" length="19" />
+        </property>
+        <property name="updateOperator" type="string">
+            <column name="update_operator" length="30" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.leafframework.data.dao.mapper.VerifyBatisDAO">
+	
+	<!-- 测试 -->
+	<select id="queryTestList" parameterType="map" resultType="map">
+		SELECT 
+			*
+		FROM 
+			t_c_customer tms limit 0,10
+	</select>
+	
+	<insert id="addVerifyUserInfo" parameterType="map">
+		INSERT t_o_userinfo(phone_num,
+		        user_name,
+		        card_num,
+		        card_pic_a,
+		        card_pic_b,
+		        card_pic_c,
+		        card_address,
+		        city_id,
+		        audit_state,
+		        bis_state,
+		        create_time,
+		        update_time)
+		VALUES(#{PHONE_NUM},
+				#{USER_NAME},
+				#{CARD_NUM},
+				#{CARD_PIC_A},
+				#{CARD_PIC_B},
+				#{CARD_PIC_C},
+				#{CARD_ADDRESS},
+				#{CITY_ID},
+				#{AUDIT_STATE},
+				#{BIS_STATE},
+				now(),
+				now())
+	</insert>
+	
+	<!-- 得到手机地市信息 -->
+	<select id="getEparchyCodeByPhone" parameterType="map" resultType="map">
+		<![CDATA[
+		select * from t_m_office a where a.serialnumber_s <= #{PHONE_NUM} and a.serialnumber_e >= #{PHONE_NUM}
+		]]>
+	</select>
+	
+	<!-- 获取订单列表信息  add by zhangyy -->
+	<select id="getOrderManagerList" parameterType="map" resultType="map">
+		SELECT  
+		  user_id,
+		  phone_num,
+		  user_name,
+		  card_num,
+		  card_pic_a,
+		  card_pic_b,
+		  card_pic_c,
+		  card_address,
+		  city_id,
+		  audit_staff,
+		  audit_state,
+		  bis_state,
+		  date_format(create_time,'%Y-%m-%d %T') create_time,
+		  update_staff_id,
+		  date_format(update_time,'%Y-%m-%d %T') update_time,
+		  remark
+  		FROM t_o_userinfo
+	 	WHERE 1 = 1
+	 	<if test="IS_WAIT != null and IS_WAIT==1"> and audit_staff is null	</if>
+	 	<if test="AUDIT_STAFF != null and AUDIT_STAFF != ''"> and audit_staff =	#{AUDIT_STAFF}</if>
+	 	<if test="USER_ID != null and USER_ID != ''"> AND USER_ID = #{USER_ID}</if>
+	 	<if test="CITY_ID != null and CITY_ID != ''"> AND CITY_ID = #{CITY_ID}</if>
+	 	<if test="CARD_NUM != null and CARD_NUM != ''"> AND CARD_NUM = #{CARD_NUM}</if>
+	 	<if test="PHONE_NUM != null and PHONE_NUM != ''"> AND PHONE_NUM = #{PHONE_NUM}</if>
+	 	<if test="BEGIN_TIME != null and BEGIN_TIME != ''"> <![CDATA[ AND CREATE_TIME >= str_to_date(#{BEGIN_TIME},'%Y-%m-%d %T') ]]></if>
+	 	<if test="END_TIME != null and END_TIME != ''"> <![CDATA[ AND CREATE_TIME <= str_to_date(#{END_TIME},'%Y-%m-%d %T')]]></if>
+	 	<if test="AUDIT_STATE != null and AUDIT_STATE != ''"> AND AUDIT_STATE = #{AUDIT_STATE}</if>
+	 	<if test="BIS_STATE != null and BIS_STATE != ''"> AND BIS_STATE = #{BIS_STATE}</if>
+	 	<if test="isDefault != null and isDefault == 1">
+	 		<if test="BIS_STATE == null or BIS_STATE == ''"> AND BIS_STATE != "B1"</if>
+	 	</if>
+	 	<if test="IS_AUDIT != null and IS_AUDIT == 1">
+	 		order by AUDIT_STATE,CREATE_TIME
+	 	</if>
+	 	<if test="begin != null and size != null"> limit #{begin},#{size}</if>
+	</select>              
+	<select id="getOrderManagerCount" parameterType="map" resultType="java.lang.Integer">
+		SELECT count(1) totalCount
+	  	FROM t_o_userinfo tom 
+	 	WHERE 1 = 1
+	 	<if test="IS_WAIT != null and IS_WAIT==1"> and audit_staff is null	</if>
+	 	<if test="AUDIT_STAFF != null and AUDIT_STAFF != ''"> and audit_staff =	#{AUDIT_STAFF}</if>
+ 		<if test="USER_ID != null and USER_ID != ''"> AND USER_ID = #{USER_ID}</if>
+	 	<if test="CITY_ID != null and CITY_ID != ''"> AND CITY_ID = #{CITY_ID}</if>
+	 	<if test="CARD_NUM != null and CARD_NUM != ''"> AND CARD_NUM = #{CARD_NUM}</if>
+	 	<if test="PHONE_NUM != null and PHONE_NUM != ''"> AND PHONE_NUM = #{PHONE_NUM}</if>
+	 	<if test="BEGIN_TIME != null and BEGIN_TIME != ''"> <![CDATA[ AND CREATE_TIME >= str_to_date(#{BEGIN_TIME},'%Y-%m-%d %T') ]]></if>
+	 	<if test="END_TIME != null and END_TIME != ''"> <![CDATA[ AND CREATE_TIME <= str_to_date(#{END_TIME},'%Y-%m-%d %T')]]></if>
+	 	<if test="AUDIT_STATE != null and AUDIT_STATE != ''"> AND AUDIT_STATE = #{AUDIT_STATE}</if>
+	 	<if test="BIS_STATE != null and BIS_STATE != ''"> AND BIS_STATE = #{BIS_STATE}</if>
+	 	<if test="isDefault != null and isDefault == 1">
+	 		<if test="BIS_STATE == null or BIS_STATE == ''"> AND BIS_STATE != "B1"</if>
+	 	</if>
+	 	<if test="IS_AUDIT != null and IS_AUDIT == 1">
+	 		order by AUDIT_STATE,CREATE_TIME
+	 	</if>
+	</select>
+	
+	<select id="getLocalCityCode" parameterType="map" resultType="String">
+		select code city_id from t_m_area where remark=#{EPARCHY_CODE}
+	</select>
+	
+	<insert id="updateVerifyOrder" parameterType="map">
+		update t_o_userinfo set audit_staff=#{AUDIT_STAFF},update_time=now()
+		where user_id in
+		<foreach collection="USER_IDS" index="index" item="item" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</insert>
+	
+	<select id="getVerifyDetail" parameterType="map" resultType="map">
+		select 
+		  user_id,
+		  phone_num,
+		  user_name,
+		  card_num,
+		  card_pic_a,
+		  card_pic_b,
+		  card_pic_c,
+		  card_address,
+		  city_id,
+		  audit_staff,
+		  audit_state,
+		  bis_state,
+		  date_format(create_time,'%Y-%m-%d %T') create_time,
+		  update_staff_id,
+		  date_format(update_time,'%Y-%m-%d %T') update_time,
+		  remark 
+	    from t_o_userinfo 
+	    where user_id=#{userId}
+	</select>
+	
+	<select id="getVerifyAuditList" parameterType="map" resultType="map">
+		select 
+			id,
+			user_id,
+			state_type,
+			state,
+			suggest,
+			update_staff_id,
+			date_format(create_time,'%Y-%m-%d %T') create_time,
+			date_format(update_time,'%Y-%m-%d %T') update_time 
+		from t_c_useraudit_his 
+		where user_id=#{userId}
+	</select>
+	
+	<insert id="saveAuditInfo" parameterType="map">
+		INSERT t_c_useraudit_his(
+				user_id,
+		        state_type,
+		        state,
+		        suggest,
+		        update_staff_id,
+		        create_time,
+		        update_time)
+		VALUES(#{userId},
+				#{STATE_TYPE},
+				#{STATE},
+				#{SUGGEST},
+				#{UPDATE_STAFF_ID},
+				now(),
+				now())
+	</insert>
+	
+	<insert id="updateAuditState" parameterType="map">
+		update t_o_userinfo set audit_state=#{SEL_AUDIT_STATE},update_time=now()
+		where user_id =#{userId}
+	</insert>
+	
+	<insert id="updateBisState" parameterType="map">
+		update t_o_userinfo set bis_state=#{SEL_BIS_STATE},update_time=now()
+		where user_id =#{userId}
+	</insert>
+	
+	
+	<!-- 手机号码查询by rc -->
+	<select id="queryPhoneList" parameterType="HashMap" resultType="HashMap">
+		select t.id 
+		from t_m_office t 
+		where 1=1
+		<if test="phoneNumber != null and phoneNumber != ''">
+			AND #{phoneNumber} BETWEEN t.serialnumber_s and t.serialnumber_e
+		</if>
+	</select>
+</mapper>
+
+

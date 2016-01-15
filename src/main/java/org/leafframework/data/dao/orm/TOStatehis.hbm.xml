@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-11-8 21:08:48 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="org.leafframework.data.dao.orm.TOStatehis" table="t_o_statehis" catalog="leafdb" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="orderId" type="int">
+            <column name="order_id" not-null="true">
+                <comment>&#182;&#169;&#181;&#165;&#177;&#234;&#202;&#182;</comment>
+            </column>
+        </property>
+        <property name="state" type="string">
+            <column name="state" length="2" not-null="true">
+                <comment>&#182;&#169;&#181;&#165;&#215;&#180;&#204;&#172;</comment>
+            </column>
+        </property>
+        <property name="staffId" type="int">
+            <column name="staff_id" not-null="true">
+                <comment>&#178;&#217;&#215;&#247;&#212;&#177;</comment>
+            </column>
+        </property>
+        <property name="startTime" type="timestamp">
+            <column name="start_time" length="19" not-null="true">
+                <comment>&#191;&#170;&#202;&#188;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="endTime" type="timestamp">
+            <column name="end_time" length="19" not-null="true">
+                <comment>&#189;&#225;&#202;&#248;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="updateTime" type="timestamp">
+            <column name="update_time" length="19" not-null="true">
+                <comment>&#184;&#252;&#208;&#194;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="remark" type="string">
+            <column name="remark" length="512" not-null="true">
+                <comment>&#177;&#184;&#215;&#162;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

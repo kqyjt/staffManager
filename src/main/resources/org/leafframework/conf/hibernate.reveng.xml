@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+<table-filter match-catalog="wlyx_db" match-name="t_s_temp_id_card"/>
+  <table-filter match-catalog="wlyx_db" match-name="sequence"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_a_account"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_a_bill"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_a_bill_his"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_ace_rule"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_c_sourcebill"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_c_approve_his"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_c_browser"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_c_complaint"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_c_complaint_r"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_c_coupon"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_c_cust_account"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_c_cust_serialnum"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_c_cust_space"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_c_customer"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_c_depbill"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_c_deposit"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_c_express"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_c_focus"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_c_identity_info"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_c_invoice"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_c_register_smscode"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_c_score"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_c_score_opt"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_c_score_rule"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_c_subscribe"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_coupon_goods"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_coupon_main"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_exp_orderdetail"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_exp_route"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_g_goods"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_g_goods_channel"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_g_goods_class"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_g_goods_combination"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_g_goods_dimension_class"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_g_goods_picture"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_g_goods_price"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_g_group_serial"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_g_numrule"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_g_numtype"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_g_package_serial_limit"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_g_packagegroup"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_g_product"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_g_product_attr"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_g_publish"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_g_serial_batch"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_g_serial_group"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_g_serialinfo"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_g_templet_attr"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_g_templet_config"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_gift_main"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_gift_package"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_gift_package_item"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_gift_picture"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_gift_stock"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_l_area"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_l_depart"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_l_main"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_l_menus"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_l_modules"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_l_role_module"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_l_role_right"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_l_roles"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_l_staff"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_l_staff_right"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_l_staff_role"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_lb_area"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_lb_depart"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_lb_menus"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_lb_modules"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_lb_role_module"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_lb_role_right"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_lb_roles"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_lb_staff"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_lb_staff_right"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_lb_staff_role"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_m_area"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_m_office"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_m_depart"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_m_menus"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_m_modules"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_m_role_module"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_m_role_right"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_m_roles"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_m_staff"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_m_staff_right"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_m_staff_role"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_mail_detail"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_mail_logs"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_mail_templet"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_o_cart_attribute"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_o_cart_item"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_o_coupon"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_o_detail"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_o_detail_attribute"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_o_distribute"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_o_inv"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_o_logistics"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_o_main"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_o_networkinfo"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_o_pay_info"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_o_return_statehis"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_o_returns"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_o_statehis"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_o_archive_fail"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_o_demand"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_o_demand_detail"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_pay_accountinfo"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_pay_check_temp"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_pay_info"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_pay_refund"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_s_announcement"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_s_blacklist"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_s_codrule"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_s_column_enum"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_s_enums"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_s_ess_empno"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_s_homepage"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_s_metadata_column"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_s_metadata_table"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_s_oaction"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_s_ostate"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_s_otype"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_s_pactinfo"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_s_picture"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_s_resifslog"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_s_scene"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_s_scene_option"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_s_selfpkadd"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_s_shelf"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_s_shelf_detail"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_s_sms_model"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_s_state"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_s_syncerrorlog"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_o_demand_detail"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_o_demand"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_s_billimport_record"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_i_domnode"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_i_xml_compose"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_s_cod_goodsrule"/>
+  <table-filter match-catalog="wlyx_db" match-name="t_s_cod_selfpikrule" />
+  <table-filter match-catalog="wlyx_db" match-name="t_s_codrule" />
+  <table-filter match-catalog="wlyx_db" match-name="t_o_require" />
+  <table-filter match-catalog="wlyx_db" match-name="t_o_require_detail" />
+  <table-filter match-name="t_c_custgroup" match-catalog="wlyx_db" />
+  <table-filter match-name="t_c_custgroup_rela" match-catalog="wlyx_db" />
+  <table-filter match-name="t_c_staffgroup" match-catalog="wlyx_db" />
+  <table-filter match-name="t_c_staffgroup_rela" match-catalog="wlyx_db" />
+  <table-filter match-name="t_o_assignlog" match-catalog="wlyx_db" />
+  <table-filter match-name="t_o_assign_result" match-catalog="wlyx_db" />
+  <table-filter match-name="t_o_assign_rule" match-catalog="wlyx_db" />
+</hibernate-reverse-engineering>

@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-8-26 15:56:51 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="org.leafframework.data.dao.orm.TMOffice" table="t_m_office" catalog="wlyx_db">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="eparchyCode" type="string">
+            <column name="eparchy_code" length="4" not-null="true">
+                <comment>00&#239;&#188;&#154;&#229;&#143;&#145;&#229;&#135;&#186;&#232;&#175;&#183;&#230;&#177;&#130;
+                01&#239;&#188;&#154;&#232;&#175;&#183;&#230;&#177;&#130;&#232;&#191;&#148;&#229;&#155;&#158;</comment>
+            </column>
+        </property>
+        <property name="eparchyName" type="string">
+            <column name="eparchy_name" length="20" not-null="true" />
+        </property>
+        <property name="serialnumberS" type="string">
+            <column name="serialnumber_s" length="12" not-null="true" />
+        </property>
+        <property name="serialnumberE" type="string">
+            <column name="serialnumber_e" length="12" not-null="true" />
+        </property>
+        <property name="segment" type="string">
+            <column name="segment" length="8" not-null="true" />
+        </property>
+        <property name="remark" type="string">
+            <column name="remark" length="200" />
+        </property>
+        <property name="areaCode" type="string">
+            <column name="area_code" length="3" />
+        </property>
+    </class>
+</hibernate-mapping>

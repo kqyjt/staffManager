@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-7-8 20:06:58 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="org.leafframework.data.dao.orm.TMailLogs" table="t_mail_logs" catalog="wlyx_db">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="mailId" type="int">
+            <column name="mail_id" not-null="true" />
+        </property>
+        <property name="custEmail" type="string">
+            <column name="cust_email" length="100" not-null="true" />
+        </property>
+        <property name="status" type="string">
+            <column name="status" length="4" not-null="true" />
+        </property>
+        <property name="operaStaffId" type="string">
+            <column name="opera_staff_id" length="30" not-null="true" />
+        </property>
+        <property name="operaTime" type="timestamp">
+            <column name="opera_time" length="19" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

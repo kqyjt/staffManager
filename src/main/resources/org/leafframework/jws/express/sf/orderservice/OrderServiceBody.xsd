@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+    <xsd:element name="Request">
+    	<xsd:complexType>
+    		<xsd:sequence>
+    			<xsd:element name="Head" type="xsd:string"></xsd:element>
+    			<xsd:element name="Body" maxOccurs="1" minOccurs="1">
+    				<xsd:complexType>
+    					<xsd:sequence>
+    						<xsd:element name="Order">
+    							<xsd:complexType>
+    								<xsd:sequence>
+    									<xsd:element name="Cargo">
+    										<xsd:complexType>
+    											<xsd:attribute name="name" type="xsd:string"><xsd:annotation><xsd:documentation>货物名称 </xsd:documentation></xsd:annotation></xsd:attribute>
+												<xsd:attribute name="count" type="xsd:int"><xsd:annotation><xsd:documentation>货物数量国际件报关需要填写 </xsd:documentation></xsd:annotation></xsd:attribute>
+												<xsd:attribute name="unit" type="xsd:string"><xsd:annotation><xsd:documentation>货物单位 ;如：个,台,本国际件报关需要填写 ; </xsd:documentation></xsd:annotation></xsd:attribute>
+												<xsd:attribute name="weight" type="xsd:int"><xsd:annotation><xsd:documentation>货物单位重量国际件报关需要填写 </xsd:documentation></xsd:annotation></xsd:attribute>
+												<xsd:attribute name="amount" type="xsd:int"><xsd:annotation><xsd:documentation>货物单价国际件报关需要填写 </xsd:documentation></xsd:annotation></xsd:attribute>
+												<xsd:attribute name="currency" type="xsd:string"><xsd:annotation><xsd:documentation>货物单价的币别：与 Order 的 declared_value_currency属性相同国际件</xsd:documentation></xsd:annotation></xsd:attribute>
+												<xsd:attribute name="source_area" type="xsd:string"><xsd:annotation><xsd:documentation>原产地国别国际件报关需要填写 </xsd:documentation></xsd:annotation></xsd:attribute>
+    										</xsd:complexType>
+    									</xsd:element>
+    									<xsd:element name="AddedService">
+    										<xsd:complexType>
+    											<xsd:attribute name="name" type="xsd:string"><xsd:annotation><xsd:documentation>增值服务名，如COD等 </xsd:documentation></xsd:annotation></xsd:attribute>
+												<xsd:attribute name="value" type="xsd:string"><xsd:annotation><xsd:documentation>增值服务值1 </xsd:documentation></xsd:annotation></xsd:attribute>
+												<xsd:attribute name="value1" type="xsd:string"><xsd:annotation><xsd:documentation>增值服务值2 </xsd:documentation></xsd:annotation></xsd:attribute>
+												<xsd:attribute name="value2" type="xsd:string"><xsd:annotation><xsd:documentation>增值服务值3 </xsd:documentation></xsd:annotation></xsd:attribute>
+												<xsd:attribute name="value3" type="xsd:string"><xsd:annotation><xsd:documentation>增值服务值4 </xsd:documentation></xsd:annotation></xsd:attribute>
+												<xsd:attribute name="value4" type="xsd:string"><xsd:annotation><xsd:documentation>增值服务值5 </xsd:documentation></xsd:annotation></xsd:attribute>
+    										</xsd:complexType>
+    									</xsd:element>
+    								</xsd:sequence>
+    								<xsd:attribute name="orderid" type="xsd:string"><xsd:annotation><xsd:documentation>客户订单号，建议英文字母+YYMMDD（日期）;+流水号，如：TB1207300000001;</xsd:documentation></xsd:annotation></xsd:attribute>
+									<xsd:attribute name="express_type" type="xsd:string"><xsd:annotation><xsd:documentation>快件产品类别(可根据需要定制扩展) ;1 标准快递 ;2 顺丰特惠 ;9 顺E宝平邮 ;10 顺E宝挂号 ;</xsd:documentation></xsd:annotation></xsd:attribute>
+									<xsd:attribute name="j_company" type="xsd:string"><xsd:annotation><xsd:documentation>寄件方公司名称, _SYSTEM 表示如果不提供，将从系统配置获取 </xsd:documentation></xsd:annotation></xsd:attribute>
+									<xsd:attribute name="j_contact" type="xsd:string"><xsd:annotation><xsd:documentation>寄件方联系人, _SYSTEM 表示如果不提供，将从系统配置获取 </xsd:documentation></xsd:annotation></xsd:attribute>
+									<xsd:attribute name="j_tel" type="xsd:string"><xsd:annotation><xsd:documentation>寄件方联系电话, _SYSTEM 表示如果不提供，将从系统配置获取 </xsd:documentation></xsd:annotation></xsd:attribute>
+									<xsd:attribute name="j_mobile" type="xsd:string"><xsd:annotation><xsd:documentation>寄件方手机</xsd:documentation></xsd:annotation></xsd:attribute>
+									<xsd:attribute name="j_address" type="xsd:string"><xsd:annotation><xsd:documentation>寄件方详细地址，包括省市区，示例：“广东省深圳市福田区新洲十一街万基商务大厦 10 楼” , _SYSTEM 表示如果不提供，将从系统配置获取 </xsd:documentation></xsd:annotation></xsd:attribute>
+									<xsd:attribute name="d_company" type="xsd:string"><xsd:annotation><xsd:documentation>到件方公司名称 </xsd:documentation></xsd:annotation></xsd:attribute>
+									<xsd:attribute name="d_contact" type="xsd:string"><xsd:annotation><xsd:documentation>到件方联系人 </xsd:documentation></xsd:annotation></xsd:attribute>
+									<xsd:attribute name="d_tel" type="xsd:string"><xsd:annotation><xsd:documentation>到件方联系电话 </xsd:documentation></xsd:annotation></xsd:attribute>
+									<xsd:attribute name="d_mobile" type="xsd:string"><xsd:annotation><xsd:documentation>到件方手机 </xsd:documentation></xsd:annotation></xsd:attribute>
+									<xsd:attribute name="d_address" type="xsd:string"><xsd:annotation><xsd:documentation>到件方详细地址，示例：“广东省深圳市福田区新洲十一街万基商务大厦10楼” </xsd:documentation></xsd:annotation></xsd:attribute>
+									<xsd:attribute name="parcel_quantity" type="xsd:int"><xsd:annotation><xsd:documentation>包裹数，如果生成运单号码，需要提供此项。;一个包裹对应一个运单号，数据必须准确;</xsd:documentation></xsd:annotation></xsd:attribute>
+									<xsd:attribute name="pay_method" type="xsd:int"><xsd:annotation><xsd:documentation>付款方式：1:寄方付 2:收方付 3:第三方付，默认为1。_SYSTEM 表示如果不提供，将从系统配置获取 </xsd:documentation></xsd:annotation></xsd:attribute>
+									<xsd:attribute name="j_province" type="xsd:string"><xsd:annotation><xsd:documentation>寄件方所在省份字段填写要求：必须是标准的省名称称谓 如：广东省如果是直辖市，请直接传北京、上海等 </xsd:documentation></xsd:annotation></xsd:attribute>
+									<xsd:attribute name="j_city" type="xsd:string"><xsd:annotation><xsd:documentation>寄件方所属城市名称 ;字段填写要求：必须是标准的城市称谓 如：深圳市 ;</xsd:documentation></xsd:annotation></xsd:attribute>
+									<xsd:attribute name="d_province" type="xsd:string"><xsd:annotation><xsd:documentation>到件方所在省份字段填写要求：必须是标准的省名称称谓 如：广东省如果是直辖市，请直接传北京、上海等 </xsd:documentation></xsd:annotation></xsd:attribute>
+									<xsd:attribute name="d_city" type="xsd:string"><xsd:annotation><xsd:documentation>到件方所属城市名称 ;字段填写要求：必须是标准的城市称谓 如：深圳市如果是直辖市，请直接传北京、上海等 ;</xsd:documentation></xsd:annotation></xsd:attribute>
+									<xsd:attribute name="declared_value" type="xsd:int"><xsd:annotation><xsd:documentation>托寄物声明价值。 ;如果是出口件，则必填（报关使用）。;</xsd:documentation></xsd:annotation></xsd:attribute>
+									<xsd:attribute name="declared_value_currency" type="xsd:string"><xsd:annotation><xsd:documentation>托寄物声明价值币别： ;CNY: 人民币 ;HKD: 港币 ;USD: 美元 ;NTD: 新台币 ;RUB: 卢布 ;EUR: 欧元 ;MOP: 澳门元 ;SGD: 新元 ;JPY: 日元 ;KRW: 韩元 ;MYR: 马币 ;VND: 越南盾 ;THB: 泰铢 ;AUD: 澳大利亚元 ;MNT: 图格里克;</xsd:documentation></xsd:annotation></xsd:attribute>
+									<xsd:attribute name="custid" type="xsd:string"><xsd:annotation><xsd:documentation>月结卡号 </xsd:documentation></xsd:annotation></xsd:attribute>
+									<xsd:attribute name="template" type="xsd:string"><xsd:annotation><xsd:documentation>模板选择 </xsd:documentation></xsd:annotation></xsd:attribute>
+									<xsd:attribute name="j_country" type="xsd:string"><xsd:annotation><xsd:documentation>寄方国家 </xsd:documentation></xsd:annotation></xsd:attribute>
+									<xsd:attribute name="j_county" type="xsd:string"><xsd:annotation><xsd:documentation>寄件人所在县/区，必须是标准的县/区称谓，示例：“福田区”（区字不要省略） </xsd:documentation></xsd:annotation></xsd:attribute>
+									<xsd:attribute name="j_shippercode" type="xsd:string"><xsd:annotation><xsd:documentation>寄件方代码如果是国际件，则要传这个字段，用于表示寄方国家的城市。 ;如果此国家整体是以代理商来提供服务的，则此字段可能需要传国家编码。 ;具体商务沟通中双方约定。;</xsd:documentation></xsd:annotation></xsd:attribute>
+									<xsd:attribute name="j_post_code" type="xsd:string"><xsd:annotation><xsd:documentation>寄方邮编，国际件必填，国内（包括港澳台）可不填。 </xsd:documentation></xsd:annotation></xsd:attribute>
+									<xsd:attribute name="d_country" type="xsd:string"><xsd:annotation><xsd:documentation>到方国家 </xsd:documentation></xsd:annotation></xsd:attribute>
+									<xsd:attribute name="d_county" type="xsd:string"><xsd:annotation><xsd:documentation>到件人所在县/区，必须是标准的县/区称谓，示例：“福田区”（区字不要省略） </xsd:documentation></xsd:annotation></xsd:attribute>
+									<xsd:attribute name="d_deliverycode" type="xsd:string"><xsd:annotation><xsd:documentation>到件方代码如果是国际件，则要传这个字段，用于表示到方国家的城市。 ;如果此国家整体是以代理商来提供服务的，则此字段可能需要传国家编码。 ;具体商务沟通中双方约定。;</xsd:documentation></xsd:annotation></xsd:attribute>
+									<xsd:attribute name="d_post_code" type="xsd:string"><xsd:annotation><xsd:documentation>到方邮编，国际件必填，国内（包括港澳台）</xsd:documentation></xsd:annotation></xsd:attribute>
+									<xsd:attribute name="cargo_total_weight" type="xsd:int"><xsd:annotation><xsd:documentation>订单货物总重量，单位 KG，如果提供此值，必须>0  </xsd:documentation></xsd:annotation></xsd:attribute>
+									<xsd:attribute name="sendstarttime" type="xsd:date"><xsd:annotation><xsd:documentation>要求上门取件开始时间，格式：YYYY-MM-DD ;HH24:MM:SS，示例：2012-7-30 ;09:30:00，默认为系统收到订单的系统时间;</xsd:documentation></xsd:annotation></xsd:attribute>
+									<xsd:attribute name="mailno" type="xsd:string"><xsd:annotation><xsd:documentation>运单号，一个订单只能有一个主单号，如果是子母单的情况，请以半角逗号分隔，主单号在第一个位置，如;“755123456789,001123456789,002123;456789”;</xsd:documentation></xsd:annotation></xsd:attribute>
+									<xsd:attribute name="return_tracking" type="xsd:string"><xsd:annotation><xsd:documentation>签回单单号 </xsd:documentation></xsd:annotation></xsd:attribute>
+									<xsd:attribute name="remark" type="xsd:string"><xsd:annotation><xsd:documentation>备注 </xsd:documentation></xsd:annotation></xsd:attribute>
+									<xsd:attribute name="need_return_tracking_no" type="xsd:string"><xsd:annotation><xsd:documentation>是否需要签回单号，1：需要 </xsd:documentation></xsd:annotation></xsd:attribute>
+									<xsd:attribute name="is_docall" type="xsd:int"><xsd:annotation><xsd:documentation>是否下 call 1-下 call,其他否 SYSTEM 表示如果不提供，将从系统配置获取 </xsd:documentation></xsd:annotation></xsd:attribute>
+									<xsd:attribute name="is_gen_bill_no" type="xsd:int"><xsd:annotation><xsd:documentation>是否申请运单号 1-申请运单号，其他否 SYSTEM表示如果不提供，将从系统配置获取 </xsd:documentation></xsd:annotation></xsd:attribute>
+									<xsd:attribute name="is_gen_eletric_pic" type="xsd:int"><xsd:annotation><xsd:documentation>是否生成电子运单图片 1-生成，其他否 SYSTEM表示如果不提供，将从系统配置获取 </xsd:documentation></xsd:annotation></xsd:attribute>
+									<xsd:attribute name="waybill_size" type="xsd:int"><xsd:annotation><xsd:documentation>图片格式： ;如果需要顺丰系统推送图片，则要传这个值。 ;1：A4 ;2：A5 ;…… 具体图片样式不同客户可能不同，所以具体传什么值要在接入测试时进行沟通。;</xsd:documentation></xsd:annotation></xsd:attribute>
+									<xsd:attribute name="cargo_length" type="xsd:int"><xsd:annotation><xsd:documentation>长 </xsd:documentation></xsd:annotation></xsd:attribute>
+									<xsd:attribute name="cargo_width" type="xsd:int"><xsd:annotation><xsd:documentation>宽 </xsd:documentation></xsd:annotation></xsd:attribute>
+									<xsd:attribute name="cargo_height" type="xsd:int"><xsd:annotation><xsd:documentation>高 </xsd:documentation></xsd:annotation></xsd:attribute>
+    							</xsd:complexType>
+    						</xsd:element>
+    					</xsd:sequence>
+    				</xsd:complexType>
+    			</xsd:element>
+    		</xsd:sequence>
+    		<xsd:attribute name="service" type="xsd:string"></xsd:attribute>
+    		<xsd:attribute name="lang" type="xsd:string" default="zh-CN"></xsd:attribute>
+    	</xsd:complexType>
+    </xsd:element>
+
+
+    <xsd:element name="Response">
+    	<xsd:complexType>
+    		<xsd:sequence>
+    			<xsd:element name="Head" type="xsd:string"></xsd:element>
+    			<xsd:element name="ERROR" type="ErrorInfo">
+    			</xsd:element>
+    			<xsd:element name="OrderResponse">
+    				<xsd:complexType>
+    					<xsd:attribute name="orderid" type="xsd:string"><xsd:annotation><xsd:documentation>订单号 </xsd:documentation></xsd:annotation></xsd:attribute>
+						<xsd:attribute name="mailno" type="xsd:string"><xsd:annotation><xsd:documentation>运单号，可多个单号，如子母件，以逗号分隔 </xsd:documentation></xsd:annotation></xsd:attribute>
+						<xsd:attribute name="return_tracking_no" type="xsd:string"><xsd:annotation><xsd:documentation>签单返还运单号 </xsd:documentation></xsd:annotation></xsd:attribute>
+						<xsd:attribute name="agent_mailno" type="xsd:string"><xsd:annotation><xsd:documentation>代理运单号，可多个单号，如子母件，以逗号分隔 </xsd:documentation></xsd:annotation></xsd:attribute>
+						<xsd:attribute name="origincode" type="xsd:string"><xsd:annotation><xsd:documentation>原寄地代码 </xsd:documentation></xsd:annotation></xsd:attribute>
+						<xsd:attribute name="destcode" type="xsd:string"><xsd:annotation><xsd:documentation>目的地代码 </xsd:documentation></xsd:annotation></xsd:attribute>
+						<xsd:attribute name="filter_result" type="xsd:int"><xsd:annotation><xsd:documentation>筛单结果：1-人工确认，2-可收派 3-不可以收派 </xsd:documentation></xsd:annotation></xsd:attribute>
+						<xsd:attribute name="remark" type="xsd:string"><xsd:annotation><xsd:documentation>1-收方超范围，2-派方超范围，3-其他原因 </xsd:documentation></xsd:annotation></xsd:attribute>
+    				</xsd:complexType>
+    			</xsd:element>
+    		</xsd:sequence>
+    		<xsd:attribute name="service" type="xsd:string"></xsd:attribute>
+    	</xsd:complexType>
+    </xsd:element>
+
+
+
+    <xsd:complexType name="ErrorInfo">
+    	<xsd:simpleContent>
+    		<xsd:extension base="xsd:string">
+    			<xsd:attribute name="code" type="xsd:string"></xsd:attribute>
+    		</xsd:extension>
+    	</xsd:simpleContent>
+    </xsd:complexType>
+</xsd:schema>

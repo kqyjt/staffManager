@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-4.1.xsd
+    http://www.springframework.org/schema/tx
+    http://www.springframework.org/schema/tx/spring-tx-4.1.xsd">
+
+	<context:property-placeholder
+		location="classpath:org/leafframework/conf/leaf.properties" />
+	<!-- 引入jdbc配置文件 -->
+	<!-- 扫描文件（自动将servicec层注入） -->
+	<context:component-scan base-package="org.leafframework.mvc.service" />
+	<context:component-scan base-package="org.leafframework.http.unionpay" />
+	<context:component-scan base-package="org.leafframework.http.yeepay.yjpay.service" />
+	<context:component-scan base-package="org.leafframework.jws.express" />
+	<context:component-scan base-package="org.leafframework.data.dao" />
+	<context:component-scan base-package="org.leafframework.data.mao" />
+	
+	<!-- 初始化全局spring ApplicationContext -->
+	<bean class="org.leafframework.mvc.service.ApplicationContextProvider"></bean>
+	
+	<tx:annotation-driven proxy-target-class="true" />
+	
+	<bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
+		<property name="maxIdle" value="${leaf.redis.maxIdle}" />
+		<property name="maxTotal" value="${leaf.redis.maxTotal}" />
+		<property name="maxWaitMillis" value="${leaf.redis.maxWaitMillis}" />
+		<property name="testOnBorrow" value="${leaf.redis.testOnBorrow}" />
+	</bean>
+
+	<bean id="jedisConnFactory"
+		class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"
+		p:host-name="${leaf.redis.host}" p:port="${leaf.redis.port}"
+		p:password="${leaf.redis.pass}" p:pool-config-ref="jedisPoolConfig" />
+
+	<bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate">
+		<property name="connectionFactory" ref="jedisConnFactory" />
+		<property name="keySerializer">
+			<bean
+				class="org.springframework.data.redis.serializer.StringRedisSerializer" />
+		</property>
+		<property name="valueSerializer">
+			<bean
+				class="org.springframework.data.redis.serializer.JdkSerializationRedisSerializer" />
+		</property>
+	</bean>
+
+</beans>
