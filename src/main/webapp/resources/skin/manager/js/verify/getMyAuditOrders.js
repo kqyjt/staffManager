@@ -273,7 +273,7 @@ function verifyOrder2ConvertState(value){
 	}else if(value=='A2'){
 		return '未通过';
 	}else if(value=='B0'){
-		return '未办理';
+		return '待办理';
 	}else if(value=='B1'){
 		return '已办理';
 	}else if(value=='B2'){

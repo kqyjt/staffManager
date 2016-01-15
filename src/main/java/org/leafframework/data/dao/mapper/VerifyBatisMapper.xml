@@ -58,6 +58,7 @@
 		  card_pic_c,
 		  card_address,
 		  city_id,
+		  (select tma.name from t_m_area tma where tma.code = tou.city_id) as city_name,
 		  audit_staff,
 		  audit_state,
 		  bis_state,
@@ -65,7 +66,7 @@
 		  update_staff_id,
 		  date_format(update_time,'%Y-%m-%d %T') update_time,
 		  remark
-  		FROM t_o_userinfo
+  		FROM t_o_userinfo tou
 	 	WHERE 1 = 1
 	 	<if test="IS_WAIT != null and IS_WAIT==1"> and audit_staff is null	</if>
 	 	<if test="AUDIT_STAFF != null and AUDIT_STAFF != ''"> and audit_staff =	#{AUDIT_STAFF}</if>

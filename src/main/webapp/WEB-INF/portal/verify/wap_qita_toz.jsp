@@ -61,7 +61,7 @@ border-bottom:1px solid #CCC;
 .qt_ergrer{ height:70px; margin:10px;}
 .qi_nglere{ padding-right:10px; border-right:1px solid #c1c1c1;}
 img{vertical-align:middle;}
-.qtyongyici{ height:70px; padding-left:10px; border-left:1px solid rgba(255,255,255,0.6);font-family:'微软雅黑';}
+.qtyongyici{ height:70px; padding-left:10px; padding-top:12px; border-left:1px solid rgba(255,255,255,0.6);font-family:'微软雅黑';}
 .qtwogerner{ width:25%; height:24px; background:#bfbfbf; border:1px solid #fff; float:left;font-family:'微软雅黑'; text-align:center; color:#fff; box-sizing:border-box}
 .qtwogerner2{ background:#f95118}
 .obertabler{ font-family:'微软雅黑';font-size:16px; color:#666; line-height:38px; width:96%; margin:0 auto;}
@@ -81,7 +81,6 @@ img{vertical-align:middle;}
            <!-- <p style="font-size:26px;color: #505050;font-weight: bold; text-shadow:1px 1px 1px #fff; line-height:40px;">山东联通自助实名登记系统</p> -->
 	       <p style="font-size:18px;color: #505050;font-weight: bold; text-shadow:1px 1px 1px #fff; line-height:23px;">山东联通自助</p>
 	       <p style="font-size:18px;color: #505050;font-weight: bold; text-shadow:1px 1px 1px #fff; line-height:23px;">实名登记系统</p>
-	       <p style="font-size:14px; line-height:20px; color:#CA2A2A;font-weight:600;">山东分公司</p>
        </div>
        <div class="clear"></div>
        </div>
@@ -106,11 +105,12 @@ img{vertical-align:middle;}
 
  <div  style="background:#fff; border:1px solid #CCC; box-shadow:0 0 2px rgba(0,0,0,0.2)">
 
- <div style="font-family:'微软雅黑'; font-size:18px; text-align:center; margin:20px 0; ">实名结果查询</div>
+ <div style="font-family:'微软雅黑'; font-size:18px; text-align:center; margin:20px 0; ">提交成功</div>
  <div style="border-top:1px solid #ccc; margin:0 auto">
  <div style=" font-size:16px; line-height:40px; padding:0 5px;  color:#666;  margin:30px auto">
-  <p>手机号码：<b class="c_orger" id="SERIAL_NUMBER"></b></p>
-  <p>温馨提示：尊敬的用户，你的实名登记正在处理中，最新结果将通过手机短信通知您，谢谢您的配合！</p>
+  <!-- <p>手机号码：<b class="c_orger" id="SERIAL_NUMBER"></b></p> -->
+  <p>温馨提示：尊敬的用户，您的补登记信息已经提交成功，审核结果将于48小时内通过短信发送至补登记手机号。</p>
+  <!-- <p>温馨提示：尊敬的用户，你的实名登记正在处理中，最新结果将通过手机短信通知您，谢谢您的配合！</p> -->
   </div>
  </div>
  

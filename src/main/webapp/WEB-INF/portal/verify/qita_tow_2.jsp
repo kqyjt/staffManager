@@ -65,12 +65,25 @@ border-bottom:1px solid #CCC;
 .qt_ergrer{ height:70px; margin:10px;}
 .qi_nglere{ padding-right:10px; border-right:1px solid #c1c1c1;}
 img{vertical-align:middle;}
-.qtyongyici{ height:70px; padding-left:10px; border-left:1px solid rgba(255,255,255,0.6);font-family:'微软雅黑';}
+.qtyongyici{ height:70px; padding-left:10px; padding-top:15px; border-left:1px solid rgba(255,255,255,0.6);font-family:'微软雅黑';}
 .qtwogerner{ width:300px; height:24px; background:#bfbfbf; border:1px solid #fff; float:left;font-family:'微软雅黑'; text-align:center; color:#fff; box-sizing:border-box}
 .qtwogerner2{ background:#f95118}
 .obertabler{ font-family:'微软雅黑';font-size:16px; color:#666; line-height:38px; width:450px; margin:0 auto;}
 .obobere{ line-height:30px; border:1px solid #a0a0a0; padding:0 5px; width:260px; line-height:30px; color:#333; font-size:14px}
 .yanzhengma_a{ font-size:12px; color:#fff; display:block; width:90px; height:28px; line-height:28px; margin-top:2px; text-align:center;  background:#73cc34}
+
+/*注册上传身份证样式*/
+.upload_file_2{
+	width:192px;
+	height: 123px;
+	position: absolute;
+	opacity: 0;
+	filter:alpha(opacity=0);
+	top: 0px;
+	left: 0px;
+	z-index:999;
+}
+
 </style>
 <body>
 <section>
@@ -81,7 +94,7 @@ img{vertical-align:middle;}
        
        <div class="FL qi_nglere"><img src="${contextPath}/resources/skin/portal/images/verify/liantonglogo.png" width="118" height="70"></div>
        
-       <div class="FL qtyongyici"><p style="font-size:26px;color: #505050;font-weight: bold; text-shadow:1px 1px 1px #fff; line-height:40px;">山东联通自助实名登记系统</p><p style="font-size:18px; line-height:20px; color:#CA2A2A;font-weight:600;">山东分公司</p></div>
+       <div class="FL qtyongyici"><p style="font-size:35px;color: #505050;font-weight: bold; text-shadow:1px 1px 1px #fff; line-height:35px;">山东联通自助实名登记系统</p></div>
        <div class="clear"></div>
        </div>
       <!--logo--> 
@@ -121,29 +134,29 @@ img{vertical-align:middle;}
  <input type="text" id="phoneNumber" value="${param.params}" style="display:none"/>
  
  <div style="margin:20px auto 20px auto; width:610px;">
-	<div class="dd_shenzshangchan">
+	<div class="dd_shenzshangchan zhengmiandiv">
 			<a href="javascript:void(0);" onclick="javascript:clickfileinput('zhengmianinput');"  id="zhengmian">
 				<i class="fa fa-plus"></i><br/>
 				<span class="c_red F13">*</span>
 				上传身份证正面
 			</a>
-			<input type="file" id="zhengmianinput" onchange="previewImage(this,'zhengmian');" class="upload_file"  name="uploadFile"/>
+			<input type="file" id="zhengmianinput" onchange="previewImage(this,'zhengmian');" class="upload_file_2"  name="uploadFile"/>
 		</div> 
-		<div class="dd_shenzshangchan">
+		<div class="dd_shenzshangchan beimiandiv">
 			<a href="javascript:void(0);" onclick="javascript:clickfileinput('beimianinput');" id="beimian">
 				<i class="fa fa-plus"></i><br/>
 				<span class="c_red F13">*</span>
 				上传身份证背面
 			</a>
-			<input type="file" id="beimianinput" onchange="previewImage(this,'beimian');" class="upload_file" name="uploadFile" />
+			<input type="file" id="beimianinput" onchange="previewImage(this,'beimian');" class="upload_file_2" name="uploadFile" />
 		</div>
-		<div class="dd_shenzshangchan">
+		<div class="dd_shenzshangchan shouchidiv">
 			<a href="javascript:void(0);" onclick="javascript:clickfileinput('handininput');" id="handin">
 				<i class="fa fa-plus"></i><br/>
 				<span class="c_red F13">*</span>
 				手持身份证
 			</a>
-			<input type="file" id="handininput" onchange="previewImage(this,'handin');" class="upload_file" name="uploadFile" />
+			<input type="file" id="handininput" onchange="previewImage(this,'handin');" class="upload_file_2" name="uploadFile" />
 		</div>
 <div class="clear"></div>
 <p class="F12 c_qhuise margintop10 t_c">点击上传身份证</p>

@@ -1,4 +1,114 @@
+var Sys = {};
+var ua = navigator.userAgent.toLowerCase();
+var s;
+(s = ua.match(/msie ([\d.]+)/)) ? Sys.ie = s[1] :
+(s = ua.match(/firefox[\/\s](\d+)/)) ? Sys.firefox = s[1] :
+(s = ua.match(/chrome\/([\d.]+)/)) ? Sys.chrome = s[1] :
+(s = ua.match(/opera.([\d.]+)/)) ? Sys.opera = s[1] :
+(s = ua.match(/version\/([\d.]+).*safari/)) ? Sys.safari = s[1] : 0;
+
+
+
+function ajaxUploadIdcard(){
+    var url = orderPath + "/file/fileUpload.json";
+	var fileElementIds = [];
+	var zhengmianinput = $("#zhengmianinput:enabled");
+	var beimianinput = $("#beimianinput:enabled");
+	var shouchiinput = $("#shouchiinput:enabled");
+	if(zhengmianinput.length>0){
+		fileElementIds.push("zhengmianinput");
+	}
+	if(beimianinput.length>0){
+		fileElementIds.push("beimianinput");
+	}
+	if(shouchiinput.length>0){
+		fileElementIds.push("shouchiinput");
+	}
+	
+    $.ajaxFileUpload({
+        url: url,
+        secureuri: false,
+        fileElementId: fileElementIds,
+        dataType: 'json',
+        type: 'POST',
+        success: function (respData) {
+        	//alert(JSON.stringify(respData));
+        	if(respData != ""){
+        		var isSuccess = respData.respCode;
+        		if(isSuccess == 'success'){
+        		}else{
+        			Alertone("身份证上传失败: " + respData.respMsg, function(btnnum) {
+        			});
+        		}
+        	}else{
+        		Alertone("身份证上传失败", function(btnnum) {
+    			});
+        	}
+        },
+	    error: function(respData){ 
+	    	var responseText =  eval('(' + respData.responseText.replace("<pre>","").replace("</pre>","") + ')');
+	    	var respCode = responseText.respCode;
+	    	if(respCode == 'success'){
+	    	}else{
+	    		Alertone("身份证上传失败", function(btnnum) {
+				});
+	    	}
+	    }
+    });
+}
+
+function getPath(obj){   
+	$('#picDiv').remove();
+	$('#zhengmian').append('<div id="picDiv" style="width: 1px; height: 1px;"></div>');
+	if(obj) {   
+		if(navigator.userAgent.indexOf("MSIE")>0) {  
+			obj.select();   
+			document.getElementById("picDiv").focus(); 
+			return document.selection.createRange().text?document.selection.createRange().text:obj.value; 
+		}   
+	}
+}  
+
 $(document).ready(function() {
+	if(Sys.ie)
+	{
+		  
+		  $(".zhengmiandiv,.beimiandiv,.shouchidiv").hover(function(e){
+			  $(this).find('.upload_file_2').show();
+			   }, function(){
+				   $(this).find('.upload_file_2').hide();
+			   });
+		  
+		   $(".zhengmiandiv").mousemove(function(e){
+			   var nowleft=$(this).offset().left;
+			   $(this).find('.upload_file_2')
+			   .css("top","0px")
+			   .css("left",(e.pageX-nowleft-150)+"px")
+			   .css("position","absolute")
+			   .css("opacity","0")
+			   .css("z-index","999");
+			   });
+		   
+		   $(".beimiandiv").mousemove(function(e){
+			   var nowleft=$(this).offset().left;
+			   $(this).find('.upload_file_2')
+			   .css("top","0px")
+			   .css("left",(e.pageX-nowleft-150)+"px")
+			   .css("position","absolute")
+			   .css("opacity","0")
+			   .css("z-index","999");
+			   });
+		   $(".shouchidiv").mousemove(function(e){
+			   var nowleft=$(this).offset().left;
+			   $(this).find('.upload_file_2')
+			   .css("top","0px")
+			   .css("left",(e.pageX-nowleft-150)+"px")
+			   .css("position","absolute")
+			   .css("opacity","0")
+			   .css("z-index","999");
+			   });
+		   
+	}
 	if($("#errorMessage")){
 		$("#errorMessage").html('');
 	}
@@ -306,7 +416,12 @@ function checkext(file)
 }
 function clickfileinput(inputid)
 {
-	$('#'+inputid).click();
+	if(Sys.ie){
+		//ajaxUploadIdcard();
+	} else {
+		$('#'+inputid).click();
+	}
+	
 	
 };
 

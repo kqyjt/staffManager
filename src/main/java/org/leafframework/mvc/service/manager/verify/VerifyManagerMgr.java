@@ -97,13 +97,14 @@ public class VerifyManagerMgr extends Business {
 					HSSFRow row = sheet.createRow(i+1);
 					row.createCell(0).setCellValue(orderMap.get("USER_ID"));
 					row.createCell(1).setCellValue(orderMap.get("PHONE_NUM") == null ? "" : orderMap.get("PHONE_NUM"));
-					row.createCell(2).setCellValue(orderMap.get("CARD_NUM") == null ? "" : orderMap.get("CARD_NUM"));
-					row.createCell(3).setCellValue(orderMap.get("USER_NAME") == null ? "" : orderMap.get("USER_NAME"));
-					row.createCell(4).setCellValue(orderMap.get("CARD_ADDRESS") == null ? "" : orderMap.get("CARD_ADDRESS"));
-					row.createCell(5).setCellValue(orderMap.get("CREATE_TIME") == null ? "" : orderMap.get("CREATE_TIME"));
-					row.createCell(6).setCellValue(orderMap.get("AUDIT_STATE") == null ? "" : convertOrderState(orderMap.get("AUDIT_STATE")));
-					row.createCell(7).setCellValue(orderMap.get("BIS_STATE") == null ? "" : convertOrderState(orderMap.get("BIS_STATE")));
-					row.createCell(8).setCellValue(orderMap.get("UPDATE_TIME") == null ? "" : orderMap.get("UPDATE_TIME"));
+					row.createCell(2).setCellValue(orderMap.get("CITY_NAME") == null ? "" : orderMap.get("CITY_NAME"));
+					row.createCell(3).setCellValue(orderMap.get("CARD_NUM") == null ? "" : orderMap.get("CARD_NUM"));
+					row.createCell(4).setCellValue(orderMap.get("USER_NAME") == null ? "" : orderMap.get("USER_NAME"));
+					row.createCell(5).setCellValue(orderMap.get("CARD_ADDRESS") == null ? "" : orderMap.get("CARD_ADDRESS"));
+					row.createCell(6).setCellValue(orderMap.get("CREATE_TIME") == null ? "" : orderMap.get("CREATE_TIME"));
+					row.createCell(7).setCellValue(orderMap.get("AUDIT_STATE") == null ? "" : convertOrderState(orderMap.get("AUDIT_STATE")));
+					row.createCell(8).setCellValue(orderMap.get("BIS_STATE") == null ? "" : convertOrderState(orderMap.get("BIS_STATE")));
+					row.createCell(9).setCellValue(orderMap.get("UPDATE_TIME") == null ? "" : orderMap.get("UPDATE_TIME"));
 				}
 			}
 	           

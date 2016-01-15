@@ -42,7 +42,7 @@
            <td>
            
            <c:choose>
-           		<c:when test="${result.dataSet.userInfo.BIS_STATE == 'B0' }">未办理</c:when>
+           		<c:when test="${result.dataSet.userInfo.BIS_STATE == 'B0' }">待办理</c:when>
            		<c:when test="${result.dataSet.userInfo.BIS_STATE == 'B1' }">已办理</c:when>
            		<c:when test="${result.dataSet.userInfo.BIS_STATE == 'B2' }">办理失败</c:when>
            	</c:choose>
@@ -104,10 +104,10 @@
 			 </td>
              <td class="border_right_g" width="90">
              	<c:choose>
-	           		<c:when test="${auditList.STATE == 'A0' }">已通过</c:when>
-	           		<c:when test="${auditList.STATE == 'A1' }">已审核</c:when>
-	           		<c:when test="${auditList.STATE == 'A2' }">不通过</c:when>
-	           		<c:when test="${auditList.STATE == 'B0' }">未办理</c:when>
+	           		<c:when test="${auditList.STATE == 'A0' }">待审核</c:when>
+	           		<c:when test="${auditList.STATE == 'A1' }">已通过</c:when>
+	           		<c:when test="${auditList.STATE == 'A2' }">未通过</c:when>
+	           		<c:when test="${auditList.STATE == 'B0' }">待办理</c:when>
 	           		<c:when test="${auditList.STATE == 'B1' }">已办理</c:when>
 	           		<c:when test="${auditList.STATE == 'B2' }">办理失败</c:when>
            		</c:choose>

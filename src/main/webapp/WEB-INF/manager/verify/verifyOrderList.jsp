@@ -46,7 +46,7 @@
 			<td>
 			<select id="BIS_STATE"  name="BIS_STATE" class="easyui-combobox">
 		  		<option value="">--全部--</option>
-		  		<option value="B0">未办理</option>
+		  		<option value="B0">待办理</option>
 		  		<option value="B1">已办理</option>
 		  		<option value="B2">办理失败</option>
 		  	</select>
@@ -75,6 +75,7 @@
 			    <th data-options="field:'ID',checkbox:true"></th>
 				<th data-options="field:'USER_ID',width:80,align:'left'">订单号</th>
 				<th data-options="field:'PHONE_NUM',width:100,align:'left'">手机号码</th>
+				<th data-options="field:'CITY_NAME',width:100,align:'left'">地市</th>
 				<th data-options="field:'CARD_NUM',width:120,align:'left'">身份证号</th>
 				<th data-options="field:'USER_NAME',width:100,align:'left'">姓名</th>
 				<th data-options="field:'CARD_ADDRESS',width:200,align:'left'">证件地址</th>

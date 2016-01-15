@@ -62,13 +62,13 @@ VerifyOrder3.viewDetail  = function(){
 
 function verifyOrder2ConvertState(value){
 	if(value=='A0'){
-		return '未审核';
+		return '待审核';
 	}else if(value=='A1'){
-		return '已审核';
+		return '已通过';
 	}else if(value=='A2'){
-		return '不通过';
+		return '未通过';
 	}else if(value=='B0'){
-		return '未办理';
+		return '待办理';
 	}else if(value=='B1'){
 		return '已办理';
 	}else if(value=='B2'){

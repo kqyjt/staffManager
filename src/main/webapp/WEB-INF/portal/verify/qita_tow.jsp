@@ -65,7 +65,7 @@ border-bottom:1px solid #CCC;
 .qt_ergrer{ height:70px; margin:10px;}
 .qi_nglere{ padding-right:10px; border-right:1px solid #c1c1c1;}
 img{vertical-align:middle;}
-.qtyongyici{ height:70px; padding-left:10px; border-left:1px solid rgba(255,255,255,0.6);font-family:'微软雅黑';}
+.qtyongyici{ height:70px; padding-left:10px; padding-top:15px; border-left:1px solid rgba(255,255,255,0.6);font-family:'微软雅黑';}
 .qtwogerner{ width:300px; height:24px; background:#bfbfbf; border:1px solid #fff; float:left;font-family:'微软雅黑'; text-align:center; color:#fff; box-sizing:border-box}
 .qtwogerner2{ background:#f95118}
 .obertabler{ font-family:'微软雅黑';font-size:16px; color:#666; line-height:38px; width:450px; margin:0 auto;}
@@ -81,7 +81,7 @@ img{vertical-align:middle;}
        
        <div class="FL qi_nglere"><img src="${contextPath}/resources/skin/portal/images/verify/liantonglogo.png" width="118" height="70"></div>
        
-       <div class="FL qtyongyici"><p style="font-size:26px;color: #505050;font-weight: bold; text-shadow:1px 1px 1px #fff; line-height:40px;">山东联通自助实名登记系统</p><p style="font-size:18px; line-height:20px; color:#CA2A2A;font-weight:600;">山东分公司</p></div>
+       <div class="FL qtyongyici"><p style="font-size:35px;color: #505050;font-weight: bold; text-shadow:1px 1px 1px #fff; line-height:35px;">山东联通自助实名登记系统</p></div>
        <div class="clear"></div>
        </div>
       <!--logo--> 
