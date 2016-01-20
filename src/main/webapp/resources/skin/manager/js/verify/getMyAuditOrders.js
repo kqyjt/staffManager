@@ -48,8 +48,8 @@ VerifyOrder2.getDetail = function(){
 		var issue = response.result.dataSet.issue;
 		var addr = response.result.dataSet.addr;
 		var url = managerPath + "/manager/verify/VerifyManagerMgr.htm?m=query&f=verifyDetail&userId="+userId+"&apptx="+apptx
-		+"&certName="+certName+"&certId="+certId+"&sex="+sex+"&nation="+nation+"&exp="+exp+"&birthday="+birthday+"&issue="+issue
-		+"&addr="+addr;
+		+"&certName="+encodeURIComponent(certName)+"&certId="+certId+"&sex="+sex+"&nation="+encodeURIComponent(nation)+"&exp="
+		+exp+"&birthday="+birthday+"&issue="+encodeURIComponent(issue)+"&addr="+encodeURIComponent(addr);
 		OpenTab("center_tabs",'订单详情',url,'icon-munich-collaboration');
 	}); 
 }
@@ -88,8 +88,8 @@ VerifyOrder2.gotoAudit = function(){
 		var issue = response.result.dataSet.issue;
 		var addr = response.result.dataSet.addr;
 		var url = managerPath + "/manager/verify/VerifyManagerMgr.htm?m=query&f=verifyDetail&userId="+userId + "&isaudit=1"+"&apptx="+apptx
-		+"&certName="+certName+"&certId="+certId+"&sex="+sex+"&nation="+nation+"&exp="+exp+"&birthday="+birthday+"&issue="+issue
-		+"&addr="+addr;
+		+"&certName="+encodeURIComponent(certName)+"&certId="+certId+"&sex="+sex+"&nation="+encodeURIComponent(nation)+"&exp="
+		+exp+"&birthday="+birthday+"&issue="+encodeURIComponent(issue)+"&addr="+encodeURIComponent(addr);
 		OpenTab("center_tabs",'审核详情',url,'icon-munich-collaboration');
 	}); 
 	
@@ -135,8 +135,8 @@ VerifyOrder2.gotoChangeBisState = function(){
 		var issue = response.result.dataSet.issue;
 		var addr = response.result.dataSet.addr;
 		var url = managerPath + "/manager/verify/VerifyManagerMgr.htm?m=query&f=verifyDetail&userId="+userId + "&ischangebis=1"+"&apptx="+apptx
-		+"&certName="+certName+"&certId="+certId+"&sex="+sex+"&nation="+nation+"&exp="+exp+"&birthday="+birthday+"&issue="+issue
-		+"&addr="+addr;
+		+"&certName="+encodeURIComponent(certName)+"&certId="+certId+"&sex="+sex+"&nation="+encodeURIComponent(nation)+"&exp="
+		+exp+"&birthday="+birthday+"&issue="+encodeURIComponent(issue)+"&addr="+encodeURIComponent(addr);
 		OpenTab("center_tabs",'业务办理',url,'icon-munich-collaboration');
 	}); 
 }

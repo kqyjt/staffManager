@@ -189,7 +189,7 @@ function checkPhoneVerifyCode(){
 	}
 	var checkCode=$('#CHECK_CODE').val();
 	if(!checkCode || checkCode==''){
-		Alertone('请输入手机验证码!');
+		Alertone('请输入手机验证码!',clearrandom);
 		return;
 	}
 	
@@ -210,13 +210,18 @@ function checkPhoneVerifyCode(){
         		//window.location.href = contextPath +"/portal/space/VerifyMgr.htm?m=execute&f=checkverifycodesucess&serial_number=" + serialNumber;
         		window.location.href = encodeURI(contextPath +"/portal/verify/qita_tow.htm?params=" + phoneNumber);
 	    	}else{
-	    		$("#errorMessage").html(result.dataSet.errorDetail);
+	    		Alertone('您输入的验证码不正确，请重新获取输入!',clearrandom);
 	    	}
         },
 	    error: function(respData){ 
 	    	$("#errorMessage").html('发送验证码异常!');
 	    }
     });
+}
+
+function clearrandom(btnint)
+{
+	$('#CHECK_CODE').focus().val("");	
 }
 
 function initQita3(){

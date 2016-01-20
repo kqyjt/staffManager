@@ -53,8 +53,8 @@ VerifyOrder3.viewDetail  = function(){
 		var issue = response.result.dataSet.issue;
 		var addr = response.result.dataSet.addr;
 		var url = managerPath + "/manager/verify/VerifyManagerMgr.htm?m=query&f=verifyDetail&userId="+userId+"&apptx="+apptx
-		+"&certName="+certName+"&certId="+certId+"&sex="+sex+"&nation="+nation+"&exp="+exp+"&birthday="+birthday+"&issue="+issue
-		+"&addr="+addr;
+		+"&certName="+encodeURIComponent(certName)+"&certId="+certId+"&sex="+sex+"&nation="+encodeURIComponent(nation)+"&exp="
+		+exp+"&birthday="+birthday+"&issue="+encodeURIComponent(issue)+"&addr="+encodeURIComponent(addr);
 		OpenTab("center_tabs",'订单详情',url,'icon-munich-collaboration');
 	});
 	
