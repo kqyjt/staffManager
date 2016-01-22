@@ -22,6 +22,19 @@ VerifyOrder2.searchSubmit = function(){
 
 //打开订单详情界面
 VerifyOrder2.getDetail = function(){
+	if (!Array.prototype.forEach) {  
+	    Array.prototype.forEach = function(fun /*, thisp*/){  
+	        var len = this.length;  
+	        if (typeof fun != "function")  
+	            throw new TypeError();  
+	        var thisp = arguments[1];  
+	        for (var i = 0; i < len; i++){  
+	            if (i in this)  
+	                fun.call(thisp, this[i], i, this);  
+	        }  
+	    };  
+	}
+	
 	var selectRow = $("#VerifyOrder2_datagrid").datagrid("getSelected");
 	if (selectRow == "" || selectRow == undefined) {
 		$.messager.alert('提示信息',"请先选择一行记录!",'info');
@@ -56,6 +69,19 @@ VerifyOrder2.getDetail = function(){
 
 //打开审核详情界面
 VerifyOrder2.gotoAudit = function(){
+	if (!Array.prototype.forEach) {  
+	    Array.prototype.forEach = function(fun /*, thisp*/){  
+	        var len = this.length;  
+	        if (typeof fun != "function")  
+	            throw new TypeError();  
+	        var thisp = arguments[1];  
+	        for (var i = 0; i < len; i++){  
+	            if (i in this)  
+	                fun.call(thisp, this[i], i, this);  
+	        }  
+	    };  
+	}
+	
 	var selectRow = $("#VerifyOrder2_datagrid").datagrid("getSelected");
 	if (selectRow == "" || selectRow == undefined) {
 		$.messager.alert('提示信息',"请先选择一行记录!",'info');
@@ -97,6 +123,19 @@ VerifyOrder2.gotoAudit = function(){
 
 //打开业务办理界面
 VerifyOrder2.gotoChangeBisState = function(){
+	if (!Array.prototype.forEach) {  
+	    Array.prototype.forEach = function(fun /*, thisp*/){  
+	        var len = this.length;  
+	        if (typeof fun != "function")  
+	            throw new TypeError();  
+	        var thisp = arguments[1];  
+	        for (var i = 0; i < len; i++){  
+	            if (i in this)  
+	                fun.call(thisp, this[i], i, this);  
+	        }  
+	    };  
+	}
+	
 	var selectRow = $("#VerifyOrder2_datagrid").datagrid("getSelected");
 	if (selectRow == "" || selectRow == undefined) {
 		$.messager.alert('提示信息',"请先选择一行记录!",'info');
@@ -197,7 +236,12 @@ $("#BIS_FAIL_REASON").combobox({
 
 function auditInfo_save(){
 	//document.getElementById("auditSubmit").style.display='none';
-	document.getElementById("auditSubmit").disabled=true;
+	//设置href属性
+	document.getElementById("auditSubmit").href = "javascript:void(0);";
+	//设置disabled属性
+	document.getElementById("auditSubmit").setAttribute("disabled", "disabled");
+	
+	//document.getElementById("auditSubmit").disabled=true;
 	
 	var state = $('#SEL_AUDIT_STATE').combobox('getValue');
 	if(state == 'A2'){
@@ -233,7 +277,12 @@ function auditInfo_save(){
 
 function changebisstate_save(){
 	//document.getElementById("bisSubmit").style.display='none';
-	document.getElementById("bisSubmit").disabled=true;
+	//设置href属性
+	document.getElementById("bisSubmit").href = "javascript:void(0);";
+	//设置disabled属性
+	document.getElementById("bisSubmit").setAttribute("disabled", "disabled");
+	
+	//document.getElementById("bisSubmit").disabled=true;
 	var state = $('#SEL_BIS_STATE').combobox('getValue');
 	if(state == 'B2'){
 		var reason = $('#BIS_FAIL_REASON').combobox('getValue');

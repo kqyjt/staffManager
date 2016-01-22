@@ -124,6 +124,21 @@ public class VerifyMgr extends Business {
 		
 		VerifyBatisDAO dao = (VerifyBatisDAO) this.getDaoFactory().get("verifyBatisDAO");
 		String telephone = (String)inparam.get("SERIAL_NUMBER");
+		
+		HashMap<String, Object> tempMap1 = new HashMap<String, Object>();
+		tempMap1.put("phoneNumber", telephone);
+		List<HashMap<String, Object>> stateList1 = dao.queryVerifyStateList1(tempMap1);
+		
+		HashMap<String, Object> tempMap2 = new HashMap<String, Object>();
+		tempMap2.put("phoneNumber", telephone);
+		List<HashMap<String, Object>> stateList2 = dao.queryVerifyStateList2(tempMap2);
+		if(stateList1.size() != 0){
+			outParam.put("answer", "您前期提交的补登记信息正在处理中，请等待处理结果。");
+		}
+		if(stateList2.size() != 0){
+			outParam.put("answer", telephone+"用户已经补登记成功。");
+		}
+		
 		HashMap<String, Object> paramMap = new HashMap<String, Object>();
 		paramMap.put("phoneNumber", telephone);
 		List<HashMap<String, Object>> phoneList = dao.queryPhoneList(paramMap);

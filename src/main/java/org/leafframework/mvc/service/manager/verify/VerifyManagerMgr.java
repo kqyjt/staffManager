@@ -171,9 +171,11 @@ public class VerifyManagerMgr extends Business {
 			auditInfo = "审核不通过，不通过原因： " + inParam.get("SUGGEST");
 			String content = "";
 			if(inParam.get("SUGGEST").equals("B1") || inParam.get("SUGGEST").equals("B2") || inParam.get("SUGGEST").equals("B3")){
-				content = "【山东联通实名补登记通知】尊敬的" + userInfo.get("PHONE_NUM") + "用户，您提交的身份信息不全，没有通过审核，请您重新上传或到号码归属地营业厅查询办理，感谢您的支持和配合。";
+				//content = "【山东联通实名补登记通知】尊敬的" + userInfo.get("PHONE_NUM") + "用户，您提交的身份信息不全，没有通过审核，请您重新上传或到号码归属地营业厅查询办理，感谢您的支持和配合。";
+				content = "【山东联通实名补登记通知】尊敬的" + userInfo.get("PHONE_NUM") + "用户，您提交的身份信息没有通过审核，可能的原因：上传照片不全、不合规、不清晰、人证不符等，请您重新上传或到号码归属地营业厅查询办理，感谢您的支持和配合。";
 			} else {
-				content = "【山东联通实名补登记通知】尊敬的" + userInfo.get("PHONE_NUM") + "用户，您提交的身份信息不合规或持证件与证件照片不符，没有通过审核，请持有效证件到归属地营业厅查询办理，感谢您的支持和配合。";
+				//content = "【山东联通实名补登记通知】尊敬的" + userInfo.get("PHONE_NUM") + "用户，您提交的身份信息不合规或持证件与证件照片不符，没有通过审核，请持有效证件到归属地营业厅查询办理，感谢您的支持和配合。";
+				content = "【山东联通实名补登记通知】尊敬的" + userInfo.get("PHONE_NUM") + "用户，您提交的身份信息没有通过审核，可能的原因：上传照片不全、不合规、不清晰、人证不符等，请您重新上传或到号码归属地营业厅查询办理，感谢您的支持和配合。";
 			}
 			//String content = "您在山东联通网盟平台上传的实名认证信息，订单号: " + inParam.get("userId") + "，审核结果: " + auditInfo + "。山东联通网盟平台";
 			// 业务类别编码

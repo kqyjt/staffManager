@@ -169,16 +169,16 @@
       	</tr>	
       		
       	<tr class="grzx_ddgz_th" id="AUDIT_FAIL_OTHER_REASON_DIV" style="display:none">
-			<td width="115px" style="padding-left:50px;">其他审核不通过</br>原因请在此填写：</td>
-			<td><textarea style="width:80%;height:100px"  id="AUDIT_ERROR_OTHER_REASON" name="AUDIT_ERROR_OTHER_REASON" width="500px" rows="3"></textarea></td>
+			<td width="115px" style="padding-left:50px;">其他审核不通过<br/>原因请在此填写：</td>
+			<td><textarea style="width:80%;height:100px"  id="AUDIT_ERROR_OTHER_REASON" name="AUDIT_ERROR_OTHER_REASON" rows="3"></textarea></td>
         </tr>	
         
         
         </table>     
        <div style="padding:10px;">
         <p style="margin-left:430px;" id="OrderDispense_btn_cont">
-			<!-- <a id="auditSubmit" href="javascript:auditInfo_save();" class="easyui-linkbutton" data-options="iconCls:'icon-save'">提交</a>&nbsp;&nbsp;&nbsp;&nbsp; -->
-			<input style="width:80px;height:28px" class="easyui-linkbutton" value = "提交"  id = "auditSubmit" data-options="iconCls:'icon-save'"  onclick = "auditInfo_save()"/>&nbsp;&nbsp;&nbsp;&nbsp;
+			<a id="auditSubmit" href="javascript:auditInfo_save();" class="easyui-linkbutton" data-options="iconCls:'icon-save'">提交</a>&nbsp;&nbsp;&nbsp;&nbsp;
+			<!-- <input style="width:80px;height:28px" class="easyui-linkbutton" value = "提交"  id = "auditSubmit" data-options="iconCls:'icon-save'"  onclick = "auditInfo_save()"/>&nbsp;&nbsp;&nbsp;&nbsp; -->
 		</p>
 		</div>
 		</form>
@@ -190,7 +190,6 @@
       
       <!-- 业务办理状态信息 -->
       <c:if test="${result.dataSet.userInfo.IS_CHANGE_BIS == '1'}">
-      
       	<div class="publuc_box">
        	<p class="public_dahang F14 c_black"><i class="icon-eye-open c_green F16"></i>&nbsp;&nbsp;业务办理状态</p>
 
@@ -225,19 +224,18 @@
       	</tr>	
       		
       	<tr class="grzx_ddgz_th" id="BIS_ERROR_OTHER_REASON_DIV" style="display:none">
-			<td width="115px" style="padding-left:50px;">其他办理失败</br>原因请在此填写：</td>
-			<td><textarea style="width:80%;height:100px" id="BIS_ERROR_OTHER_REASON" name="BIS_ERROR_OTHER_REASON" width="500px" rows="3"></textarea></td>
+			<td width="115px" style="padding-left:50px;">其他办理失败<br/>原因请在此填写：</td>
+			<td><textarea style="width:80%;height:100px" id="BIS_ERROR_OTHER_REASON" name="BIS_ERROR_OTHER_REASON" rows="3"></textarea></td>
         </tr>	
         
         </table>     
        <div style="padding:10px;">
         <p style="margin-left:430px;" id="OrderDispense_btn_cont">
         
-			<!-- <a id="bisSubmit" href="javascript:changebisstate_save();" class="easyui-linkbutton" data-options="iconCls:'icon-save'">提交</a>&nbsp;&nbsp;&nbsp;&nbsp; -->
-			<input style="width:80px;height:28px" class="easyui-linkbutton" value = "提交"  id = "bisSubmit" data-options="iconCls:'icon-save'"  onclick = "changebisstate_save()"/>&nbsp;&nbsp;&nbsp;&nbsp;
+			<a id="bisSubmit" href="javascript:changebisstate_save();" class="easyui-linkbutton" data-options="iconCls:'icon-save'">提交</a>&nbsp;&nbsp;&nbsp;&nbsp;
+			<!-- <input style="width:80px;height:28px" class="easyui-linkbutton" value = "提交"  id = "bisSubmit" data-options="iconCls:'icon-save'"  onclick = "changebisstate_save()"/>&nbsp;&nbsp;&nbsp;&nbsp; -->
 		</p>
 		</div>
-		
       	</div>
       	
       </c:if>

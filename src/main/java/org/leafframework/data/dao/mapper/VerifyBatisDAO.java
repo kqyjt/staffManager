@@ -61,5 +61,23 @@ public interface VerifyBatisDAO extends IDao{
 	 * @author rencong
 	 */
 	public List<HashMap<String, Object>> queryPhoneList(HashMap<String,Object> param);
+	
+	/**
+	 * 补登记处理结果1查询
+	 * @param param
+	 * @return
+	 * @date 2016年1月22日
+	 * @author rencong
+	 */
+	public List<HashMap<String, Object>> queryVerifyStateList1(HashMap<String,Object> param);
+	
+	/**
+	 * 补登记处理结果2查询
+	 * @param param
+	 * @return
+	 * @date 2016年1月22日
+	 * @author rencong
+	 */
+	public List<HashMap<String, Object>> queryVerifyStateList2(HashMap<String,Object> param);
 
 }

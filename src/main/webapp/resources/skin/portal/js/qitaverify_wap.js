@@ -62,7 +62,12 @@ function getPhoneVerifyCode(o){
         		$("#errorMessage").html('');
 	    	}else{
 	    		wait=0;
-	    		$("#errorMessage").html(result.dataSet.errorDetail);
+	    		if(result.dataSet.answer!=null && result.dataSet.answer!=""){
+	    			Alertone(result.dataSet.answer);
+	    		} else {
+	    			$("#errorMessage").html(result.dataSet.errorDetail);
+	    		}
+	    		
 	    	}
         },
 	    error: function(respData){ 
@@ -80,7 +85,8 @@ function checkPhoneVerifyCode(){
 	}
 	var checkCode=$('#CHECK_CODE').val();
 	if(!checkCode || checkCode==''){
-		Alertone('请输入手机验证码!');
+		Alertone('请输入手机验证码!',clearrandom);
+		//Alertone('请输入手机验证码!');
 		return;
 	}
 
@@ -99,13 +105,19 @@ function checkPhoneVerifyCode(){
         		//window.location.href = contextPath +"/portal/space/VerifyMgr.htm?m=execute&f=checkverifycodesucess&serial_number=" + serialNumber;
         		window.location.href = encodeURI(contextPath +"/portal/verify/wap_qita_tow.htm?params=" + phoneNumber);
 	    	}else{
-	    		$("#errorMessage").html(result.dataSet.errorDetail);
+	    		//$("#errorMessage").html(result.dataSet.errorDetail);
+	    		Alertone('您输入的验证码不正确，请重新获取输入!',clearrandom);
 	    	}
         },
 	    error: function(respData){ 
 	    	$("#errorMessage").html('发送验证码异常!');
 	    }
     });
+}
+
+function clearrandom(btnint)
+{
+	$('#CHECK_CODE').focus().val("");	
 }
 
 function initQita3(){
@@ -145,7 +157,7 @@ function initQita3(){
         		var result = result1.dataSet.result;
     			var response = result1.dataSet.response;
     			if(typeof(result)=='undefined'||result==''||result==null){
-    				Alertone("您提交的身份证信息不合规，请重新输入。");
+    				Alertone("您提交的身份信息未能通过公安部全国公民身份证号码查询服务中心认证，请重新输入");
     				// window.location.href = contextPath + "/portal/space/VerifyMgr.htm?m=execute&f=checkVerify&isCheck=false" + getUrlParamFromBean(getInputArea(document.getElementById("verifyform")));
     				// document.getElementById("submitbutton1").style.display='';
     				document.getElementById("submitbutton1").disabled=false;

@@ -27,6 +27,19 @@ VerifyOrder3.exprotVerifyOrderList = function(){
 }
 
 VerifyOrder3.viewDetail  = function(){
+	if (!Array.prototype.forEach) {  
+	    Array.prototype.forEach = function(fun /*, thisp*/){  
+	        var len = this.length;  
+	        if (typeof fun != "function")  
+	            throw new TypeError();  
+	        var thisp = arguments[1];  
+	        for (var i = 0; i < len; i++){  
+	            if (i in this)  
+	                fun.call(thisp, this[i], i, this);  
+	        }  
+	    };  
+	}
+	
 	var selectRow = $("#VerifyOrder3_datagrid").datagrid("getSelected");
 	if (selectRow == "" || selectRow == undefined) {
 		$.messager.alert('提示信息',"请先选择一行记录!",'info');

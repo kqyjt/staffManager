@@ -150,7 +150,7 @@ img{vertical-align:middle;}
 <div class="dd_shenzshangchan" style="width:100%;height:160px; ">
 	<a style="width:100%; height:160px; box-sizing:border-box; font-size:16px;" href="javascript:void(0);" onclick="javascript:clickfileinput('handininput');" id="handin">
 		<i style="margin-top:45px" class="fa fa-plus"></i>
-		<br/><span class="c_red F16"></span>手持身份证
+		<br/><span class="c_red F16">*</span>手持身份证
 	</a>
 	<input type="file" id="handininput" onchange="previewImage(this,'handin');" class="upload_file" name="uploadFile" />
 </div>

@@ -194,6 +194,23 @@
 			AND #{phoneNumber} BETWEEN t.serialnumber_s and t.serialnumber_e
 		</if>
 	</select>
+	
+	<!-- 补登记处理结果1查询by rc -->
+	<select id="queryVerifyStateList1" parameterType="HashMap" resultType="HashMap">
+		select tou.user_name 
+		from t_o_userinfo tou 
+		where ((tou.audit_state="A0") OR (tou.audit_state="A1" and tou.bis_state="B0"))
+		<if test="phoneNumber != null and phoneNumber != ''"> AND tou.phone_num = #{phoneNumber}</if>
+	</select>
+	
+	<!-- 补登记处理结果2查询by rc -->
+	<select id="queryVerifyStateList2" parameterType="HashMap" resultType="HashMap">
+		select tou.user_name 
+		from t_o_userinfo tou 
+		where tou.audit_state="A1" and tou.bis_state="B1"
+		<if test="phoneNumber != null and phoneNumber != ''"> AND tou.phone_num = #{phoneNumber}</if>
+	</select>
+	
 </mapper>
 
 
