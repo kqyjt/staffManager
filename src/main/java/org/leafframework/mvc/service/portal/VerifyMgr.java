@@ -134,9 +134,13 @@ public class VerifyMgr extends Business {
 		List<HashMap<String, Object>> stateList2 = dao.queryVerifyStateList2(tempMap2);
 		if(stateList1.size() != 0){
 			outParam.put("answer", "您前期提交的补登记信息正在处理中，请等待处理结果。");
+			this.setLogicView("forHomePagee");//返回至系统首页
+			return RETURN.PHONE_FAILED_MSG;
 		}
 		if(stateList2.size() != 0){
 			outParam.put("answer", telephone+"用户已经补登记成功。");
+			this.setLogicView("forHomePagee");//返回至系统首页
+			return RETURN.PHONE_FAILED_MSG;
 		}
 		
 		HashMap<String, Object> paramMap = new HashMap<String, Object>();

@@ -171,7 +171,12 @@ function getPhoneVerifyCode(o){
         		$("#errorMessage").html('');
 	    	}else{
 	    		wait=0;
-	    		$("#errorMessage").html(result.dataSet.errorDetail);
+	    		if(result.dataSet.answer!=null && result.dataSet.answer!=""){
+	    			Alertone(result.dataSet.answer);
+	    		} else {
+	    			$("#errorMessage").html(result.dataSet.errorDetail);
+	    		}
+	    		//$("#errorMessage").html(result.dataSet.errorDetail);
 	    	}
         },
 	    error: function(respData){ 
@@ -258,7 +263,7 @@ function initQita3(){
         		var result = result1.dataSet.result;
     			var response = result1.dataSet.response;
     			if(typeof(result)=='undefined'||result==''||result==null){
-    				Alertone("您提交的身份证信息不合规，请重新输入。");
+    				Alertone("您提交的身份信息未能通过公安部全国公民身份证号码查询服务中心认证，请重新输入");
     				// window.location.href = contextPath + "/portal/space/VerifyMgr.htm?m=execute&f=checkVerify&isCheck=false" + getUrlParamFromBean(getInputArea(document.getElementById("verifyform")));
     				//document.getElementById("submitbutton1").style.display='';
     				document.getElementById("submitbutton1").disabled=false;
@@ -361,7 +366,7 @@ function previewImage(file,showpos)
 { 
 
 	if(!checkext(file)){
-		alert("图片的格式为bmp、jpg、jpeg！");
+		Alertone("图片的格式为bmp、jpg、jpeg！");
 		return;
 	}
 	

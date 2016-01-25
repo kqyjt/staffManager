@@ -261,7 +261,7 @@ function previewImage(file,showpos)
 { 
 
 	if(!checkext(file)){
-		alert("图片的格式为bmp、jpg、jpeg！");
+		Alertone("图片的格式为bmp、jpg、jpeg！");
 		return;
 	}
 	
