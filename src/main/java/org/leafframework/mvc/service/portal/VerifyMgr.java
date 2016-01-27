@@ -388,9 +388,11 @@ public class VerifyMgr extends Business {
 			dao.addVerifyUserInfo(ret);
 			
 			if("1".equals(inParam.get("IS_WAP"))){
-				this.setLogicView("redirect:/portal/verify/wap_qita_toz.htm?serialnumber=" + (String)inParam.get("SERIAL_NUMBER_HIDDEN"));//跳转成功界面
+				//this.setLogicView("redirect:/portal/verify/wap_qita_toz.htm?serialnumber=" + (String)inParam.get("SERIAL_NUMBER_HIDDEN"));//跳转成功界面
+				this.setLogicView("redirect:/portal/verify/wap_qita_toz.htm");//跳转成功界面
 			} else {
-				this.setLogicView("redirect:/portal/verify/qita_toz.htm?serialnumber=" + (String)inParam.get("SERIAL_NUMBER_HIDDEN"));//跳转成功界面
+				//this.setLogicView("redirect:/portal/verify/qita_toz.htm?serialnumber=" + (String)inParam.get("SERIAL_NUMBER_HIDDEN"));//跳转成功界面
+				this.setLogicView("redirect:/portal/verify/qita_toz.htm");//跳转成功界面
 			}
 			
 		}
