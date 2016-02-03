@@ -1,10 +1,9 @@
 package org.leafframework.data.dao.orm;
 
-// Generated 2015-7-13 14:44:53 by Hibernate Tools 4.0.0
+// Generated 2016-2-3 10:42:42 by Hibernate Tools 3.4.0.CR1
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.leafframework.data.dao.IDao;
 
 import java.util.List;
 import javax.naming.InitialContext;
@@ -20,7 +19,7 @@ import org.hibernate.criterion.Example;
  * @author Hibernate Tools
  */
 @Repository
-public class TCCustomerHome implements IDao {
+public class TCCustomerHome {
 
 	private static final Log log = LogFactory.getLog(TCCustomerHome.class);
 
@@ -84,7 +83,8 @@ public class TCCustomerHome implements IDao {
 	public TCCustomer merge(TCCustomer detachedInstance) {
 		log.debug("merging TCCustomer instance");
 		try {
-			TCCustomer result = (TCCustomer) sessionFactory.getCurrentSession().merge(detachedInstance);
+			TCCustomer result = (TCCustomer) sessionFactory.getCurrentSession()
+					.merge(detachedInstance);
 			log.debug("merge successful");
 			return result;
 		} catch (RuntimeException re) {
@@ -96,7 +96,8 @@ public class TCCustomerHome implements IDao {
 	public List findAll() {
 		log.debug("findAll TCCustomer instance");
 		try {
-			return sessionFactory.getCurrentSession().createQuery("from " + TCCustomer.class.getName()).list();
+			return sessionFactory.getCurrentSession()
+					.createQuery("from " + TCCustomer.class.getName()).list();
 		} catch (RuntimeException re) {
 			log.error("findAll failed", re);
 			throw re;
@@ -106,7 +107,9 @@ public class TCCustomerHome implements IDao {
 	public TCCustomer findById(java.lang.Integer id) {
 		log.debug("getting TCCustomer instance with id: " + id);
 		try {
-			TCCustomer instance = (TCCustomer) sessionFactory.getCurrentSession().get("org.leafframework.data.dao.orm.TCCustomer", id);
+			TCCustomer instance = (TCCustomer) sessionFactory
+					.getCurrentSession().get(
+							"org.leafframework.data.dao.orm.TCCustomer", id);
 			if (instance == null) {
 				log.debug("get successful, no instance found");
 			} else {
@@ -122,9 +125,12 @@ public class TCCustomerHome implements IDao {
 	public List findByExample(TCCustomer instance) {
 		log.debug("finding TCCustomer instance by example");
 		try {
-			List results = sessionFactory.getCurrentSession().createCriteria("org.leafframework.data.dao.orm.TCCustomer")
+			List results = sessionFactory
+					.getCurrentSession()
+					.createCriteria("org.leafframework.data.dao.orm.TCCustomer")
 					.add(Example.create(instance)).list();
-			log.debug("find by example successful, result size: " + results.size());
+			log.debug("find by example successful, result size: "
+					+ results.size());
 			return results;
 		} catch (RuntimeException re) {
 			log.error("find by example failed", re);

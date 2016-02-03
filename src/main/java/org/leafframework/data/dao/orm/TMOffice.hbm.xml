@@ -3,7 +3,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated 2015-8-26 15:56:51 by Hibernate Tools 4.0.0 -->
 <hibernate-mapping>
-    <class name="org.leafframework.data.dao.orm.TMOffice" table="t_m_office" catalog="wlyx_db">
+    <class name="org.leafframework.data.dao.orm.TMOffice" table="t_m_office" catalog="yggl_db">
         <id name="id" type="java.lang.Integer">
             <column name="id" />
             <generator class="identity" />

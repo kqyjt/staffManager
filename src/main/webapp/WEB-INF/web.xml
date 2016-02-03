@@ -52,7 +52,7 @@
   </filter-mapping>
   <context-param>
     <param-name>webAppRootKey</param-name>
-    <param-value>realname.root</param-value>
+    <param-value>staffManager.root</param-value>
   </context-param>
   <context-param>
     <param-name>log4jConfigLocation</param-name>

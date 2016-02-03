@@ -1,17 +1,16 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 2015-8-5 20:24:47 by Hibernate Tools 4.0.0 -->
+<!-- Generated 2016-2-3 10:40:21 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="org.leafframework.data.dao.orm.TSTempIdCard" table="t_s_temp_id_card" catalog="wlyx_db">
+    <class name="org.leafframework.data.dao.orm.TSTempIdCard" table="t_s_temp_id_card" catalog="yggl_db">
         <id name="id" type="java.lang.Integer">
             <column name="id" />
             <generator class="identity" />
         </id>
         <property name="photoUpUrl" type="string">
             <column name="photo_up_url" length="300">
-                <comment>00&#239;&#188;&#154;&#229;&#143;&#145;&#229;&#135;&#186;&#232;&#175;&#183;&#230;&#177;&#130;
-                01&#239;&#188;&#154;&#232;&#175;&#183;&#230;&#177;&#130;&#232;&#191;&#148;&#229;&#155;&#158;</comment>
+                <comment>00&#163;&#186;&#183;&#162;&#179;&#246;&#199;&#235;&#199;&#243; 01&#163;&#186;&#199;&#235;&#199;&#243;&#183;&#181;&#187;&#216;</comment>
             </column>
         </property>
         <property name="photoDownUrl" type="string">

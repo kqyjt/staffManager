@@ -1,6 +1,6 @@
 package org.leafframework.data.dao.orm;
 
-// Generated 2015-8-5 20:24:46 by Hibernate Tools 4.0.0
+// Generated 2016-2-3 10:40:21 by Hibernate Tools 3.4.0.CR1
 
 import java.util.Date;
 
@@ -19,7 +19,8 @@ public class TSTempIdCard implements java.io.Serializable {
 	public TSTempIdCard() {
 	}
 
-	public TSTempIdCard(String photoUpUrl, String photoDownUrl, String photoInHandUrl, String uuid, Date createTime) {
+	public TSTempIdCard(String photoUpUrl, String photoDownUrl,
+			String photoInHandUrl, String uuid, Date createTime) {
 		this.photoUpUrl = photoUpUrl;
 		this.photoDownUrl = photoDownUrl;
 		this.photoInHandUrl = photoInHandUrl;

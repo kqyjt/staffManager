@@ -3,7 +3,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated 2015-12-14 16:20:41 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="org.leafframework.data.dao.orm.TCStaffgroupRela" table="t_c_staffgroup_rela" catalog="wlyx_db" optimistic-lock="version">
+    <class name="org.leafframework.data.dao.orm.TCStaffgroupRela" table="t_c_staffgroup_rela" catalog="yggl_db" optimistic-lock="version">
         <id name="id" type="java.lang.Integer">
             <column name="id" />
             <generator class="identity" />

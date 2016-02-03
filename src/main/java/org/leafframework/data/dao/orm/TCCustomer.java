@@ -1,6 +1,6 @@
 package org.leafframework.data.dao.orm;
 
-// Generated 2015-7-13 14:44:52 by Hibernate Tools 4.0.0
+// Generated 2016-2-3 10:42:42 by Hibernate Tools 3.4.0.CR1
 
 import java.util.Date;
 
@@ -45,7 +45,8 @@ public class TCCustomer implements java.io.Serializable {
 	public TCCustomer() {
 	}
 
-	public TCCustomer(String regName, String password, String isChangePass, String state, String custType, String custLvl, String userSource,
+	public TCCustomer(String regName, String password, String isChangePass,
+			String state, String custType, String custLvl, String userSource,
 			String expressFlag, Date createTime) {
 		this.regName = regName;
 		this.password = password;
@@ -58,15 +59,20 @@ public class TCCustomer implements java.io.Serializable {
 		this.createTime = createTime;
 	}
 
-	public TCCustomer(String regName, String custName, String password, String isChangePass, String mobilePhone, String email, String telephone, String qqNo,
-			String state, String custType, String custLvl, String sex, String idCard, String homeprovinceid, String homeCityid,
-			String homeAreaid, String receiveAddr, String provinceid, String cityid, String userSource, String staffId, String managerId,
-			String managerName, Integer devCustId, String expressFlag, String faceUrl, String teamName, String remark, Date createTime,
-			Date updateTime, String updateOperator) {
+	public TCCustomer(String regName, String custName, String password,
+			String isChangePass, String mobilePhone, String email,
+			String telephone, String qqNo, String state, String custType,
+			String custLvl, String sex, String idCard, String homeprovinceid,
+			String homeCityid, String homeAreaid, String receiveAddr,
+			String provinceid, String cityid, String userSource,
+			String staffId, String managerId, String managerName,
+			Integer devCustId, String expressFlag, String faceUrl,
+			String teamName, String remark, Date createTime, Date updateTime,
+			String updateOperator) {
 		this.regName = regName;
 		this.custName = custName;
-		this.isChangePass = isChangePass;
 		this.password = password;
+		this.isChangePass = isChangePass;
 		this.mobilePhone = mobilePhone;
 		this.email = email;
 		this.telephone = telephone;
@@ -126,6 +132,14 @@ public class TCCustomer implements java.io.Serializable {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getIsChangePass() {
+		return this.isChangePass;
+	}
+
+	public void setIsChangePass(String isChangePass) {
+		this.isChangePass = isChangePass;
 	}
 
 	public String getMobilePhone() {
@@ -342,14 +356,6 @@ public class TCCustomer implements java.io.Serializable {
 
 	public void setUpdateOperator(String updateOperator) {
 		this.updateOperator = updateOperator;
-	}
-
-	public String getIsChangePass() {
-		return isChangePass;
-	}
-
-	public void setIsChangePass(String isChangePass) {
-		this.isChangePass = isChangePass;
 	}
 
 }

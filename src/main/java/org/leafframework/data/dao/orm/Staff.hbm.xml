@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-2-3 11:24:16 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="org.leafframework.data.dao.orm.Staff" table="staff" catalog="yggl_db">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <property name="name" type="string">
+            <column name="name" length="30" not-null="true">
+                <comment>&#208;&#213;&#195;&#251;</comment>
+            </column>
+        </property>
+        <property name="sex" type="string">
+            <column name="sex" length="4">
+                <comment>&#208;&#212;&#177;&#240;</comment>
+            </column>
+        </property>
+        <property name="nation" type="string">
+            <column name="nation" length="4">
+                <comment>&#195;&#241;&#215;&#229;</comment>
+            </column>
+        </property>
+        <property name="idcard" type="string">
+            <column name="idcard" length="18">
+                <comment>&#201;&#237;&#183;&#221;&#214;&#164;&#186;&#197;</comment>
+            </column>
+        </property>
+        <property name="birthday" type="date">
+            <column name="birthday" length="10">
+                <comment>&#179;&#246;&#201;&#250;&#196;&#234;&#212;&#194;</comment>
+            </column>
+        </property>
+        <property name="address" type="string">
+            <column name="address" length="512">
+                <comment>&#181;&#216;&#214;&#183;</comment>
+            </column>
+        </property>
+        <property name="birthplace" type="string">
+            <column name="birthplace" length="512">
+                <comment>&#188;&#174;&#185;&#225;</comment>
+            </column>
+        </property>
+        <property name="diploma" type="string">
+            <column name="diploma" length="30">
+                <comment>&#209;&#167;&#192;&#250;</comment>
+            </column>
+        </property>
+        <property name="graduation" type="string">
+            <column name="graduation" length="30">
+                <comment>&#177;&#207;&#210;&#181;&#212;&#186;&#208;&#163;</comment>
+            </column>
+        </property>
+        <property name="special" type="string">
+            <column name="special" length="50">
+                <comment>&#215;&#168;&#210;&#181;</comment>
+            </column>
+        </property>
+        <property name="marriage" type="string">
+            <column name="marriage" length="2">
+                <comment>&#187;&#233;&#210;&#246;&#215;&#180;&#191;&#246;</comment>
+            </column>
+        </property>
+        <property name="apartment" type="string">
+            <column name="apartment" length="50">
+                <comment>&#178;&#191;&#195;&#197;</comment>
+            </column>
+        </property>
+        <property name="post" type="string">
+            <column name="post" length="30">
+                <comment>&#214;&#176;&#206;&#241;</comment>
+            </column>
+        </property>
+        <property name="createtime" type="timestamp">
+            <column name="createtime" length="19">
+                <comment>&#180;&#180;&#189;&#168;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="updatetime" type="timestamp">
+            <column name="updatetime" length="19">
+                <comment>&#184;&#252;&#208;&#194;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

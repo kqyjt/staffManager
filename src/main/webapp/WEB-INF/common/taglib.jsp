@@ -31,8 +31,8 @@
 <c:set var="portalPath" value="${contextPath}" />
 <c:set var="paymentPath" value="${contextPath}" />
 <c:set var="expressPath" value="${contextPath}" />
-<c:set var="directPath" value="http://localhost:8080/realname" />
-<c:set var="imgPath" value="http://localhost:8080/realname" />
+<c:set var="directPath" value="http://localhost:8080/staffManager" />
+<c:set var="imgPath" value="http://localhost:8080/staffManager" />
 <c:set var="filePath" value="http://134.32.32.144:9004" />
 
 <!-- 确定目标url -->

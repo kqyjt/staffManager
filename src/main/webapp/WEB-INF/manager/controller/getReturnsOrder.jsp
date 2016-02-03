@@ -106,7 +106,6 @@
          </span></p>
          <p class="c_red">${result.dataSet.orderDetails[0].goodsName}</p>
         </div>
-        <%@ include file="../order/OrderFlow.jsp"%>
   
       <div class="publuc_box">
        <p class="public_dahang F14 c_black"><i class="icon-eye-open c_green F16"></i>&nbsp;&nbsp;订单跟踪信息</p>

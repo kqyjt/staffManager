@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-2-3 11:24:16 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="org.leafframework.data.dao.orm.Checkattend" table="checkattend" catalog="yggl_db">
+        <id name="staffId" type="int">
+            <column name="staff_id" />
+            <generator class="assigned" />
+        </id>
+        <property name="staffName" type="string">
+            <column name="staff_name" length="30" not-null="true">
+                <comment>&#208;&#213;&#195;&#251;</comment>
+            </column>
+        </property>
+        <property name="apartment" type="string">
+            <column name="apartment" length="50">
+                <comment>&#178;&#191;&#195;&#197;</comment>
+            </column>
+        </property>
+        <property name="post" type="string">
+            <column name="post" length="30">
+                <comment>&#214;&#176;&#206;&#241;</comment>
+            </column>
+        </property>
+        <property name="checkdate" type="date">
+            <column name="checkdate" length="10">
+                <comment>&#200;&#213;&#198;&#218;</comment>
+            </column>
+        </property>
+        <property name="isCheck" type="string">
+            <column name="isCheck" length="4">
+                <comment>&#202;&#199;&#183;&#241;&#179;&#246;&#199;&#218;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

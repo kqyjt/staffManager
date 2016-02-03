@@ -1,6 +1,6 @@
 package org.leafframework.data.dao.orm;
 
-// Generated 2016-2-3 10:40:21 by Hibernate Tools 3.4.0.CR1
+// Generated 2016-2-3 11:24:16 by Hibernate Tools 3.4.0.CR1
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -14,14 +14,14 @@ import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Example;
 
 /**
- * Home object for domain model class TSTempIdCard.
- * @see org.leafframework.data.dao.orm.TSTempIdCard
+ * Home object for domain model class Checkattend.
+ * @see org.leafframework.data.dao.orm.Checkattend
  * @author Hibernate Tools
  */
 @Repository
-public class TSTempIdCardHome {
+public class CheckattendHome {
 
-	private static final Log log = LogFactory.getLog(TSTempIdCardHome.class);
+	private static final Log log = LogFactory.getLog(CheckattendHome.class);
 
 	@Autowired
 	private final SessionFactory sessionFactory = null;/*getSessionFactory();
@@ -36,8 +36,8 @@ public class TSTempIdCardHome {
 														}
 														}*/
 
-	public void persist(TSTempIdCard transientInstance) {
-		log.debug("persisting TSTempIdCard instance");
+	public void persist(Checkattend transientInstance) {
+		log.debug("persisting Checkattend instance");
 		try {
 			sessionFactory.getCurrentSession().persist(transientInstance);
 			log.debug("persist successful");
@@ -47,8 +47,8 @@ public class TSTempIdCardHome {
 		}
 	}
 
-	public void attachDirty(TSTempIdCard instance) {
-		log.debug("attaching dirty TSTempIdCard instance");
+	public void attachDirty(Checkattend instance) {
+		log.debug("attaching dirty Checkattend instance");
 		try {
 			sessionFactory.getCurrentSession().saveOrUpdate(instance);
 			log.debug("attach successful");
@@ -58,8 +58,8 @@ public class TSTempIdCardHome {
 		}
 	}
 
-	public void attachClean(TSTempIdCard instance) {
-		log.debug("attaching clean TSTempIdCard instance");
+	public void attachClean(Checkattend instance) {
+		log.debug("attaching clean Checkattend instance");
 		try {
 			sessionFactory.getCurrentSession().lock(instance, LockMode.NONE);
 			log.debug("attach successful");
@@ -69,8 +69,8 @@ public class TSTempIdCardHome {
 		}
 	}
 
-	public void delete(TSTempIdCard persistentInstance) {
-		log.debug("deleting TSTempIdCard instance");
+	public void delete(Checkattend persistentInstance) {
+		log.debug("deleting Checkattend instance");
 		try {
 			sessionFactory.getCurrentSession().delete(persistentInstance);
 			log.debug("delete successful");
@@ -80,10 +80,10 @@ public class TSTempIdCardHome {
 		}
 	}
 
-	public TSTempIdCard merge(TSTempIdCard detachedInstance) {
-		log.debug("merging TSTempIdCard instance");
+	public Checkattend merge(Checkattend detachedInstance) {
+		log.debug("merging Checkattend instance");
 		try {
-			TSTempIdCard result = (TSTempIdCard) sessionFactory
+			Checkattend result = (Checkattend) sessionFactory
 					.getCurrentSession().merge(detachedInstance);
 			log.debug("merge successful");
 			return result;
@@ -94,22 +94,22 @@ public class TSTempIdCardHome {
 	}
 
 	public List findAll() {
-		log.debug("findAll TSTempIdCard instance");
+		log.debug("findAll Checkattend instance");
 		try {
 			return sessionFactory.getCurrentSession()
-					.createQuery("from " + TSTempIdCard.class.getName()).list();
+					.createQuery("from " + Checkattend.class.getName()).list();
 		} catch (RuntimeException re) {
 			log.error("findAll failed", re);
 			throw re;
 		}
 	}
 
-	public TSTempIdCard findById(java.lang.Integer id) {
-		log.debug("getting TSTempIdCard instance with id: " + id);
+	public Checkattend findById(int id) {
+		log.debug("getting Checkattend instance with id: " + id);
 		try {
-			TSTempIdCard instance = (TSTempIdCard) sessionFactory
+			Checkattend instance = (Checkattend) sessionFactory
 					.getCurrentSession().get(
-							"org.leafframework.data.dao.orm.TSTempIdCard", id);
+							"org.leafframework.data.dao.orm.Checkattend", id);
 			if (instance == null) {
 				log.debug("get successful, no instance found");
 			} else {
@@ -122,13 +122,13 @@ public class TSTempIdCardHome {
 		}
 	}
 
-	public List findByExample(TSTempIdCard instance) {
-		log.debug("finding TSTempIdCard instance by example");
+	public List findByExample(Checkattend instance) {
+		log.debug("finding Checkattend instance by example");
 		try {
 			List results = sessionFactory
 					.getCurrentSession()
 					.createCriteria(
-							"org.leafframework.data.dao.orm.TSTempIdCard")
+							"org.leafframework.data.dao.orm.Checkattend")
 					.add(Example.create(instance)).list();
 			log.debug("find by example successful, result size: "
 					+ results.size());

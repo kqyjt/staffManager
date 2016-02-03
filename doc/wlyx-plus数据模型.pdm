@@ -76,7 +76,7 @@ UpdateTableStatistics=Yes
 UpdateColumnStatistics=Yes
 
 [FolderOptions\Physical Objects\Database Generation]
-GenScriptName=wlyx_db.sql
+GenScriptName=yggl_db.sql
 GenScriptName0=
 GenScriptName1=
 GenScriptName2=

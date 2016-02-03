@@ -20,7 +20,7 @@
 	var filePath = 'http://www.51186.com.cn';*/
 
 	//local
-	var imgPath = 'http://localhost:8080/realname';
+	var imgPath = 'http://localhost:8080/staffManager';
 	var cartPath = '${contextPath}';
 	var centerPath = '${contextPath}';
 	var orderPath = '${contextPath}';
@@ -29,7 +29,7 @@
 	var portalPath = '${contextPath}';
 	var paymentPath = '${contextPath}';
 	var expressPath = '${contextPath}';
-	var directPath = 'http://localhost:8080/realname';
+	var directPath = 'http://localhost:8080/staffManager';
 	var filePath = 'http://134.32.32.144:9004';
 	
 </script>
