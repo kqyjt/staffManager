@@ -1,6 +1,6 @@
 package org.leafframework.data.dao.orm;
 
-// Generated 2016-2-3 11:24:16 by Hibernate Tools 3.4.0.CR1
+// Generated 2016-2-17 17:18:45 by Hibernate Tools 3.4.0.CR1
 
 import java.util.Date;
 
@@ -9,7 +9,8 @@ import java.util.Date;
  */
 public class Checkattend implements java.io.Serializable {
 
-	private int staffId;
+	private int id;
+	private String staffId;
 	private String staffName;
 	private String apartment;
 	private String post;
@@ -19,13 +20,15 @@ public class Checkattend implements java.io.Serializable {
 	public Checkattend() {
 	}
 
-	public Checkattend(int staffId, String staffName) {
+	public Checkattend(int id, String staffId, String staffName) {
+		this.id = id;
 		this.staffId = staffId;
 		this.staffName = staffName;
 	}
 
-	public Checkattend(int staffId, String staffName, String apartment,
-			String post, Date checkdate, String isCheck) {
+	public Checkattend(int id, String staffId, String staffName,
+			String apartment, String post, Date checkdate, String isCheck) {
+		this.id = id;
 		this.staffId = staffId;
 		this.staffName = staffName;
 		this.apartment = apartment;
@@ -34,11 +37,19 @@ public class Checkattend implements java.io.Serializable {
 		this.isCheck = isCheck;
 	}
 
-	public int getStaffId() {
+	public int getId() {
+		return this.id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getStaffId() {
 		return this.staffId;
 	}
 
-	public void setStaffId(int staffId) {
+	public void setStaffId(String staffId) {
 		this.staffId = staffId;
 	}
 

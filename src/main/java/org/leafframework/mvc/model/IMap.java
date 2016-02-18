@@ -240,6 +240,20 @@ public class IMap extends HashMap {
 		}
 	}
 
+	/**
+	 * 将string类型的数据转换为date类型
+	 * @param value
+	 * @return
+	 */
+	public Date getDate(String value){
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+		try {
+			return sdf.parse(value);
+		} catch (ParseException e) {
+			return null;
+		}
+	}
+	
 	public Object put(Object key, Object value) {
 		return inmap.put(key, value);
 	}

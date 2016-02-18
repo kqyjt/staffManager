@@ -1,6 +1,6 @@
 package org.leafframework.data.dao.orm;
 
-// Generated 2016-2-3 11:24:16 by Hibernate Tools 3.4.0.CR1
+// Generated 2016-2-17 17:18:45 by Hibernate Tools 3.4.0.CR1
 
 import java.util.Date;
 
@@ -9,7 +9,8 @@ import java.util.Date;
  */
 public class Staff implements java.io.Serializable {
 
-	private int id;
+	private Integer id;
+	private String staffId;
 	private String name;
 	private String sex;
 	private String nation;
@@ -29,16 +30,16 @@ public class Staff implements java.io.Serializable {
 	public Staff() {
 	}
 
-	public Staff(int id, String name) {
-		this.id = id;
+	public Staff(String staffId, String name) {
+		this.staffId = staffId;
 		this.name = name;
 	}
 
-	public Staff(int id, String name, String sex, String nation, String idcard,
-			Date birthday, String address, String birthplace, String diploma,
-			String graduation, String special, String marriage,
+	public Staff(String staffId, String name, String sex, String nation,
+			String idcard, Date birthday, String address, String birthplace,
+			String diploma, String graduation, String special, String marriage,
 			String apartment, String post, Date createtime, Date updatetime) {
-		this.id = id;
+		this.staffId = staffId;
 		this.name = name;
 		this.sex = sex;
 		this.nation = nation;
@@ -56,12 +57,20 @@ public class Staff implements java.io.Serializable {
 		this.updatetime = updatetime;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public String getStaffId() {
+		return this.staffId;
+	}
+
+	public void setStaffId(String staffId) {
+		this.staffId = staffId;
 	}
 
 	public String getName() {

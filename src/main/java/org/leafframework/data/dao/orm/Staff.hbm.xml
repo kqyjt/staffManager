@@ -1,13 +1,18 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 2016-2-3 11:24:16 by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated 2016-2-17 17:18:45 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
     <class name="org.leafframework.data.dao.orm.Staff" table="staff" catalog="yggl_db">
-        <id name="id" type="int">
+        <id name="id" type="java.lang.Integer">
             <column name="id" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
+        <property name="staffId" type="string">
+            <column name="staff_id" length="30" not-null="true">
+                <comment>&#185;&#164;&#186;&#197;</comment>
+            </column>
+        </property>
         <property name="name" type="string">
             <column name="name" length="30" not-null="true">
                 <comment>&#208;&#213;&#195;&#251;</comment>
@@ -19,7 +24,7 @@
             </column>
         </property>
         <property name="nation" type="string">
-            <column name="nation" length="4">
+            <column name="nation" length="50">
                 <comment>&#195;&#241;&#215;&#229;</comment>
             </column>
         </property>
@@ -60,7 +65,8 @@
         </property>
         <property name="marriage" type="string">
             <column name="marriage" length="2">
-                <comment>&#187;&#233;&#210;&#246;&#215;&#180;&#191;&#246;</comment>
+                <comment>
+                &#187;&#233;&#210;&#246;&#215;&#180;&#191;&#246;&#163;&#168;00&#177;&#237;&#202;&#190;&#210;&#209;&#187;&#233;&#163;&#172;01&#177;&#237;&#202;&#190;&#206;&#180;&#187;&#233;&#163;&#169;</comment>
             </column>
         </property>
         <property name="apartment" type="string">

@@ -1,13 +1,18 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 2016-2-3 11:24:16 by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated 2016-2-17 17:18:45 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
     <class name="org.leafframework.data.dao.orm.Checkattend" table="checkattend" catalog="yggl_db">
-        <id name="staffId" type="int">
-            <column name="staff_id" />
+        <id name="id" type="int">
+            <column name="id" />
             <generator class="assigned" />
         </id>
+        <property name="staffId" type="string">
+            <column name="staff_id" length="30" not-null="true">
+                <comment>&#185;&#164;&#186;&#197;</comment>
+            </column>
+        </property>
         <property name="staffName" type="string">
             <column name="staff_name" length="30" not-null="true">
                 <comment>&#208;&#213;&#195;&#251;</comment>

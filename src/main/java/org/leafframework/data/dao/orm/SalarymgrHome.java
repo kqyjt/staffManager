@@ -1,6 +1,6 @@
 package org.leafframework.data.dao.orm;
 
-// Generated 2016-2-3 11:24:16 by Hibernate Tools 3.4.0.CR1
+// Generated 2016-2-17 17:18:46 by Hibernate Tools 3.4.0.CR1
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;

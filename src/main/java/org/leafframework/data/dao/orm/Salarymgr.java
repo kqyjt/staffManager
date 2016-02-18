@@ -1,6 +1,6 @@
 package org.leafframework.data.dao.orm;
 
-// Generated 2016-2-3 11:24:16 by Hibernate Tools 3.4.0.CR1
+// Generated 2016-2-17 17:18:45 by Hibernate Tools 3.4.0.CR1
 
 import java.util.Date;
 
@@ -9,7 +9,8 @@ import java.util.Date;
  */
 public class Salarymgr implements java.io.Serializable {
 
-	private int staffId;
+	private int id;
+	private String staffId;
 	private String staffName;
 	private String state;
 	private String post;
@@ -21,14 +22,16 @@ public class Salarymgr implements java.io.Serializable {
 	public Salarymgr() {
 	}
 
-	public Salarymgr(int staffId, String staffName) {
+	public Salarymgr(int id, String staffId, String staffName) {
+		this.id = id;
 		this.staffId = staffId;
 		this.staffName = staffName;
 	}
 
-	public Salarymgr(int staffId, String staffName, String state, String post,
-			Date inputtime, String workage, String salarypush,
+	public Salarymgr(int id, String staffId, String staffName, String state,
+			String post, Date inputtime, String workage, String salarypush,
 			String salarydetail) {
+		this.id = id;
 		this.staffId = staffId;
 		this.staffName = staffName;
 		this.state = state;
@@ -39,11 +42,19 @@ public class Salarymgr implements java.io.Serializable {
 		this.salarydetail = salarydetail;
 	}
 
-	public int getStaffId() {
+	public int getId() {
+		return this.id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getStaffId() {
 		return this.staffId;
 	}
 
-	public void setStaffId(int staffId) {
+	public void setStaffId(String staffId) {
 		this.staffId = staffId;
 	}
 

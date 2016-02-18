@@ -499,4 +499,46 @@ public interface MyBatisDAO extends IDao{
 	public List<HashMap<String, Object>> roleRightQuery(HashMap<String, Object> inParam);
 	public int roleRightCountQuery(HashMap<String, Object> inParam);
 	
+	/**
+	 * 查询员工基本信息
+	 * @param inParam
+	 * @return
+	 */
+	public List<HashMap<String, Object>> staffInfoQuery(HashMap<String, Object> inParam);
+	
+	/**
+	 * 查询部门信息
+	 * @param inParam
+	 * @return
+	 */
+	public List<HashMap<String, Object>> queryApartmentList(HashMap<String, Object> inParam);
+	
+	/**
+	 * 查询员工工号
+	 * @param param
+	 * @return
+	 */
+	public List<HashMap<String, Object>> queryStaffInfoId(HashMap<String,Object> param);
+	
+	/**
+	 * 添加员工
+	 * @param param
+	 * @return
+	 */
+	public void addStaffInfoList(HashMap<String,Object> param);
+	
+	/**
+	 * 删除员工信息
+	 * @param param
+	 * @return
+	 */
+	public void removeStaffInfo(HashMap<String,Object> param);
+	
+	/**
+	 * 修改员工信息
+	 * @param inParam
+	 * @return
+	 */
+	public void updateStaffInfo(HashMap<String, Object> inParam);
+	
 }

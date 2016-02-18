@@ -1,6 +1,6 @@
 package org.leafframework.data.dao.orm;
 
-// Generated 2016-2-3 11:24:16 by Hibernate Tools 3.4.0.CR1
+// Generated 2016-2-17 17:18:45 by Hibernate Tools 3.4.0.CR1
 
 import java.util.Date;
 
@@ -10,8 +10,9 @@ import java.util.Date;
 public class Agreement implements java.io.Serializable {
 
 	private int id;
+	private String agreeId;
 	private String name;
-	private int staffId;
+	private String staffId;
 	private String staffName;
 	private Date starttime;
 	private Date endtime;
@@ -22,17 +23,20 @@ public class Agreement implements java.io.Serializable {
 	public Agreement() {
 	}
 
-	public Agreement(int id, String name, int staffId, String staffName) {
+	public Agreement(int id, String agreeId, String name, String staffId,
+			String staffName) {
 		this.id = id;
+		this.agreeId = agreeId;
 		this.name = name;
 		this.staffId = staffId;
 		this.staffName = staffName;
 	}
 
-	public Agreement(int id, String name, int staffId, String staffName,
-			Date starttime, Date endtime, String apartment, String post,
-			String content) {
+	public Agreement(int id, String agreeId, String name, String staffId,
+			String staffName, Date starttime, Date endtime, String apartment,
+			String post, String content) {
 		this.id = id;
+		this.agreeId = agreeId;
 		this.name = name;
 		this.staffId = staffId;
 		this.staffName = staffName;
@@ -51,6 +55,14 @@ public class Agreement implements java.io.Serializable {
 		this.id = id;
 	}
 
+	public String getAgreeId() {
+		return this.agreeId;
+	}
+
+	public void setAgreeId(String agreeId) {
+		this.agreeId = agreeId;
+	}
+
 	public String getName() {
 		return this.name;
 	}
@@ -59,11 +71,11 @@ public class Agreement implements java.io.Serializable {
 		this.name = name;
 	}
 
-	public int getStaffId() {
+	public String getStaffId() {
 		return this.staffId;
 	}
 
-	public void setStaffId(int staffId) {
+	public void setStaffId(String staffId) {
 		this.staffId = staffId;
 	}
 

@@ -914,5 +914,11 @@
  		<property name="url" value="/WEB-INF/manager/verify/verifyOrderList.jsp" /> 
  	</bean> 
  	<!-- 实名补登 end -->
+ 	
+ 	<!-- 员工基本信息管理 -->
+ 	<bean id="staffInfoMgr"
+ 		class="org.springframework.web.servlet.view.InternalResourceView"> 
+ 		<property name="url" value="/WEB-INF/manager/staff/staffInfoMgr.jsp" /> 
+ 	</bean> 
 	
 </beans>

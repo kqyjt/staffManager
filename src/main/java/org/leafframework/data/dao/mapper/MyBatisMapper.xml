@@ -349,4 +349,87 @@
 				<otherwise>and are.code = #{staffCode}</otherwise>
 			</choose>
 	</select>
+	
+	<!-- 查询员工基本信息 -->
+	<select id="staffInfoQuery" parameterType="HashMap" resultType="HashMap">
+		select 
+			sta.id as id,
+			sta.staff_id as staffInfoId,
+			sta.name as staffInfoName,
+			sta.sex as sex,
+			sta.nation as nation,
+			sta.idcard as idcard,
+			sta.birthday as birthday,
+			sta.address as address,
+			sta.birthplace as birthplace,
+			sta.diploma as diploma,
+			sta.graduation as graduation,
+			sta.special as special,
+			sta.marriage as marriage,
+			sta.apartment as apartment,
+			sta.post as post,
+			sta.createtime as createtime,
+			sta.updatetime as updatetime
+		from staff sta inner join apartmentmgr apa on sta.apartment=apa.apart_id 
+		where 1=1
+		<if test="staffInfoId != null and staffInfoId != ''"> AND sta.staff_id = #{staffInfoId} </if>
+		<if test="staffInfoName != null and staffInfoName != ''"> AND sta.name = #{staffInfoName} </if>
+		<if test="staffIdCard != null and staffIdCard != ''"> AND sta.idcard = #{staffIdCard} </if>
+		<if test="staffApartment != null and staffApartment != ''"> AND sta.apartment = #{staffApartment} </if>
+	</select>
+	
+	<!-- 查询部门信息 -->
+	<select id="queryApartmentList" parameterType="HashMap" resultType="HashMap">
+		select 
+			t.id,
+			t.apart_id as apartId,
+			t.name as apartName,
+			t.phone as phone,
+			t.description as description
+		from apartmentmgr t 
+		where 1=1
+		<if test="apartId != null and apartId != ''"> AND t.apart_id = #{apartId} </if>
+	</select>
+	
+	<!-- 查询员工工号 -->
+	<select id="queryStaffInfoId" parameterType="HashMap" resultType="HashMap">
+		select 
+			s.staff_id 
+		from staff s 
+		where 1=1
+		<if test="staffInfoId != null and staffInfoId != ''"> AND s.staff_id = #{staffInfoId}</if>
+		<if test="staffInfoId ==null || staffInfoId ==''">
+	  		and 1=2
+	  	</if>
+	</select>
+	
+	<!-- 添加员工 -->
+	<insert id="addStaffInfoList" parameterType="HashMap">
+		insert into 
+			staff(staff_id,name,sex,nation,idcard,birthday,address,birthplace,diploma,graduation,special,marriage,apartment,post,createtime)
+		VALUES(#{staffInfoId},#{staffInfoName},#{sex},#{nation},#{idcard},#{birthday},#{address},#{birthplace},#{diploma},#{graduation},#{special},#{marriage},#{apartment},#{post},#{createtime})
+	</insert>
+	
+	<!-- 删除员工信息  -->
+	<delete id="removeStaffInfo" parameterType="HashMap">
+		delete from staff
+		where 1=1
+		<if test="id != null and id != ''"> AND id = #{id}</if>
+		<if test="id ==null || id ==''">
+	  		and 1=2
+	  	</if>
+	</delete>
+	
+	<!-- 修改员工信息 -->
+	<update id="updateStaffInfo" parameterType="HashMap">
+		update staff 
+		set staff_id=#{staffInfoId},name=#{staffInfoName},sex=#{sex},nation=#{nation},idcard=#{idcard},birthday=#{birthday},address=#{address},birthplace=#{birthplace},
+			diploma=#{diploma},graduation=#{graduation},special=#{special},marriage=#{marriage},apartment=#{apartment},post=#{post},updatetime=#{updatetime}
+		where 1=1
+		<if test="id != null and id != ''"> AND id = #{id}</if>
+		<if test="id ==null || id ==''">
+	  		and 1=2
+	  	</if>
+	</update>
+	
 </mapper>
