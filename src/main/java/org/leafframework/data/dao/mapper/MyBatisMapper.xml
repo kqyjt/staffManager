@@ -389,6 +389,7 @@
 		from apartmentmgr t 
 		where 1=1
 		<if test="apartId != null and apartId != ''"> AND t.apart_id = #{apartId} </if>
+		<if test="apartName != null and apartName != ''"> AND t.name = #{apartName} </if>
 	</select>
 	
 	<!-- 查询员工工号 -->
@@ -425,6 +426,46 @@
 		update staff 
 		set staff_id=#{staffInfoId},name=#{staffInfoName},sex=#{sex},nation=#{nation},idcard=#{idcard},birthday=#{birthday},address=#{address},birthplace=#{birthplace},
 			diploma=#{diploma},graduation=#{graduation},special=#{special},marriage=#{marriage},apartment=#{apartment},post=#{post},updatetime=#{updatetime}
+		where 1=1
+		<if test="id != null and id != ''"> AND id = #{id}</if>
+		<if test="id ==null || id ==''">
+	  		and 1=2
+	  	</if>
+	</update>
+	
+	<!-- 查询部门编号 -->
+	<select id="queryApartmentId" parameterType="HashMap" resultType="HashMap">
+		select 
+			s.apart_id 
+		from apartmentmgr s 
+		where 1=1
+		<if test="apartId != null and apartId != ''"> AND s.apart_id = #{apartId}</if>
+		<if test="apartId ==null || apartId ==''">
+	  		and 1=2
+	  	</if>
+	</select>
+	
+	<!-- 添加部门 -->
+	<insert id="addApartmentList" parameterType="HashMap">
+		insert into 
+			apartmentmgr(apart_id,name,phone,description)
+		VALUES(#{apartId},#{apartName},#{phone},#{description})
+	</insert>
+	
+	<!-- 删除部门信息  -->
+	<delete id="removeApartment" parameterType="HashMap">
+		delete from apartmentmgr
+		where 1=1
+		<if test="id != null and id != ''"> AND id = #{id}</if>
+		<if test="id ==null || id ==''">
+	  		and 1=2
+	  	</if>
+	</delete>
+	
+	<!-- 修改部门信息 -->
+	<update id="updateApartment" parameterType="HashMap">
+		update apartmentmgr 
+		set apart_id=#{apartId},name=#{apartName},phone=#{phone},description=#{description}
 		where 1=1
 		<if test="id != null and id != ''"> AND id = #{id}</if>
 		<if test="id ==null || id ==''">

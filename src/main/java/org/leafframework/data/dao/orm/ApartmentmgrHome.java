@@ -1,6 +1,6 @@
 package org.leafframework.data.dao.orm;
 
-// Generated 2016-2-17 17:18:46 by Hibernate Tools 3.4.0.CR1
+// Generated 2016-2-18 15:41:01 by Hibernate Tools 3.4.0.CR1
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -104,7 +104,7 @@ public class ApartmentmgrHome {
 		}
 	}
 
-	public Apartmentmgr findById(int id) {
+	public Apartmentmgr findById(java.lang.Integer id) {
 		log.debug("getting Apartmentmgr instance with id: " + id);
 		try {
 			Apartmentmgr instance = (Apartmentmgr) sessionFactory

@@ -541,4 +541,32 @@ public interface MyBatisDAO extends IDao{
 	 */
 	public void updateStaffInfo(HashMap<String, Object> inParam);
 	
+	/**
+	 * 查询部门编号
+	 * @param param
+	 * @return
+	 */
+	public List<HashMap<String, Object>> queryApartmentId(HashMap<String,Object> param);
+	
+	/**
+	 * 添加部门
+	 * @param param
+	 * @return
+	 */
+	public void addApartmentList(HashMap<String,Object> param);
+	
+	/**
+	 * 删除部门信息
+	 * @param param
+	 * @return
+	 */
+	public void removeApartment(HashMap<String,Object> param);
+	
+	/**
+	 * 修改部门信息
+	 * @param inParam
+	 * @return
+	 */
+	public void updateApartment(HashMap<String, Object> inParam);
+	
 }
