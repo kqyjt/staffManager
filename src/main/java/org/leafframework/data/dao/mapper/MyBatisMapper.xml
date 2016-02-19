@@ -473,4 +473,50 @@
 	  	</if>
 	</update>
 	
+	<!-- 查询考勤信息 -->
+	<select id="checkAttendQuery" parameterType="HashMap" resultType="HashMap">
+		select 
+			che.id as id,
+			che.staff_id as staffId,
+			che.staff_name as staffName,
+			sta.apartment as apartment,
+			sta.post as post,
+			che.check_month as checkMonth,
+			che.absence_count as absenceCount
+		from checkattend che inner join staff sta on che.staff_id=sta.staff_id
+		where 1=1
+		<if test="checkAttendId != null and checkAttendId != ''"> AND che.staff_id = #{checkAttendId} </if>
+		<if test="checkAttendName != null and checkAttendName != ''"> AND che.staff_name = #{checkAttendName} </if>
+		<if test="checkAttendApartment != null and checkAttendApartment != ''"> AND sta.apartment = #{checkAttendApartment} </if>
+		<if test="checkAttendMonth != null and checkAttendMonth != ''"> AND che.check_month = #{checkAttendMonth} </if>
+	</select>
+	
+	<!-- 删除考勤信息  -->
+	<delete id="removeCheckAttend" parameterType="HashMap">
+		delete from checkattend
+		where 1=1
+		<if test="id != null and id != ''"> AND id = #{id}</if>
+		<if test="id ==null || id ==''">
+	  		and 1=2
+	  	</if>
+	</delete>
+	
+	<!-- 修改考勤信息 -->
+	<update id="updateCheckAttend" parameterType="HashMap">
+		update checkattend 
+		set staff_id=#{staffId},staff_name=#{staffName},check_month=#{checkMonth},absence_count=#{absenceCount}
+		where 1=1
+		<if test="id != null and id != ''"> AND id = #{id}</if>
+		<if test="id ==null || id ==''">
+	  		and 1=2
+	  	</if>
+	</update>
+	
+	<!-- 添加考勤信息 -->
+	<insert id="addCheckAttendList" parameterType="HashMap">
+		insert into 
+			checkattend(staff_id,staff_name,check_month,absence_count)
+		VALUES(#{staffId},#{staffName},#{checkMonth},#{absenceCount})
+	</insert>
+	
 </mapper>

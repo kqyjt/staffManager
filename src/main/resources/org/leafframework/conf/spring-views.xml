@@ -926,5 +926,11 @@
  		class="org.springframework.web.servlet.view.InternalResourceView"> 
  		<property name="url" value="/WEB-INF/manager/staff/apartmentMgr.jsp" /> 
  	</bean>
+ 	
+ 	<!-- 考勤信息管理 -->
+ 	<bean id="checkAttendMgr"
+ 		class="org.springframework.web.servlet.view.InternalResourceView"> 
+ 		<property name="url" value="/WEB-INF/manager/staff/checkAttendMgr.jsp" /> 
+ 	</bean>
 	
 </beans>
