@@ -14,14 +14,14 @@ import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Example;
 
 /**
- * Home object for domain model class Salarymgr.
- * @see org.leafframework.data.dao.orm.Salarymgr
+ * Home object for domain model class Month.
+ * @see org.leafframework.data.dao.orm.Month
  * @author Hibernate Tools
  */
 @Repository
-public class SalarymgrHome {
+public class MonthHome {
 
-	private static final Log log = LogFactory.getLog(SalarymgrHome.class);
+	private static final Log log = LogFactory.getLog(MonthHome.class);
 
 	@Autowired
 	private final SessionFactory sessionFactory = null;/*getSessionFactory();
@@ -36,8 +36,8 @@ public class SalarymgrHome {
 														}
 														}*/
 
-	public void persist(Salarymgr transientInstance) {
-		log.debug("persisting Salarymgr instance");
+	public void persist(Month transientInstance) {
+		log.debug("persisting Month instance");
 		try {
 			sessionFactory.getCurrentSession().persist(transientInstance);
 			log.debug("persist successful");
@@ -47,8 +47,8 @@ public class SalarymgrHome {
 		}
 	}
 
-	public void attachDirty(Salarymgr instance) {
-		log.debug("attaching dirty Salarymgr instance");
+	public void attachDirty(Month instance) {
+		log.debug("attaching dirty Month instance");
 		try {
 			sessionFactory.getCurrentSession().saveOrUpdate(instance);
 			log.debug("attach successful");
@@ -58,8 +58,8 @@ public class SalarymgrHome {
 		}
 	}
 
-	public void attachClean(Salarymgr instance) {
-		log.debug("attaching clean Salarymgr instance");
+	public void attachClean(Month instance) {
+		log.debug("attaching clean Month instance");
 		try {
 			sessionFactory.getCurrentSession().lock(instance, LockMode.NONE);
 			log.debug("attach successful");
@@ -69,8 +69,8 @@ public class SalarymgrHome {
 		}
 	}
 
-	public void delete(Salarymgr persistentInstance) {
-		log.debug("deleting Salarymgr instance");
+	public void delete(Month persistentInstance) {
+		log.debug("deleting Month instance");
 		try {
 			sessionFactory.getCurrentSession().delete(persistentInstance);
 			log.debug("delete successful");
@@ -80,11 +80,11 @@ public class SalarymgrHome {
 		}
 	}
 
-	public Salarymgr merge(Salarymgr detachedInstance) {
-		log.debug("merging Salarymgr instance");
+	public Month merge(Month detachedInstance) {
+		log.debug("merging Month instance");
 		try {
-			Salarymgr result = (Salarymgr) sessionFactory.getCurrentSession()
-					.merge(detachedInstance);
+			Month result = (Month) sessionFactory.getCurrentSession().merge(
+					detachedInstance);
 			log.debug("merge successful");
 			return result;
 		} catch (RuntimeException re) {
@@ -94,21 +94,21 @@ public class SalarymgrHome {
 	}
 
 	public List findAll() {
-		log.debug("findAll Salarymgr instance");
+		log.debug("findAll Month instance");
 		try {
 			return sessionFactory.getCurrentSession()
-					.createQuery("from " + Salarymgr.class.getName()).list();
+					.createQuery("from " + Month.class.getName()).list();
 		} catch (RuntimeException re) {
 			log.error("findAll failed", re);
 			throw re;
 		}
 	}
 
-	public Salarymgr findById(java.lang.Integer id) {
-		log.debug("getting Salarymgr instance with id: " + id);
+	public Month findById(java.lang.Integer id) {
+		log.debug("getting Month instance with id: " + id);
 		try {
-			Salarymgr instance = (Salarymgr) sessionFactory.getCurrentSession()
-					.get("org.leafframework.data.dao.orm.Salarymgr", id);
+			Month instance = (Month) sessionFactory.getCurrentSession().get(
+					"org.leafframework.data.dao.orm.Month", id);
 			if (instance == null) {
 				log.debug("get successful, no instance found");
 			} else {
@@ -121,11 +121,11 @@ public class SalarymgrHome {
 		}
 	}
 
-	public List findByExample(Salarymgr instance) {
-		log.debug("finding Salarymgr instance by example");
+	public List findByExample(Month instance) {
+		log.debug("finding Month instance by example");
 		try {
 			List results = sessionFactory.getCurrentSession()
-					.createCriteria("org.leafframework.data.dao.orm.Salarymgr")
+					.createCriteria("org.leafframework.data.dao.orm.Month")
 					.add(Example.create(instance)).list();
 			log.debug("find by example successful, result size: "
 					+ results.size());

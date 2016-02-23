@@ -519,4 +519,107 @@
 		VALUES(#{staffId},#{staffName},#{checkMonth},#{absenceCount})
 	</insert>
 	
+	<!-- 查询工资信息 -->
+	<select id="querySalaryList" parameterType="HashMap" resultType="HashMap">
+		select 
+			sal.id as id,
+			sal.month as month,
+			sal.staff_id as staffId,
+			sal.staff_name as staffName,
+			sal.state as state,
+			sta.post as post,
+			sal.inputtime as inputtime,
+			sal.workage as workage,
+			sal.reality_salary as realitySalary
+		from salarymgr sal inner join staff sta on sal.staff_id=sta.staff_id
+		where 1=1
+		<if test="month != null and month != ''"> AND sal.month = #{month} </if>
+		<if test="staffId != null and staffId != ''"> AND sal.staff_id = #{staffId} </if>
+		<if test="staffName != null and staffName != ''"> AND sal.staff_name = #{staffName} </if>
+	</select>
+	
+	<!-- 查询工资基本信息 -->
+	<select id="querySalaryInfo" parameterType="HashMap" resultType="HashMap">
+		select
+			s.id as id,
+			s.month as month,
+			s.staff_id as staffId,
+			s.staff_name as staffName,
+			s.state as state,
+			s.inputtime as inputtime,
+			s.workage as workage,
+			s.basic_salary as basicSalary,
+			s.welfare as welfare,
+			s.absence_pay as absencePay,
+			s.post_pay as postPay,
+			s.meal_pay as mealPay,
+			s.medical_pay as medicalPay,
+			s.workage_pay as workagePay,
+			s.retire_pay as retirePay,
+			s.overtime_pay as overtimePay,
+			s.add_salary as addSalary,
+			s.bonus as bonus,
+			s.other_pay as otherPay,
+			s.income_tax as incomeTax,
+			s.deduct_salary as deductSalary,
+			s.reality_salary as realitySalary,
+			s.remark as remark
+		from salarymgr s
+		where 1=1
+		<if test="id != null and id != ''"> AND s.id = #{id} </if>
+	</select>
+	
+	<!-- 查询月份名称 -->
+	<select id="queryMonthName" parameterType="HashMap" resultType="HashMap">
+		select 
+			m.id as id,
+			m.month_id as monthId,
+			m.month_name as monthName
+		from month m where 1=1
+		<if test="monthId != null and monthId != ''"> AND m.month_id = #{monthId} </if>
+	</select>
+	
+	<!-- 查询默认月份 -->
+	<select id="getDefaultMonth" parameterType="HashMap" resultType="HashMap">
+		select 
+			m.month_id as monthId,
+			m.month_name as monthName
+		from month m where 1=1
+		<if test="monthId != null and monthId != ''"> AND m.month_id != #{monthId} </if>
+	</select>
+	
+	<!-- 添加工资信息 -->
+	<insert id="addSalaryList" parameterType="HashMap">
+		insert into 
+			salarymgr(month,staff_id,staff_name,state,inputtime,workage,basic_salary,welfare,absence_pay,post_pay,meal_pay,medical_pay,workage_pay,
+			retire_pay,overtime_pay,add_salary,bonus,other_pay,income_tax,deduct_salary,reality_salary,remark)
+		VALUES(#{month},#{staffId},#{staffName},#{state},#{inputtime},#{workage},#{basicSalary},#{welfare},#{absencePay},#{postPay},#{mealPay},
+		#{medicalPay},#{workagePay},#{retirePay},#{overtimePay},#{addSalary},#{bonus},#{otherPay},#{incomeTax},#{deductSalary},#{realitySalary},#{remark})
+	</insert>
+	
+	<!-- 删除工资信息  -->
+	<delete id="removeSalary" parameterType="HashMap">
+		delete from salarymgr
+		where 1=1
+		<if test="id != null and id != ''"> AND id = #{id}</if>
+		<if test="id ==null || id ==''">
+	  		and 1=2
+	  	</if>
+	</delete>
+	
+	<!-- 修改工资信息 -->
+	<update id="updateSalary" parameterType="HashMap">
+		update salarymgr 
+		set month=#{month},staff_id=#{staffId},staff_name=#{staffName},state=#{state},inputtime=#{inputtime},
+			workage=#{workage},basic_salary=#{basicSalary},welfare=#{welfare},absence_pay=#{absencePay},post_pay=#{postPay},
+			meal_pay=#{mealPay},medical_pay=#{medicalPay},workage_pay=#{workagePay},retire_pay=#{retirePay},overtime_pay=#{overtimePay},
+			add_salary=#{addSalary},bonus=#{bonus},other_pay=#{otherPay},income_tax=#{incomeTax},deduct_salary=#{deductSalary},
+			reality_salary=#{realitySalary},remark=#{remark}
+		where 1=1
+		<if test="id != null and id != ''"> AND id = #{id}</if>
+		<if test="id ==null || id ==''">
+	  		and 1=2
+	  	</if>
+	</update>
+	
 </mapper>

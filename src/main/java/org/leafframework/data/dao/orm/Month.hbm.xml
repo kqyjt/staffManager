@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-2-23 15:13:16 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="org.leafframework.data.dao.orm.Month" table="month" catalog="yggl_db">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="monthId" type="string">
+            <column name="month_id" length="2" not-null="true">
+                <comment>&#212;&#194;&#183;&#221;id</comment>
+            </column>
+        </property>
+        <property name="monthName" type="string">
+            <column name="month_name" length="4" not-null="true">
+                <comment>&#212;&#194;&#183;&#221;&#195;&#251;&#179;&#198;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

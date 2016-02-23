@@ -1,13 +1,18 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 2016-2-17 17:18:45 by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated 2016-2-23 15:13:16 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
     <class name="org.leafframework.data.dao.orm.Salarymgr" table="salarymgr" catalog="yggl_db">
-        <id name="id" type="int">
+        <id name="id" type="java.lang.Integer">
             <column name="id" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
+        <property name="month" type="string">
+            <column name="month" length="2" not-null="true">
+                <comment>&#212;&#194;&#183;&#221;</comment>
+            </column>
+        </property>
         <property name="staffId" type="string">
             <column name="staff_id" length="30" not-null="true">
                 <comment>&#185;&#164;&#186;&#197;</comment>
@@ -20,12 +25,8 @@
         </property>
         <property name="state" type="string">
             <column name="state" length="6">
-                <comment>&#214;&#176;&#185;&#164;&#215;&#180;&#191;&#246;</comment>
-            </column>
-        </property>
-        <property name="post" type="string">
-            <column name="post" length="30">
-                <comment>&#214;&#176;&#206;&#241;</comment>
+                <comment>
+                &#214;&#176;&#185;&#164;&#215;&#180;&#191;&#246;&#163;&#168;00&#177;&#237;&#202;&#190;&#212;&#218;&#214;&#176;&#163;&#172;01&#177;&#237;&#202;&#190;&#192;&#235;&#214;&#176;&#163;&#169;</comment>
             </column>
         </property>
         <property name="inputtime" type="date">
@@ -38,14 +39,84 @@
                 <comment>&#185;&#164;&#193;&#228;</comment>
             </column>
         </property>
-        <property name="salarypush" type="string">
-            <column name="salarypush" length="20">
+        <property name="basicSalary" type="string">
+            <column name="basic_salary" length="20" not-null="true">
+                <comment>&#187;&#249;&#177;&#190;&#185;&#164;&#215;&#202;</comment>
+            </column>
+        </property>
+        <property name="welfare" type="string">
+            <column name="welfare" length="20">
+                <comment>&#184;&#163;&#192;&#251;&#189;&#240;</comment>
+            </column>
+        </property>
+        <property name="absencePay" type="string">
+            <column name="absence_pay" length="20">
+                <comment>&#200;&#177;&#199;&#218;&#183;&#209;</comment>
+            </column>
+        </property>
+        <property name="postPay" type="string">
+            <column name="post_pay" length="20">
+                <comment>&#214;&#176;&#206;&#241;&#183;&#209;</comment>
+            </column>
+        </property>
+        <property name="mealPay" type="string">
+            <column name="meal_pay" length="20">
+                <comment>&#187;&#239;&#202;&#179;&#183;&#209;</comment>
+            </column>
+        </property>
+        <property name="medicalPay" type="string">
+            <column name="medical_pay" length="20">
+                <comment>&#210;&#189;&#193;&#198;&#177;&#163;&#207;&#213;</comment>
+            </column>
+        </property>
+        <property name="workagePay" type="string">
+            <column name="workage_pay" length="20">
+                <comment>&#185;&#164;&#193;&#228;&#183;&#209;</comment>
+            </column>
+        </property>
+        <property name="retirePay" type="string">
+            <column name="retire_pay" length="20">
+                <comment>&#209;&#248;&#192;&#207;&#177;&#163;&#207;&#213;</comment>
+            </column>
+        </property>
+        <property name="overtimePay" type="string">
+            <column name="overtime_pay" length="20">
+                <comment>&#188;&#211;&#176;&#224;&#183;&#209;</comment>
+            </column>
+        </property>
+        <property name="addSalary" type="string">
+            <column name="add_salary" length="20">
+                <comment>&#178;&#185;&#183;&#162;&#185;&#164;&#215;&#202;</comment>
+            </column>
+        </property>
+        <property name="bonus" type="string">
+            <column name="bonus" length="20">
+                <comment>&#189;&#177;&#189;&#240;</comment>
+            </column>
+        </property>
+        <property name="otherPay" type="string">
+            <column name="other_pay" length="20">
+                <comment>&#198;&#228;&#203;&#251;</comment>
+            </column>
+        </property>
+        <property name="incomeTax" type="string">
+            <column name="income_tax" length="20">
+                <comment>&#203;&#249;&#181;&#195;&#203;&#176;</comment>
+            </column>
+        </property>
+        <property name="deductSalary" type="string">
+            <column name="deduct_salary" length="20">
+                <comment>&#211;&#166;&#191;&#219;&#185;&#164;&#215;&#202;</comment>
+            </column>
+        </property>
+        <property name="realitySalary" type="string">
+            <column name="reality_salary" length="20" not-null="true">
                 <comment>&#202;&#181;&#183;&#162;&#185;&#164;&#215;&#202;</comment>
             </column>
         </property>
-        <property name="salarydetail" type="string">
-            <column name="salarydetail" length="65535">
-                <comment>&#185;&#164;&#215;&#202;&#207;&#234;&#199;&#233;</comment>
+        <property name="remark" type="string">
+            <column name="remark" length="256">
+                <comment>&#177;&#184;&#215;&#162;</comment>
             </column>
         </property>
     </class>

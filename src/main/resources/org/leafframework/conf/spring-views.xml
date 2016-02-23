@@ -932,5 +932,17 @@
  		class="org.springframework.web.servlet.view.InternalResourceView"> 
  		<property name="url" value="/WEB-INF/manager/staff/checkAttendMgr.jsp" /> 
  	</bean>
+ 	
+ 	<!-- 工资信息管理 -->
+ 	<bean id="salaryMgr"
+ 		class="org.springframework.web.servlet.view.InternalResourceView"> 
+ 		<property name="url" value="/WEB-INF/manager/staff/salaryMgr.jsp" /> 
+ 	</bean>
+ 	
+ 	<!-- 更新工资信息 -->
+ 	<bean id="salaryUpdate"
+ 		class="org.springframework.web.servlet.view.InternalResourceView"> 
+ 		<property name="url" value="/WEB-INF/manager/staff/salaryUpdate.jsp" /> 
+ 	</bean>
 	
 </beans>

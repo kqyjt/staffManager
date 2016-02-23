@@ -8,5 +8,6 @@
   <table-filter match-catalog="yggl_db" match-name="checkattend"/>
   <table-filter match-catalog="yggl_db" match-name="apartmentmgr"/>
   <table-filter match-catalog="yggl_db" match-name="agreement"/>
+  <table-filter match-catalog="yggl_db" match-name="month"/>
   
 </hibernate-reverse-engineering>

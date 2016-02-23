@@ -597,4 +597,53 @@ public interface MyBatisDAO extends IDao{
 	 */
 	public void addCheckAttendList(HashMap<String,Object> param);
 	
+	/**
+	 * 查询工资信息
+	 * @param inParam
+	 * @return
+	 */
+	public List<HashMap<String, Object>> querySalaryList(HashMap<String, Object> inParam);
+	
+	/**
+	 * 查询工资基本信息
+	 * @param inParam
+	 * @return
+	 */
+	public List<HashMap<String, Object>> querySalaryInfo(HashMap<String, Object> inParam);
+	
+	/**
+	 * 查询月份名称
+	 * @param inParam
+	 * @return
+	 */
+	public List<HashMap<String, Object>> queryMonthName(HashMap<String, Object> inParam);
+	
+	/**
+	 * 查询默认月份
+	 * @param inParam
+	 * @return
+	 */
+	public List<HashMap<String, Object>> getDefaultMonth(HashMap<String, Object> inParam);
+	
+	/**
+	 * 添加工资信息
+	 * @param param
+	 * @return
+	 */
+	public void addSalaryList(HashMap<String,Object> param);
+	
+	/**
+	 * 删除工资信息
+	 * @param param
+	 * @return
+	 */
+	public void removeSalary(HashMap<String,Object> param);
+	
+	/**
+	 * 修改工资信息
+	 * @param inParam
+	 * @return
+	 */
+	public void updateSalary(HashMap<String, Object> inParam);
+	
 }
