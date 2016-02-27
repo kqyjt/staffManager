@@ -1,6 +1,6 @@
 package org.leafframework.data.dao.orm;
 
-// Generated 2016-2-17 17:18:46 by Hibernate Tools 3.4.0.CR1
+// Generated 2016-2-27 15:22:44 by Hibernate Tools 3.4.0.CR1
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -104,7 +104,7 @@ public class AgreementHome {
 		}
 	}
 
-	public Agreement findById(int id) {
+	public Agreement findById(java.lang.Integer id) {
 		log.debug("getting Agreement instance with id: " + id);
 		try {
 			Agreement instance = (Agreement) sessionFactory.getCurrentSession()

@@ -1,6 +1,6 @@
 package org.leafframework.data.dao.orm;
 
-// Generated 2016-2-17 17:18:45 by Hibernate Tools 3.4.0.CR1
+// Generated 2016-2-27 15:22:44 by Hibernate Tools 3.4.0.CR1
 
 import java.util.Date;
 
@@ -9,49 +9,42 @@ import java.util.Date;
  */
 public class Agreement implements java.io.Serializable {
 
-	private int id;
+	private Integer id;
 	private String agreeId;
 	private String name;
 	private String staffId;
 	private String staffName;
 	private Date starttime;
 	private Date endtime;
-	private String apartment;
-	private String post;
 	private String content;
 
 	public Agreement() {
 	}
 
-	public Agreement(int id, String agreeId, String name, String staffId,
+	public Agreement(String agreeId, String name, String staffId,
 			String staffName) {
-		this.id = id;
 		this.agreeId = agreeId;
 		this.name = name;
 		this.staffId = staffId;
 		this.staffName = staffName;
 	}
 
-	public Agreement(int id, String agreeId, String name, String staffId,
-			String staffName, Date starttime, Date endtime, String apartment,
-			String post, String content) {
-		this.id = id;
+	public Agreement(String agreeId, String name, String staffId,
+			String staffName, Date starttime, Date endtime, String content) {
 		this.agreeId = agreeId;
 		this.name = name;
 		this.staffId = staffId;
 		this.staffName = staffName;
 		this.starttime = starttime;
 		this.endtime = endtime;
-		this.apartment = apartment;
-		this.post = post;
 		this.content = content;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -101,22 +94,6 @@ public class Agreement implements java.io.Serializable {
 
 	public void setEndtime(Date endtime) {
 		this.endtime = endtime;
-	}
-
-	public String getApartment() {
-		return this.apartment;
-	}
-
-	public void setApartment(String apartment) {
-		this.apartment = apartment;
-	}
-
-	public String getPost() {
-		return this.post;
-	}
-
-	public void setPost(String post) {
-		this.post = post;
 	}
 
 	public String getContent() {

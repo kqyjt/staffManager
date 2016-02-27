@@ -646,4 +646,39 @@ public interface MyBatisDAO extends IDao{
 	 */
 	public void updateSalary(HashMap<String, Object> inParam);
 	
+	/**
+	 * 查询合同信息
+	 * @param inParam
+	 * @return
+	 */
+	public List<HashMap<String, Object>> queryAgreementList(HashMap<String, Object> inParam);
+	
+	/**
+	 * 删除合同信息
+	 * @param param
+	 * @return
+	 */
+	public void removeAgreement(HashMap<String,Object> param);
+	
+	/**
+	 * 查询合同基本信息
+	 * @param inParam
+	 * @return
+	 */
+	public List<HashMap<String, Object>> queryAgreementInfo(HashMap<String, Object> inParam);
+	
+	/**
+	 * 添加合同信息
+	 * @param param
+	 * @return
+	 */
+	public void addAgreementList(HashMap<String,Object> param);
+	
+	/**
+	 * 修改合同信息
+	 * @param inParam
+	 * @return
+	 */
+	public void updateAgreement(HashMap<String, Object> inParam);
+	
 }

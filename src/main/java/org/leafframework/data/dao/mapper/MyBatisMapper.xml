@@ -622,4 +622,69 @@
 	  	</if>
 	</update>
 	
+	<!-- 查询合同信息 -->
+	<select id="queryAgreementList" parameterType="HashMap" resultType="HashMap">
+		select 
+			agr.id as id,
+			agr.agree_id as agreeId,
+			agr.name as agreeName,
+			agr.staff_id as staffId,
+			agr.staff_name as staffName,
+			sta.apartment as apartment,
+			sta.post as post,
+			agr.starttime as starttime,
+			agr.endtime as endtime
+		from agreement agr 
+		inner join staff sta on agr.staff_id=sta.staff_id 
+		where 1=1
+		<if test="staffId != null and staffId != ''"> AND agr.staff_id = #{staffId} </if>
+		<if test="staffName != null and staffName != ''"> AND agr.staff_name = #{staffName} </if>
+		<if test="apartment != null and apartment != ''"> AND sta.apartment = #{apartment} </if>
+	</select>
+	
+	<!-- 删除合同信息  -->
+	<delete id="removeAgreement" parameterType="HashMap">
+		delete from agreement
+		where 1=1
+		<if test="id != null and id != ''"> AND id = #{id}</if>
+		<if test="id ==null || id ==''">
+	  		and 1=2
+	  	</if>
+	</delete>
+	
+	<!-- 查询合同基本信息 -->
+	<select id="queryAgreementInfo" parameterType="HashMap" resultType="HashMap">
+		select 
+			a.id as id,
+			a.agree_id as agreeId,
+			a.name as agreeName,
+			a.staff_id as staffId,
+			a.staff_name as staffName,
+			a.starttime as starttime,
+			a.endtime as endtime,
+			a.content as content
+		from agreement a 
+		where 1=1
+		<if test="id != null and id != ''"> AND a.id = #{id} </if>
+	</select>
+	
+	<!-- 添加合同信息 -->
+	<insert id="addAgreementList" parameterType="HashMap">
+		insert into 
+			agreement(agree_id,name,staff_id,staff_name,starttime,endtime,content)
+		VALUES(#{agreeId},#{agreeName},#{staffId},#{staffName},#{starttime},#{endtime},#{content})
+	</insert>
+	
+	<!-- 修改合同信息 -->
+	<update id="updateAgreement" parameterType="HashMap">
+		update agreement 
+		set agree_id=#{agreeId},name=#{agreeName},staff_id=#{staffId},staff_name=#{staffName},starttime=#{starttime},
+			endtime=#{endtime},content=#{content}
+		where 1=1
+		<if test="id != null and id != ''"> AND id = #{id}</if>
+		<if test="id ==null || id ==''">
+	  		and 1=2
+	  	</if>
+	</update>
+	
 </mapper>
