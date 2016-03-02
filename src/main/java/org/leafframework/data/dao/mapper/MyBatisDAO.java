@@ -124,7 +124,6 @@ public interface MyBatisDAO extends IDao{
 	 * 获取后台管理员的信息
 	 * @param staffMap
 	 * @return
-	 * @author shihh3
 	 */
 	public List<TMStaff> getStaffInfor(HashMap<String, Object> staffMap);
 

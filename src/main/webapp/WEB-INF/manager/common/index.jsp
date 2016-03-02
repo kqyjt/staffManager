@@ -2,13 +2,13 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>山东联通网盟平台后台管理</title>
+<title>员工信息管理系统</title>
 <%@ include file="../../common/taglib.jsp"%>
 <%@ include file="../../common/initjs.jsp"%>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="description" content="山东联通网盟平台" />
-<meta name="keywords" content="山东联通网盟平台_能人之家" />
+<meta name="description" content="员工信息管理系统" />
+<meta name="keywords" content="员工信息管理系统" />
 
 
     <link rel="stylesheet" type="text/css" href="${contextPath}/resources/skin/manager/js/easyui/themes/default/easyui.css"/>
@@ -40,7 +40,7 @@
 		<div id="center_tabs" class="easyui-tabs"
 			data-options="fit:true,border:true,plain:false">
 			<div title="欢迎使用后台管理"
-				data-options="iconCls:'icon-munich-bank',closable:false,href:'',refreshable: false">
+				data-options="iconCls:'icon-munich-bank',closable:false,href:'${contextPath}/manager/pageloader/PageLoader.htm?m=query&f=welcomePage',refreshable: false">
 			</div>
 		</div>
 	</div>

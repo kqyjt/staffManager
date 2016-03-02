@@ -10,7 +10,7 @@
 <script src="${contextPath}/resources/skin/common/js/ValidForm/js/FormCommit.js"></script> 
 <script src="${contextPath}/resources/skin/portal/js/RSA.js"></script>
 <script src="${contextPath}/resources/skin/portal/js/Barrett.js"></script>
-<script src="${contextPath}/resources/skin/center/js/BigInt.js"></script>
+<script src="${contextPath}/resources/skin/portal/js/BigInt.js"></script>
 
 <script type="text/javascript">
 

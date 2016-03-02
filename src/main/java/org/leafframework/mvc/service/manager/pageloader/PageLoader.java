@@ -27,6 +27,9 @@ public class PageLoader extends Business {
 		if (this.getPageUri().get("f").equals("headPage")) {
 			return forHeadPage();
 		}
+		if (this.getPageUri().get("f").equals("welcomePage")) {
+			return forWelcomePage();
+		}
 		if (this.getPageUri().get("f").equals("leftMenuPage")) {
 			return forLeftMenuPage();
 		}
@@ -55,6 +58,12 @@ public class PageLoader extends Business {
 			outParam.put("menuList", listMenus);
 			this.setLogicView("headPage");
 		}
+		return RETURN.SUCCESS;
+	}
+	
+	private RETURN forWelcomePage(){
+		this.setLogicView("welcomePage");
+		
 		return RETURN.SUCCESS;
 	}
 	

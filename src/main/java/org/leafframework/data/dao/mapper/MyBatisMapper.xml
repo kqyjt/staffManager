@@ -687,4 +687,381 @@
 	  	</if>
 	</update>
 	
+	<!-- 获取后台管理员的信息  -->
+	<select id="getStaffInfor" parameterType="HashMap" resultType="TMStaff">
+		SELECT
+			t.id AS "id",
+			t.staff_id AS "staffId",
+			t. NAME AS "name",
+			t.is_change_pass AS "isChangePass",
+			t. PASSWORD AS "password",
+			t.old_pass AS "oldPass",
+			t.gender AS "gender",
+			t.type AS "type",
+			t.area_code AS "areaCode",
+			t.address AS "address",
+			t.zip_code AS "zipCode",
+			t.phone_number AS "phoneNumber",
+			t.email AS "email",
+			t.update_staff_id AS "updateStaffId",
+			t.update_time AS "updateTime"
+		FROM
+			t_m_staff t
+		WHERE 1 = 1
+			<if test="staffId != null and staffId !='' ">and t.staff_id = #{staffId}</if>
+			<if test="passWord != null and passWord !='' ">
+				and t.passWord = #{passWord}
+			</if>
+	</select>
+	
+	<!-- 获取管理员信息  -->
+	<select id="getStaffByStaffRegName" parameterType="HashMap" resultType="HashMap">
+		SELECT
+			t.id AS id,
+			t.staff_id AS staffId,
+			t. NAME AS NAME,
+			t.gender AS gender,
+			CASE t.area_code
+				WHEN '001' THEN
+					'淄博'
+				WHEN '002' THEN
+					'滨州'
+				WHEN '003' THEN
+					'临沂'
+				WHEN '004' THEN
+					'日照'
+				WHEN '005' THEN
+					'潍坊'
+				WHEN '006' THEN
+					'东营'
+				WHEN '007' THEN
+					'枣庄'
+				WHEN '008' THEN
+					'济宁'
+				WHEN '009' THEN
+					'菏泽'
+				WHEN '010' THEN
+					'莱芜'
+				WHEN '011' THEN
+					'烟台'
+				WHEN '012' THEN
+					'青岛'
+				WHEN '013' THEN
+					'济南'
+				WHEN '014' THEN
+					'泰安'
+				WHEN '015' THEN
+					'德州'
+				WHEN '016' THEN
+					'聊城'
+				WHEN '017' THEN
+					'威海'
+				WHEN '000' THEN
+					'山东' 
+			END AS areaCode,
+			t.address AS address,
+			t.phone_number AS phoneNumber,
+			t.email as email,
+			(select staff_id from t_m_staff WHERE id= t.update_staff_id)  as "updateStaffId",
+			update_time AS updateTime
+		FROM
+			t_m_staff t
+		WHERE 1=1
+		<if test="regName != null"> AND t.staff_id = #{regName} </if>
+		<if test="regName == null">
+			AND 1&lt;0
+		</if>
+		<if test="areaCode != null and areaCode != ''"> AND t.area_code = #{areaCode} </if>
+		;
+	</select>
+	
+	<!-- 查询角色信息 added  by  rc -->
+	<select id="queryRoleList" parameterType="HashMap" resultType="HashMap">
+		SELECT
+			t.id AS "ID",
+			t.name AS "roleName",
+			t.remark AS "remark",
+			(select staff_id from t_m_staff WHERE id= t.update_staff_id) AS "updateStaff",
+			t.update_time AS "updateTime"
+		FROM 
+			t_m_roles t
+		WHERE 1=1
+			<if test="roleName != null and roleName != ''"> AND t.name = #{roleName}</if>
+	</select>
+	
+	<!-- 删除角色  added  by  rc -->
+	<delete id="removeRoleList" parameterType="HashMap">
+		delete from t_m_roles
+		where 1=1
+		<if test="ID != null and ID != ''"> AND id = #{ID}</if>
+		<if test="ID ==null || ID ==''">
+	  		and 1=2
+	  	</if>
+	</delete>
+	
+	<!-- 删除角色  added  by  rc -->
+	<delete id="deleteRoleList" parameterType="HashMap">
+		delete from t_m_role_module
+		where 1=1
+		<if test="ID != null and ID != ''"> AND role_id = #{ID}</if>
+		<if test="ID ==null || ID ==''">
+	  		and 1=2
+	  	</if>
+	</delete>
+	
+	<!-- 删除权限  added  by  rc -->
+	<delete id="removePowerList" parameterType="HashMap">
+		delete from t_m_role_module
+		where 1=1
+		<if test="moduleId != null and moduleId != ''"> AND module_id = #{moduleId}</if>
+		<if test="roleId != null and roleId != ''"> AND role_id = #{roleId}</if>
+		<if test="moduleId ==null || moduleId ==''">
+	  		and 1=2
+	  	</if>
+	  	<if test="roleId ==null || roleId ==''">
+	  		and 1=2
+	  	</if>
+	</delete>
+	
+	<!-- 删除角色菜单  added  by  rc -->
+	<delete id="removeMenuList" parameterType="HashMap">
+		delete from t_m_role_module
+		where module_id in (SELECT tmm.id FROM t_m_modules tmm WHERE 1=1
+		<if test="menuId != null and menuId != ''"> AND tmm.menu_id = #{menuId}</if>
+		<if test="menuId ==null || menuId ==''">
+	  		and 1=2
+	  	</if>)
+		<if test="roleId != null and roleId != ''"> AND role_id = #{roleId}</if>
+	  	<if test="roleId ==null || roleId ==''">
+	  		and 1=2
+	  	</if>
+	</delete>
+	
+	<!-- 查询角色权限信息 added  by  rc -->
+	<select id="queryPowerList" parameterType="HashMap" resultType="HashMap">
+		SELECT
+			tmm.id AS moduleId,
+			tmm.name AS powerName
+		FROM 
+			t_m_modules tmm
+		WHERE tmm.id IN(
+			SELECT 
+				tmrm.module_id 
+			FROM 
+				t_m_role_module tmrm 
+			WHERE 1=1
+			<if test="role_id != null and role_id != ''"> AND tmrm.role_id = #{role_id}</if>)
+			<if test="menuId != null and menuId != ''"> AND tmm.menu_id = #{menuId}</if>
+	</select>
+	
+	<!-- 查询角色菜单信息 added  by  rc -->
+	<select id="queryMenuList" parameterType="HashMap" resultType="HashMap">
+		SELECT
+			DISTINCT tmm.menu_id AS menuId,t.name AS menuName
+		FROM 
+			t_m_modules tmm
+		INNER JOIN t_m_menus t ON tmm.menu_id=t.id
+		WHERE tmm.id IN(
+			SELECT 
+				tmrm.module_id 
+			FROM 
+				t_m_role_module tmrm 
+			WHERE 1=1
+			<if test="role_id != null and role_id != ''"> AND tmrm.role_id = #{role_id}</if>)
+		ORDER BY t.pos
+	</select>
+	
+	<!-- 查询角色未添加菜单信息 added  by  rc -->
+	<select id="queryNoMenuList" parameterType="HashMap" resultType="HashMap">
+		SELECT
+			DISTINCT tmm.menu_id AS menuId,t.name AS menuName
+		FROM 
+			t_m_modules tmm
+		INNER JOIN t_m_menus t ON tmm.menu_id=t.id
+		WHERE tmm.id NOT IN(
+			SELECT 
+				tmrm.module_id 
+			FROM 
+				t_m_role_module tmrm 
+			WHERE 1=1
+			<if test="role_id != null and role_id != ''"> AND tmrm.role_id = #{role_id}</if>)
+		ORDER BY t.pos
+	</select>
+	
+	<!-- 查询角色权限id added  by  rc -->
+	<select id="queryPowerIdList" parameterType="HashMap" resultType="HashMap">
+		SELECT 
+			tmm.id AS moduleId 
+		FROM 
+			t_m_modules tmm 
+		WHERE 1=1
+			<if test="moduleName != null and moduleName != ''"> AND tmm.name = #{moduleName}</if>
+	</select>
+	
+	<!-- 通过用户工号查询角色id added  by  rc -->
+	<select id="queryRoleIdList" parameterType="HashMap" resultType="HashMap">
+		SELECT 
+			tmsr.role_id AS roleId 
+		FROM 
+			t_m_staff_role tmsr 
+		WHERE 1=1
+			<if test="staffId != null and staffId != ''"> AND tmsr.staff_id = #{staffId}</if>
+	</select>
+	
+	<!-- 添加角色权限  added  by  rc -->
+	<insert id="addPowerList" parameterType="HashMap">
+		INSERT INTO 
+			t_m_role_module(role_id,module_id,remark,update_staff_id,update_time) 
+		VALUES(#{roleId},#{moduleId},#{remark},#{updateStaffId},#{updateTime})
+	</insert>
+	
+	<!-- 添加角色  added  by  rc -->
+	<insert id="addRoleList" parameterType="HashMap">
+		INSERT INTO 
+			t_m_roles(name,lvl_id,parent_id,remark,update_staff_id,update_time) 
+		VALUES(#{roleName},#{lvlId},#{parentId},#{remark},#{updateStaffId},#{updateTime})
+	</insert>
+	
+	<!-- 通过角色名称查询角色id added  by  rc -->
+	<select id="queryRoleByName" parameterType="HashMap" resultType="HashMap">
+		SELECT 
+			t.id AS roleId 
+		FROM 
+			t_m_roles t 
+		WHERE 1=1
+			<if test="roleName != null and roleName != ''"> AND t.name = #{roleName}</if>
+	</select>
+	
+	<!-- 保存角色  added  by  rc -->
+	<insert id="saveRoleList" parameterType="HashMap">
+		INSERT INTO 
+			t_m_role_module(role_id,module_id,remark,update_staff_id,update_time) 
+		VALUES(#{roleId},#{moduleId},#{remark},#{updateStaffId},#{updateTime})
+	</insert>
+	
+	<!-- 通过权限名称查询权限备注 added  by  rc -->
+	<select id="queryRemarkByName" parameterType="HashMap" resultType="HashMap">
+		SELECT 
+			tmm.remark AS remark 
+		FROM 
+			t_m_modules tmm 
+		WHERE 1=1
+			<if test="moduleName != null and moduleName != ''"> AND tmm.name = #{moduleName}</if>
+			AND tmm.id NOT IN(
+				SELECT 
+					tmrm.module_id 
+				FROM 
+					t_m_role_module tmrm 
+				WHERE 1=1
+					<if test="roleId != null and roleId != ''"> AND tmrm.role_id = #{roleId}</if>)
+	</select>
+	
+	<!-- 查询角色名称 added  by  rc -->
+	<select id="queryRoleName" parameterType="HashMap" resultType="HashMap">
+		SELECT 
+			tmr.id 
+		FROM 
+			t_m_roles tmr 
+		WHERE 1=1
+			<if test="roleName != null and roleName != ''"> AND tmr.name = #{roleName}</if>
+	</select>
+	
+	<!-- 查询角色未添加权限id added  by  rc -->
+	<select id="queryNoPowerList" parameterType="HashMap" resultType="HashMap">
+		SELECT 
+			tmm.id AS moduleId,
+			tmm.name AS powerName
+		FROM 
+			t_m_modules tmm 
+		WHERE 
+			tmm.id NOT IN
+			(SELECT 
+				tmrm.module_id
+			FROM 
+				t_m_role_module tmrm
+			WHERE 1=1
+				<if test="role_id != null and role_id != ''"> AND tmrm.role_id = #{role_id}</if>)
+				<if test="menuId != null and menuId != ''"> AND tmm.menu_id = #{menuId}</if>
+	</select>
+	
+	<!-- 查询员工所属角色 added  by  rc -->
+	<select id="queryStaffAttList" parameterType="HashMap" resultType="HashMap">
+		SELECT 
+			tmr.name AS roleName,
+			tmr.remark AS remark 
+		FROM 
+			t_m_roles tmr 
+		WHERE 
+			tmr.id IN
+				(SELECT 
+					tmsr.role_id 
+				FROM t_m_staff_role tmsr 
+				inner join t_m_staff tms on tmsr.staff_id=tms.staff_id
+				WHERE 1=1
+				<if test="staffId != null and staffId != ''"> AND tmsr.staff_id = #{staffId}</if>
+				<if test="staffId == null || staffId == ''"> AND 1=2</if>
+				<if test="areaCode != null and areaCode != ''"> AND tms.area_code = #{areaCode}</if>)
+	</select>
+	
+	<!-- 解除角色  added  by  rc -->
+	<delete id="removeStaffList" parameterType="HashMap">
+		DELETE FROM t_m_staff_role 
+		WHERE staff_id in
+		(select tms.staff_id from t_m_staff tms where 1=1
+		<if test="areaCode != null and areaCode != ''"> AND tms.area_code = #{areaCode}</if>
+		<if test="staffId != null and staffId != ''"> AND tms.staff_id = #{staffId}</if>
+		<if test="staffId ==null || staffId ==''">
+	  		and 1=2
+	  	</if>)
+	</delete>
+	
+	<!-- 更换角色  added  by  rc -->
+	<insert id="changeRoleList" parameterType="HashMap">
+		INSERT INTO 
+			t_m_staff_role(id,staff_id,role_id,remark,update_staff_id,update_time) 
+		VALUES(#{id},#{staffId},#{roleId},#{remark},#{updateStaffId},#{updateTime})
+	</insert>
+	
+	<!-- 删除原员工角色关系  added  by  rc -->
+	<delete id="deleteStaffList" parameterType="HashMap">
+		delete from t_m_staff_role
+		where 1=1
+		<if test="staffId != null and staffId != ''"> AND staff_id = #{staffId}</if>
+		<if test="staffId ==null || staffId ==''">
+	  		and 1=2
+	  	</if>
+	</delete>
+	
+	<!-- 通过角色id查询角色名称 added  by  rc -->
+	<select id="queryNameById" parameterType="HashMap" resultType="HashMap">
+		SELECT 
+			t.name AS roleName 
+		FROM 
+			t_m_roles t
+		WHERE 1=1
+			<if test="roleId != null and roleId != ''"> AND t.id = #{roleId}</if>
+			<if test="roleId == null || roleId == ''"> AND 1=2</if>
+	</select>
+	
+	<!-- 查询员工编号 added  by  rc -->
+	<select id="queryStaffId" parameterType="HashMap" resultType="HashMap">
+		SELECT 
+			tms.id AS id
+		FROM 
+			t_m_staff tms
+		WHERE 1=1
+			<if test="staffId != null and staffId != ''"> AND tms.staff_id = #{staffId}</if>
+			<if test="staffId ==null || staffId ==''">
+		  		and 1=2
+		  	</if>
+		  	<if test="areaCode != null and areaCode != ''"> AND tms.area_code = #{areaCode}</if>
+	</select>
+	
+	<!-- 添加员工  added  by  rc -->
+	<insert id="addStaffList" parameterType="HashMap">
+		INSERT INTO 
+			t_m_staff(staff_id,NAME,is_change_pass,PASSWORD,old_pass,gender,area_code,phone_number,email,update_staff_id,update_time) 
+		VALUES(#{staffId},#{name},#{isChangePass},#{password},#{oldPass},#{gender},#{areaCode},#{phoneNumber},#{email},#{updateStaffId},#{updateTime})
+	</insert>
+	
 </mapper>

@@ -3,7 +3,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>山东联通网盟平台后台管理</title>
+<title>员工信息管理系统</title>
 <%@ include file="../../common/taglib.jsp"%>
 <%@ include file="../../common/initjs.jsp"%>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
