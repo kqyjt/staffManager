@@ -22,21 +22,6 @@
 		SELECT nextval(#{seqName});
 	</select>
 
-	<insert id="insertTlmain" parameterType="TLMain" keyProperty="id">
-		INSERT t_l_main(log_type,
-		                optr_type,
-		                optr_name,
-		                optr_staff_id,
-		                optr_time,
-		                remark)
-		VALUES (#{logType},
-		        #{optrType},
-		        #{optrName},
-		        #{optrStaffId},
-		        #{optrTime},
-		        #{remark})
-	</insert>
-	
 	<insert id="insertTmmenus" parameterType="TMMenus" keyProperty="id">
 		INSERT t_m_menus(name,
 	                 lvl_id,
@@ -164,49 +149,6 @@
 		 WHERE t.is_use = 1 AND MOD(id, #{chl_cnt}) = #{chl_id}
 	</select>
 	
-	<select id="getEmailHis" parameterType="String" resultType="HashMap">
-		SELECT id,
-		       mail_from,
-		       type,
-		       name,
-		       mail_to,
-		       send_time,
-		       title
-		  FROM t_l_email t
-		 WHERE t.mail_to = #{mail_to}
-		 and send_time>curdate();
-	</select>
-	
-	<insert id="insertEmailLog" parameterType="HashMap" keyProperty="id">
-	INSERT t_l_email(mail_from,
-	        type,
-	        name,
-	        mail_to,
-	        send_time,
-	        title)
-	VALUES(#{mail_from},
-			#{type},
-			#{name},
-			#{mail_to},
-			#{send_time},
-			#{title})
-	</insert>
-	
-	<!-- 一分钟内手机收到的所有验证码 added by wanghao -->
-	<select id="getSmsCodeWithInOneMinute" parameterType="java.util.HashMap" resultType="TCRegisterSmscode">
-		SELECT
-			id as "id",
-			phone as "phone",
-			regicode as "regicode",
-			sendtime as "sendtime"
-		FROM t_c_register_smscode
-		WHERE 1=1
-		<if test="phone != null"> AND phone = #{phone} AND TIMESTAMPDIFF(MINUTE,sendtime,SYSDATE())&lt;=1</if>
-		<if test="phone == null"> AND 1&lt;0</if>
-		order by sendtime DESC
-	</select>
-	
-	
 	<!-- 用户查询 added by liuxm -->
 	<select id="staffQuery" parameterType="HashMap" resultType="java.util.HashMap">
 	    SELECT
@@ -240,20 +182,6 @@
 			<if test="staffId != null and staffId != ''"> AND a.staff_id = #{staffId} </if>
 			<if test="name != null and name != ''"> AND a.name = #{name} </if>
 			<if test="areaCode != null and areaCode != ''"> AND a.area_code = #{areaCode} </if>
-	</select>
-	
-	
-	<!-- 查询身份证信息临时表 added by zhanggs -->
-	<select id="queryIDCardByUUID" parameterType="String" resultType="TSTempIdCard">
-	    SELECT
-			t.id as "id",
-			t.photo_up_url as "photoUpUrl",
-			t.photo_down_url as "photoDownUrl",
-			t.photo_in_hand_url as "photoInHandUrl",
-			t.create_time as "createTime"
-		FROM
-			t_s_temp_id_card t
-		WHERE t.uuid = #{uuid}
 	</select>
 	
 	
@@ -303,26 +231,6 @@
 			<if test="name != null and name != ''"> AND t.name = #{name} </if>
 			<if test="lvlId != null and lvlId != ''"> AND t.lvl_id = #{lvlId} </if>
 			<if test="parentId != null and parentId != ''"> AND t.parent_id = #{parentId} </if>
-	</select>
-	
-	
-	<!-- 权限查询 added by liuxm -->
-	<select id="roleRightQuery" parameterType="HashMap" resultType="java.util.HashMap">
-	    SELECT
-			t.id as "id",
-			t.role_id as "roleId",
-			t.res_type as "resType",
-			t.res_id as "resId",
-			t.update_staff_id as "updateStaffId",
-			t.update_time as "updateTime"
-		FROM
-			t_m_role_right t
-			where 1=1
-			<if test="roleId != null and roleId != ''"> AND t.role_id = #{roleId} </if>
-			<if test="resType != null and resType != ''"> AND t.res_type = #{resType} </if>
-			<if test="resId != null and resId != ''"> AND t.res_id = #{resId} </if>
-			<if test="updateStaffId != null and updateStaffId != ''"> AND t.update_staff_id = #{updateStaffId} </if>
-			order by update_time desc limit #{page},#{size}
 	</select>
 	
 	<!-- 权限个数查询 by liuxm -->

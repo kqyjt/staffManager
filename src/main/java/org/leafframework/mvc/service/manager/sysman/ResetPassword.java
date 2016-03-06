@@ -5,12 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.lang.StringUtils;
-import org.leafframework.constant.Constants;
 import org.leafframework.data.dao.mapper.MyBatisDAO;
-import org.leafframework.data.dao.orm.TCCustomer;
-import org.leafframework.data.dao.orm.TCCustomerHome;
-import org.leafframework.data.dao.orm.TMArea;
 import org.leafframework.data.dao.orm.TMStaff;
 import org.leafframework.data.dao.orm.TMStaffHome;
 import org.leafframework.mvc.model.IMap;

@@ -45,13 +45,6 @@ public class MyBatisTest {
 	}
 
 	@Test
-	public void insertTlmain() {
-		TLMain tlmain = new TLMain("99", "99", "junit:test",
-				01, new Date() , "测试用例执行数据");
-		logger.debug(mybatisDAO.insertTlmain(tlmain));
-	}
-
-	@Test
 	public void insertTmmenus() {
 		TMMenus menus=new TMMenus();
 		menus.setLvlId("00");

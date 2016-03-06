@@ -14,7 +14,6 @@ import java.io.File;
 
 import org.leafframework.data.dao.mapper.MyBatisDAO;
 import org.leafframework.data.dao.orm.TMAreaHome;
-import org.leafframework.data.dao.orm.TMDepartHome;
 import org.leafframework.data.dao.orm.TMMenus;
 import org.leafframework.data.dao.orm.TMMenusHome;
 import org.leafframework.data.dao.orm.TMRolesHome;
@@ -38,10 +37,6 @@ public class TMMenusMgr extends Business {
 		TMAreaHome tMAreaDao = (TMAreaHome) this.getDaoFactory().get("TMAreaHome");
 		List<?> TMAreaList = tMAreaDao.findAll();
 		outParam.put("TMAreaList", TMAreaList);
-
-		TMDepartHome tMDepartDao = (TMDepartHome) this.getDaoFactory().get("TMDepartHome");
-		List<?> TMDepartList = tMDepartDao.findAll();
-		outParam.put("TMDepartList", TMDepartList);
 
 		TMRolesHome tMRolesDao = (TMRolesHome) this.getDaoFactory().get("TMRolesHome");
 		List<?> TMRolesList = tMRolesDao.findAll();

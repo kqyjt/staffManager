@@ -6,18 +6,13 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 import org.leafframework.data.dao.IDao;
-import org.leafframework.data.dao.orm.TCRegisterSmscode;
-import org.leafframework.data.dao.orm.TLMain;
 import org.leafframework.data.dao.orm.TMArea;
 import org.leafframework.data.dao.orm.TMMenus;
-import org.leafframework.data.dao.orm.TMOffice;
 import org.leafframework.data.dao.orm.TMRoles;
 import org.leafframework.data.dao.orm.TMStaff;
-import org.leafframework.data.dao.orm.TSTempIdCard;
 
 public interface MyBatisDAO extends IDao{
 
-	public int insertTlmain(TLMain tlmain);
 
 	public List<?> getTables(String schema);
 
@@ -39,14 +34,6 @@ public interface MyBatisDAO extends IDao{
 			@Param("tableName") String tableName);
 	
 	
-	/**
-	 * 一分钟内手机收到的所有验证码 
-	 * @param map
-	 * @return
-	 * @date 2015年1月20日
-	 * @author wanghao
-	 */
-	public List<TCRegisterSmscode> getSmsCodeWithInOneMinute(HashMap<String,Object> map);
 	
 	/**
 	 * 获取操作员所管理的区域
@@ -78,15 +65,6 @@ public interface MyBatisDAO extends IDao{
 	 */
 	public List<TMRoles> getStaffRoles(HashMap<String,Object> map);
 	
-	/**
-	 * 根据号码获取号码所属号段信息
-	 * @param map
-	 * @return
-	 * @date 2015年8月26日
-	 * @author zhangyy
-	 *
-	 */
-	public TMOffice getOfficeByNumber(HashMap<String,Object> map);	
 	
 	/**
 	 *  查询所有 Area
@@ -465,14 +443,6 @@ public interface MyBatisDAO extends IDao{
 	public int staffCountQuery(HashMap<String, Object> inParam);
 	
 	/**
-	 *  查询身份证临时表
-	 * @param 
-	 * @return
-	 * @author zhanggs
-	 */
-	public TSTempIdCard queryIDCardByUUID(String uuid);
-	
-	/**
 	 * 查询角色
 	 * @param inParam
 	 * @return
@@ -489,13 +459,6 @@ public interface MyBatisDAO extends IDao{
 	 */
 	public List<HashMap<String, Object>> roleTreeQuery(HashMap<String, Object> inParam);
 	
-	/**
-	 * 查询权限
-	 * @param inParam
-	 * @return
-	 * @author liuxm
-	 */
-	public List<HashMap<String, Object>> roleRightQuery(HashMap<String, Object> inParam);
 	public int roleRightCountQuery(HashMap<String, Object> inParam);
 	
 	/**
