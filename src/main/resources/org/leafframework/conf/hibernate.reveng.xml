@@ -4,10 +4,16 @@
 <hibernate-reverse-engineering>
   <table-filter match-catalog="yggl_db" match-name="staff"/>
   <table-filter match-catalog="yggl_db" match-name="salarymgr"/>
-  <table-filter match-catalog="yggl_db" match-name="record"/>
   <table-filter match-catalog="yggl_db" match-name="checkattend"/>
   <table-filter match-catalog="yggl_db" match-name="apartmentmgr"/>
   <table-filter match-catalog="yggl_db" match-name="agreement"/>
   <table-filter match-catalog="yggl_db" match-name="month"/>
+  <table-filter match-catalog="yggl_db" match-name="t_m_area"/>
+  <table-filter match-catalog="yggl_db" match-name="t_m_menus"/>
+  <table-filter match-catalog="yggl_db" match-name="t_m_modules"/>
+  <table-filter match-catalog="yggl_db" match-name="t_m_role_module"/>
+  <table-filter match-catalog="yggl_db" match-name="t_m_roles"/>
+  <table-filter match-catalog="yggl_db" match-name="t_m_staff"/>
+  <table-filter match-catalog="yggl_db" match-name="t_m_staff_role"/>
   
 </hibernate-reverse-engineering>

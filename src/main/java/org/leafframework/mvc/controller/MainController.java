@@ -13,7 +13,6 @@ import java.net.URLEncoder;
 import java.net.UnknownHostException;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -31,13 +30,11 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.dom4j.Document;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
-import org.leafframework.data.dao.orm.TCCustomer;
 import org.leafframework.data.mao.RedisDao;
 import org.leafframework.mvc.exception.MyException;
 import org.leafframework.mvc.model.PageData;
 import org.leafframework.mvc.service.IBusiness;
 import org.leafframework.util.AddressUtil;
-import org.leafframework.util.DateUtil;
 import org.leafframework.util.RETURN;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -609,8 +606,8 @@ public class MainController {
 				}
 			} else {
 				if (beanName.indexOf("LeafAuthBean") >= 0) {
-					TCCustomer customer = (TCCustomer) this.getSessionContext().get(beanName);
-					if (customer.getId() < 0 && subsystem.equals("center")) {
+					//TCCustomer customer = (TCCustomer) this.getSessionContext().get(beanName);
+					if (subsystem.equals("center")) {
 						this.setResult(RETURN.SES_TIME_OUT, null);
 						modelAndView.addObject("result", this.getResult());
 						modelAndView.setViewName(LoginView);

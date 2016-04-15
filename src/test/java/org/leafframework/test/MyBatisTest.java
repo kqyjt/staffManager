@@ -1,6 +1,5 @@
 package org.leafframework.test;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -11,10 +10,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.leafframework.data.dao.mapper.MyBatisDAO;
-import org.leafframework.data.dao.orm.TLMain;
 import org.leafframework.data.dao.orm.TMMenus;
 import org.leafframework.data.dao.orm.TMModules;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -86,9 +83,9 @@ public class MyBatisTest {
 		logger.debug(tables);
 	}
 	
-	@Test
-	public void testGetColumns() {
-		List<HashMap<String, Object>> columns=(List<HashMap<String, Object>>) mybatisDAO.getColumns("leafdb","t_l_main");
-		logger.debug(columns);
-	}
+//	@Test
+//	public void testGetColumns() {
+//		List<HashMap<String, Object>> columns=(List<HashMap<String, Object>>) mybatisDAO.getColumns("leafdb","t_l_main");
+//		logger.debug(columns);
+//	}
 }

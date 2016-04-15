@@ -2,7 +2,6 @@ package org.leafframework.mvc.service;
 
 import java.lang.reflect.InvocationTargetException;
 import java.text.ParseException;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,12 +10,8 @@ import javax.annotation.Resource;
 import org.apache.log4j.Logger;
 import org.leafframework.data.dao.IDao;
 import org.leafframework.data.dao.mapper.MyBatisDAO;
-import org.leafframework.data.dao.orm.TCCustomer;
-import org.leafframework.data.dao.orm.TLMain;
-import org.leafframework.data.dao.orm.TLMainHome;
 import org.leafframework.data.dao.orm.TMStaff;
 import org.leafframework.mvc.exception.MyException;
-import org.leafframework.util.DateUtil;
 import org.leafframework.util.PojoUtil;
 import org.leafframework.util.RETURN;
 import org.springframework.beans.factory.annotation.Value;
@@ -204,26 +199,26 @@ public abstract class Business implements IBusiness {
 			}
 		}
 		//普通客户用户操作
-		else if(this.getAppName().equals("center")){
-			TCCustomer loginCustomer = (TCCustomer) this.getSession().get("loginCustomer");
-			if(loginCustomer!=null){
-				logType="01";
-				optrType = "00";
-				optrUserId=loginCustomer.getId();
-			}
-		}
+//		else if(this.getAppName().equals("center")){
+//			TCCustomer loginCustomer = (TCCustomer) this.getSession().get("loginCustomer");
+//			if(loginCustomer!=null){
+//				logType="01";
+//				optrType = "00";
+//				optrUserId=loginCustomer.getId();
+//			}
+//		}
 		
-		if (logType != null) {
-			String optrName = this.getOperatorStr();			
-			Date optrTime = DateUtil.parse(this.getSysdate());
-			String remark = "测试";
-			TLMain pojo = new TLMain(logType, optrType, optrName, optrUserId,
-					optrTime, remark);
-
-			TLMainHome TLMainDao = (TLMainHome) this.getDaoFactory().get(
-					"TLMainHome");
-			TLMainDao.persist(pojo);
-		}
+//		if (logType != null) {
+//			String optrName = this.getOperatorStr();			
+//			Date optrTime = DateUtil.parse(this.getSysdate());
+//			String remark = "测试";
+//			TLMain pojo = new TLMain(logType, optrType, optrName, optrUserId,
+//					optrTime, remark);
+//
+//			TLMainHome TLMainDao = (TLMainHome) this.getDaoFactory().get(
+//					"TLMainHome");
+//			TLMainDao.persist(pojo);
+//		}
 		serviceLog("end");
 		return RETURN.SUCCESS;
 	}

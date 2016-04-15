@@ -2,16 +2,10 @@ package org.leafframework.test;
 
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
 import java.util.List;
 
 import org.apache.log4j.Logger;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
-import org.hibernate.service.ServiceRegistry;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -49,34 +43,34 @@ public class FileUtilTest {
 			e.printStackTrace();
 		}
 	}
-	@Test
-	public final void testWriteExcelFile() throws IOException {
-		try {
-			List<HashMap<String, Object>> hmTableRresult=(List<HashMap<String, Object>>) mybatisDAO.getTables("leafdb");
-			Iterator<HashMap<String, Object>> itr = hmTableRresult.iterator();
-			while (itr.hasNext()) {
-				HashMap<String, Object> hmRow = itr.next();
-				String tableName=(String) hmRow.get("table_name");
-				String initTableName=(String) hmRow.get("initcap_table_name");
-				
-				List<HashMap<String, Object>> hmColumnRresult=(List<HashMap<String, Object>>) mybatisDAO.getColumns("leafdb","t_l_main");
-				Iterator<HashMap<String, Object>>  itrColumn = hmColumnRresult.iterator();
-				LinkedHashMap<String, Object> hmHeader=new LinkedHashMap<String, Object>();
-				while (itrColumn.hasNext()) {
-					HashMap<String, Object> hmColumn = itrColumn.next();
-					String columnName=(String) hmColumn.get("column_name");
-					String columnComent=(String) hmColumn.get("column_comment");
-					hmHeader.put(columnName, columnComent);
-				}
-				List<LinkedHashMap<String, Object>> listData= new ArrayList<LinkedHashMap<String, Object>>();
-				listData.add(hmHeader);
-				FileUtil.writeExcelFile(listData,FileUtil.templatePath + initTableName+"_template.xlsx");
-				logger.debug("生成完成模板本件："+initTableName+"_template.xlsx");
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+//	@Test
+//	public final void testWriteExcelFile() throws IOException {
+//		try {
+//			List<HashMap<String, Object>> hmTableRresult=(List<HashMap<String, Object>>) mybatisDAO.getTables("leafdb");
+//			Iterator<HashMap<String, Object>> itr = hmTableRresult.iterator();
+//			while (itr.hasNext()) {
+//				HashMap<String, Object> hmRow = itr.next();
+//				String tableName=(String) hmRow.get("table_name");
+//				String initTableName=(String) hmRow.get("initcap_table_name");
+//				
+//				List<HashMap<String, Object>> hmColumnRresult=(List<HashMap<String, Object>>) mybatisDAO.getColumns("leafdb","t_l_main");
+//				Iterator<HashMap<String, Object>>  itrColumn = hmColumnRresult.iterator();
+//				LinkedHashMap<String, Object> hmHeader=new LinkedHashMap<String, Object>();
+//				while (itrColumn.hasNext()) {
+//					HashMap<String, Object> hmColumn = itrColumn.next();
+//					String columnName=(String) hmColumn.get("column_name");
+//					String columnComent=(String) hmColumn.get("column_comment");
+//					hmHeader.put(columnName, columnComent);
+//				}
+//				List<LinkedHashMap<String, Object>> listData= new ArrayList<LinkedHashMap<String, Object>>();
+//				listData.add(hmHeader);
+//				FileUtil.writeExcelFile(listData,FileUtil.templatePath + initTableName+"_template.xlsx");
+//				logger.debug("生成完成模板本件："+initTableName+"_template.xlsx");
+//			}
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//	}
 	@Test
 	public final void testUnderlineToCamel() throws IOException {
 		try {
